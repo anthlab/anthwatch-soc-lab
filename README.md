@@ -2,7 +2,7 @@
 
 Mi laboratorio personal de operaciones de seguridad con Wazuh.
 
-**Estado:** las tres máquinas virtuales ya están creadas en VirtualBox. Ubuntu Server está instalado en `anthwatch-wazuh`; falta instalarlo en `anthwatch-server` y `anthwatch-client`, configurar la red e instalar Wazuh.
+**Estado:** las tres máquinas virtuales ya están creadas en VirtualBox y tienen Ubuntu Server 24.04.5 LTS instalado. Falta configurar la red, desplegar Wazuh y conectar el agente del servidor.
 
 ## Sobre el proyecto
 
@@ -14,17 +14,17 @@ El laboratorio estará en una red separada de mi red doméstica. Todas las prueb
 
 ## Entorno
 
-Anotaré las versiones al instalar cada componente:
-
-| Componente | Versión instalada |
+| Componente | Estado |
 | --- | --- |
-| Wazuh | Pendiente |
-| Ubuntu Server | 24.04.5 LTS (ISO elegida; confirmar versión en cada VM) |
-| VirtualBox | Pendiente |
+| VirtualBox | Instalado y con las tres máquinas creadas |
+| Ubuntu Server | Instalado en las tres máquinas |
+| Wazuh | Pendiente de instalar |
 
-## Montaje previsto
+Las versiones y los pasos de configuración se documentarán en `docs/instalacion/`.
 
-Usaré VirtualBox con tres máquinas virtuales:
+## Máquinas instaladas
+
+Las tres máquinas virtuales ya están creadas en VirtualBox y tienen Ubuntu Server instalado. Sus funciones previstas y recursos son:
 
 | Máquina | Función | CPU virtuales | RAM | Disco |
 | --- | --- | ---: | ---: | ---: |
@@ -34,7 +34,23 @@ Usaré VirtualBox con tres máquinas virtuales:
 
 Las máquinas compartirán una red solo-anfitrión para comunicarse entre ellas y con mi ordenador. Añadiré un adaptador NAT para instalar y actualizar paquetes, y lo desconectaré durante las simulaciones.
 
-Los recursos de Wazuh siguen su guía de inicio rápido. Los de las otras máquinas son una propuesta inicial.
+La instalación de Ubuntu Server está completada en las tres máquinas. El despliegue de Wazuh, la instalación del agente y las pruebas de SSH quedan pendientes.
+
+### Capturas de configuración
+
+Estas capturas muestran la configuración de las máquinas en VirtualBox:
+
+**anthwatch-wazuh**
+
+![Configuración de anthwatch-wazuh en VirtualBox](docs/capturas/anthwatch-wazuh-config.png)
+
+**anthwatch-server**
+
+![Configuración de anthwatch-server en VirtualBox](docs/capturas/anthwatch-server-config.png)
+
+**anthwatch-client**
+
+![Configuración de anthwatch-client en VirtualBox](docs/capturas/anthwatch-client-config.png)
 
 ## Primera versión
 
@@ -43,7 +59,8 @@ El primer caso será investigar varios intentos fallidos de acceso por SSH, segu
 Para completar esta versión tendré que:
 
 - [x] Crear las tres máquinas virtuales con los recursos indicados.
-- [ ] Instalar Ubuntu Server en `anthwatch-server` y `anthwatch-client`; comprobar la red, anotar las versiones y crear instantáneas.
+- [x] Instalar Ubuntu Server 24.04.5 LTS en las tres máquinas.
+- [ ] Configurar la red, comprobar la comunicación entre máquinas y crear instantáneas.
 - [ ] Instalar Wazuh y conectar el agente del servidor Ubuntu.
 - [ ] Verificar la recogida de eventos de autenticación SSH.
 - [ ] Generar una secuencia de fallos y comprobar la alerta que produce.
@@ -66,7 +83,7 @@ Usaré una misma plantilla para todos los casos. Recogerá:
 - Qué pude confirmar y qué información falta.
 - Qué medidas propondría y cuándo escalaría el caso.
 
-Añadiré aquí el enlace a la plantilla cuando la prepare.
+La plantilla se preparará cuando comience el primer caso de investigación.
 
 ## Próximas fases
 
@@ -76,7 +93,12 @@ El analizador de logs en Python será otro proyecto. Usará datos exportados de 
 
 ## Documentación
 
-Guardaré en este repositorio el montaje, las configuraciones y las investigaciones, con los pasos para repetir cada prueba.
+Documentación disponible:
+
+- [Máquinas virtuales en VirtualBox](docs/instalacion/virtualbox.md).
+- [Instalación de Ubuntu Server](docs/instalacion/ubuntu-server.md).
+
+Los documentos de instalación recogen el estado actual; los detalles aún no verificados están indicados como pendientes. Añadiré la configuración de red y las investigaciones conforme avance el laboratorio.
 
 En mi [portfolio](https://anthlab.github.io/projects/anthwatch/) mostraré el proyecto y los casos que vaya completando.
 
