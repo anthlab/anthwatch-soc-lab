@@ -2,7 +2,7 @@
 
 Mi laboratorio personal de operaciones de seguridad con Wazuh.
 
-**Estado:** preparando el laboratorio. Todavía no hay investigaciones completadas.
+**Estado:** las tres máquinas virtuales ya están creadas en VirtualBox. Ubuntu Server está instalado en `anthwatch-wazuh`; falta instalarlo en `anthwatch-server` y `anthwatch-client`, configurar la red e instalar Wazuh.
 
 ## Sobre el proyecto
 
@@ -19,7 +19,7 @@ Anotaré las versiones al instalar cada componente:
 | Componente | Versión instalada |
 | --- | --- |
 | Wazuh | Pendiente |
-| Ubuntu Server | Pendiente |
+| Ubuntu Server | 24.04.5 LTS (ISO elegida; confirmar versión en cada VM) |
 | VirtualBox | Pendiente |
 
 ## Montaje previsto
@@ -42,7 +42,8 @@ El primer caso será investigar varios intentos fallidos de acceso por SSH, segu
 
 Para completar esta versión tendré que:
 
-- [ ] Preparar las máquinas, comprobar su comunicación, anotar las versiones y crear instantáneas.
+- [x] Crear las tres máquinas virtuales con los recursos indicados.
+- [ ] Instalar Ubuntu Server en `anthwatch-server` y `anthwatch-client`; comprobar la red, anotar las versiones y crear instantáneas.
 - [ ] Instalar Wazuh y conectar el agente del servidor Ubuntu.
 - [ ] Verificar la recogida de eventos de autenticación SSH.
 - [ ] Generar una secuencia de fallos y comprobar la alerta que produce.
