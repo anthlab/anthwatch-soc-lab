@@ -54,4 +54,4 @@ Las tres capturas de configuración de las máquinas se encuentran en `docs/capt
 
 ## Siguiente fase
 
-Configurar la red del laboratorio, comprobar la conectividad y preparar las instantáneas. Después se desplegará Wazuh y se conectará el agente del servidor.
+La red del laboratorio ya está configurada y comprobada; los detalles están en [red-del-laboratorio.md](../arquitectura/red-del-laboratorio.md). El siguiente paso es preparar instantáneas y desplegar Wazuh con sus agentes.

@@ -46,15 +46,12 @@ Las capturas no muestran explícitamente el modo de firmware ni si el disco se r
 
 ![Configuración de anthwatch-client](../capturas/anthwatch-client-config.png)
 
-## Red prevista
+## Red configurada
 
-Se utilizará una red solo-anfitrión para comunicar las máquinas entre sí y con el ordenador anfitrión. Un adaptador NAT permitirá instalar y actualizar paquetes; se desconectará durante las simulaciones.
-
-Esta configuración está pendiente de aplicar y comprobar. Las interfaces, direcciones IP y pruebas de conectividad se documentarán cuando estén verificadas.
+Las tres máquinas conservan el **Adaptador 1 en NAT** y tienen el **Adaptador 2** conectado a la red solo-anfitrión **`vboxnet0`**, con DHCP habilitado. La configuración de Ubuntu, las direcciones IP actuales y las pruebas de conectividad están recogidas en [red-del-laboratorio.md](../arquitectura/red-del-laboratorio.md).
 
 ## Pendiente
 
-- Configurar la red y comprobar la comunicación.
 - Crear y documentar las instantáneas de referencia.
 
 La instalación del sistema operativo se recoge en [Ubuntu Server](ubuntu-server.md).

@@ -2,7 +2,7 @@
 
 Mi laboratorio personal de operaciones de seguridad con Wazuh.
 
-**Estado:** las tres máquinas virtuales ya están creadas en VirtualBox y tienen Ubuntu Server 24.04.5 LTS instalado. Falta configurar la red, desplegar Wazuh y conectar el agente del servidor.
+**Estado:** las tres máquinas virtuales tienen Ubuntu Server 24.04.5 LTS instalado y ya se comunican por la red solo-anfitrión. Queda desplegar Wazuh y conectar sus agentes.
 
 ## Sobre el proyecto
 
@@ -26,15 +26,15 @@ Las versiones y los pasos de configuración se documentarán en `docs/instalacio
 
 Las tres máquinas virtuales ya están creadas en VirtualBox y tienen Ubuntu Server instalado. Sus funciones previstas y recursos son:
 
-| Máquina | Función | CPU virtuales | RAM | Disco |
-| --- | --- | ---: | ---: | ---: |
-| `anthwatch-wazuh` | Servidor Wazuh, indexador y panel en una misma VM | 4 | 8 GiB | 50 GB |
-| `anthwatch-server` | Ubuntu Server con SSH y agente de Wazuh | 2 | 2 GiB | 20 GB |
-| `anthwatch-client` | Ubuntu Server desde el que generaré los intentos de acceso | 1 | 2 GiB | 15 GB |
+| Máquina | Función | IP de laboratorio | CPU virtuales | RAM | Disco |
+| --- | --- | --- | ---: | ---: | ---: |
+| `anthwatch-wazuh` | Servidor Wazuh, indexador y panel en una misma VM | `192.168.56.103` | 4 | 8 GiB | 50 GB |
+| `anthwatch-server` | Ubuntu Server con SSH y agente de Wazuh | `192.168.56.102` | 2 | 2 GiB | 20 GB |
+| `anthwatch-client` | Ubuntu Server desde el que generaré los intentos de acceso | `192.168.56.101` | 1 | 2 GiB | 15 GB |
 
-Las máquinas compartirán una red solo-anfitrión para comunicarse entre ellas y con mi ordenador. Añadiré un adaptador NAT para instalar y actualizar paquetes, y lo desconectaré durante las simulaciones.
+Las máquinas están conectadas entre sí mediante `vboxnet0` (adaptador solo-anfitrión). Conservan un adaptador NAT para instalar y actualizar paquetes; se desconectará durante las simulaciones.
 
-La instalación de Ubuntu Server está completada en las tres máquinas. El despliegue de Wazuh, la instalación del agente y las pruebas de SSH quedan pendientes.
+La instalación de Ubuntu Server está completada en las tres máquinas. El despliegue de Wazuh, la instalación de los agentes y las pruebas de SSH quedan pendientes.
 
 ### Capturas de configuración
 
@@ -60,8 +60,9 @@ Para completar esta versión tendré que:
 
 - [x] Crear las tres máquinas virtuales con los recursos indicados.
 - [x] Instalar Ubuntu Server 24.04.5 LTS en las tres máquinas.
-- [ ] Configurar la red, comprobar la comunicación entre máquinas y crear instantáneas.
-- [ ] Instalar Wazuh y conectar el agente del servidor Ubuntu.
+- [x] Configurar la red solo-anfitrión y comprobar la comunicación entre las máquinas.
+- [ ] Crear instantáneas de referencia.
+- [ ] Instalar Wazuh y conectar los agentes de `anthwatch-server` y `anthwatch-client`.
 - [ ] Verificar la recogida de eventos de autenticación SSH.
 - [ ] Generar una secuencia de fallos y comprobar la alerta que produce.
 - [ ] Realizar un acceso correcto y compararlo con los fallos anteriores.
@@ -97,8 +98,10 @@ Documentación disponible:
 
 - [Máquinas virtuales en VirtualBox](docs/instalacion/virtualbox.md).
 - [Instalación de Ubuntu Server](docs/instalacion/ubuntu-server.md).
+- [Configuración y comprobación de la red](docs/arquitectura/red-del-laboratorio.md).
+- [Diagrama de red](docs/arquitectura/diagrama-red.png).
 
-Los documentos de instalación recogen el estado actual; los detalles aún no verificados están indicados como pendientes. Añadiré la configuración de red y las investigaciones conforme avance el laboratorio.
+Los documentos de instalación recogen el estado actual; los detalles aún no verificados están indicados como pendientes. Añadiré la documentación de Wazuh y las investigaciones conforme avance el laboratorio.
 
 En mi [portfolio](https://anthlab.github.io/projects/anthwatch/) mostraré el proyecto y los casos que vaya completando.
 
