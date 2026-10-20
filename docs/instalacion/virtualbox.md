@@ -16,7 +16,7 @@ VirtualBox se descargó desde su [web oficial](https://www.virtualbox.org/). La 
 | `anthwatch-server` | 2 | 2 GiB | 20 GB | Servidor monitorizado con SSH y agente Wazuh |
 | `anthwatch-client` | 1 | 2 GiB | 15 GB | Generar actividad de prueba |
 
-Los nombres de las máquinas virtuales usan guiones. La configuración de los servicios se completará en las siguientes fases.
+Los nombres de las máquinas virtuales usan guiones. Wazuh y los agentes ya están instalados; su configuración se recoge en [wazuh.md](wazuh.md).
 
 ## Almacenamiento y configuración observada
 
@@ -50,8 +50,8 @@ Las capturas no muestran explícitamente el modo de firmware ni si el disco se r
 
 Las tres máquinas conservan el **Adaptador 1 en NAT** y tienen el **Adaptador 2** conectado a la red solo-anfitrión **`vboxnet0`**, con DHCP habilitado. La configuración de Ubuntu, las direcciones IP actuales y las pruebas de conectividad están recogidas en [red-del-laboratorio.md](../arquitectura/red-del-laboratorio.md).
 
-## Pendiente
+## Decisión sobre instantáneas
 
-- Crear y documentar las instantáneas de referencia.
+En esta fase se decidió continuar el laboratorio sin crear instantáneas de referencia.
 
 La instalación del sistema operativo se recoge en [Ubuntu Server](ubuntu-server.md).

@@ -40,13 +40,26 @@ Cada máquina dispone de un disco virtual VDI conectado mediante SATA:
 
 Las capturas de VirtualBox confirman estos discos, pero no muestran las opciones elegidas en el instalador de Ubuntu. Por tanto, el uso del disco completo, LVM, cifrado y la distribución de particiones no están confirmados.
 
-## Detalles pendientes de documentar
+## Administración por SSH
 
-Este documento recoge el estado de la instalación. Todavía faltan los detalles necesarios para reproducirla paso a paso:
+Las máquinas se administran desde el portátil mediante SSH para ejecutar comandos y copiar y pegar con más comodidad:
 
-- Selección de OpenSSH durante la instalación y estado actual del servicio.
+```bash
+ssh anthlab@192.168.56.103  # anthwatch-wazuh
+ssh anthlab@192.168.56.102  # anthwatch-server
+ssh anthlab@192.168.56.101  # anthwatch-client
+```
 
-No se incluyen contraseñas ni credenciales.
+En `anthwatch-client` se encontró el error `Connection refused` al intentar acceder al puerto 22. Se habilitó el servidor OpenSSH y después se confirmó el acceso por SSH:
+
+```bash
+sudo apt update
+sudo apt install -y openssh-server
+sudo systemctl enable --now ssh
+sudo systemctl status ssh --no-pager
+```
+
+No se incluyen contraseñas ni credenciales de acceso en el repositorio.
 
 ## Documentación del montaje
 
@@ -54,4 +67,4 @@ Las tres capturas de configuración de las máquinas se encuentran en `docs/capt
 
 ## Siguiente fase
 
-La red del laboratorio ya está configurada y comprobada; los detalles están en [red-del-laboratorio.md](../arquitectura/red-del-laboratorio.md). El siguiente paso es preparar instantáneas y desplegar Wazuh con sus agentes.
+La red del laboratorio ya está configurada y comprobada; los detalles están en [red-del-laboratorio.md](../arquitectura/red-del-laboratorio.md). Wazuh y los dos agentes ya están instalados y conectados; los pasos y las evidencias se recogen en [wazuh.md](wazuh.md). El siguiente paso es validar la recogida de eventos SSH.
