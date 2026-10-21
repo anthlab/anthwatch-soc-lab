@@ -67,4 +67,4 @@ Las tres capturas de configuración de las máquinas se encuentran en `docs/capt
 
 ## Siguiente fase
 
-La red del laboratorio ya está configurada y comprobada; los detalles están en [red-del-laboratorio.md](../arquitectura/red-del-laboratorio.md). Wazuh y los dos agentes ya están instalados y conectados; los pasos y las evidencias se recogen en [wazuh.md](wazuh.md). El siguiente paso es validar la recogida de eventos SSH.
+La red del laboratorio ya está configurada y comprobada; los detalles están en [red-del-laboratorio.md](../arquitectura/red-del-laboratorio.md). Wazuh y los dos agentes ya están instalados y conectados; los pasos y las evidencias se recogen en [wazuh.md](wazuh.md). La recogida de eventos SSH ya está validada y documentada en el [caso 001](../casos/001-autenticacion-ssh.md).

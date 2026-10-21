@@ -2,7 +2,7 @@
 
 Mi laboratorio personal de operaciones de seguridad con Wazuh.
 
-**Estado:** Wazuh 4.14.9 está instalado y los agentes de `anthwatch-server` y `anthwatch-client` aparecen activos en el dashboard. Las tres máquinas se comunican por la red solo-anfitrión y se administran por SSH. El siguiente paso es comprobar la recogida de eventos de autenticación SSH.
+**Estado:** Wazuh 4.14.9 está instalado y los agentes de `anthwatch-server` y `anthwatch-client` aparecen activos en el dashboard. Las tres máquinas se comunican por la red solo-anfitrión y se administran por SSH. La primera prueba SSH está documentada: Wazuh recoge fallos de contraseña y un acceso correcto desde el mismo cliente y usuario.
 
 ## Sobre el proyecto
 
@@ -36,7 +36,7 @@ Las tres máquinas virtuales ya están creadas en VirtualBox y tienen Ubuntu Ser
 
 Las máquinas están conectadas entre sí mediante `vboxnet0` (adaptador solo-anfitrión). Conservan un adaptador NAT para instalar y actualizar paquetes; se desconectará durante las simulaciones.
 
-Wazuh está desplegado en `anthwatch-wazuh` con el manager, el indexador y el dashboard en una misma VM. Los otros dos equipos tienen instalado el agente 4.14.9 y aparecen como activos. La conexión de los agentes está verificada; la validación de eventos y alertas SSH sigue pendiente.
+Wazuh está desplegado en `anthwatch-wazuh` con el manager, el indexador y el dashboard en una misma VM. Los otros dos equipos tienen instalado el agente 4.14.9 y aparecen como activos. La conexión de los agentes está verificada; la recogida de eventos SSH y las reglas de fallo y acceso correcto están verificadas. La detección correlacionada de fuerza bruta sigue pendiente.
 
 ### Capturas de configuración
 
@@ -79,23 +79,23 @@ El dashboard muestra dos agentes porque corresponden a los dos equipos monitoriz
 
 ## Primera versión
 
-El primer caso será investigar varios intentos fallidos de acceso por SSH, seguidos de un acceso correcto desde la misma IP y con la misma cuenta de prueba.
+El [primer caso de autenticación SSH](docs/casos/001-autenticacion-ssh.md) está documentado: se realizaron tres intentos con contraseña incorrecta y un acceso correcto posterior desde el mismo cliente y con el mismo usuario del laboratorio. Se verificaron las reglas `5760` (fallo, nivel 5) y `5715` (acceso correcto, nivel 3).
 
-Para completar esta versión tendré que:
+Estado de la primera versión:
 
 - [x] Crear las tres máquinas virtuales con los recursos indicados.
 - [x] Instalar Ubuntu Server 24.04.5 LTS en las tres máquinas.
 - [x] Configurar la red solo-anfitrión y comprobar la comunicación entre las máquinas.
 - [x] Habilitar la administración por SSH desde el portátil.
 - [x] Instalar Wazuh y conectar los agentes de `anthwatch-server` y `anthwatch-client`.
-- [ ] Verificar la recogida de eventos de autenticación SSH.
-- [ ] Generar una secuencia de fallos y comprobar la alerta que produce.
-- [ ] Realizar un acceso correcto y compararlo con los fallos anteriores.
-- [ ] Escribir el informe con las evidencias y la conclusión.
+- [x] Verificar la recogida de eventos de autenticación SSH.
+- [x] Generar una secuencia de fallos y comprobar los eventos que produce.
+- [x] Realizar un acceso correcto y compararlo con los fallos anteriores.
+- [x] Escribir el informe con las evidencias y la conclusión.
 
-La simulación de intentos de contraseña se relacionará con [T1110.001 — Password Guessing](https://attack.mitre.org/techniques/T1110/001/). Añadiré [T1078 — Valid Accounts](https://attack.mitre.org/techniques/T1078/) si el escenario incluye un uso no autorizado simulado de la cuenta.
+La regla de fallo observada incluye [T1110.001 — Password Guessing](https://attack.mitre.org/techniques/T1110/001/). La regla de acceso correcto incluye [T1078 — Valid Accounts](https://attack.mitre.org/techniques/T1078/), aunque el acceso de esta prueba fue autorizado; esa etiqueta no demuestra compromiso.
 
-Un acceso correcto después de varios fallos no demuestra por sí solo que la cuenta esté comprometida. En el informe distinguiré lo que he simulado de lo que puedo confirmar con los registros.
+Un acceso correcto después de varios fallos no demuestra por sí solo que la cuenta esté comprometida. El informe distingue la actividad simulada de lo que confirman los registros. La correlación automática de fuerza bruta o de fallos seguidos de éxito todavía no está validada.
 
 ## Ficha de investigación
 
@@ -109,11 +109,11 @@ Usaré una misma plantilla para todos los casos. Recogerá:
 - Qué pude confirmar y qué información falta.
 - Qué medidas propondría y cuándo escalaría el caso.
 
-La plantilla se preparará cuando comience el primer caso de investigación.
+El [caso 001](docs/casos/001-autenticacion-ssh.md) aplica esta estructura: objetivo, procedimiento, cronología, evidencias, análisis, límites y decisión.
 
 ## Próximas fases
 
-Después del caso SSH, probaré cambios en archivos monitorizados, creación de usuarios y actividad con `sudo`. Más adelante añadiré reglas propias y practicaré búsquedas de actividad sospechosa a partir de una hipótesis.
+La siguiente ampliación será validar la detección correlacionada de varios fallos SSH. Después probaré cambios en archivos monitorizados, creación de usuarios y actividad con `sudo`. Más adelante añadiré reglas propias y practicaré búsquedas de actividad sospechosa a partir de una hipótesis.
 
 El analizador de logs en Python será otro proyecto. Usará datos exportados de Anthwatch para agrupar eventos y ordenar lo ocurrido en una cronología.
 
@@ -126,8 +126,9 @@ Documentación disponible:
 - [Instalación de Wazuh y conexión de agentes](docs/instalacion/wazuh.md).
 - [Configuración y comprobación de la red](docs/arquitectura/red-del-laboratorio.md).
 - [Diagrama de red](docs/arquitectura/diagrama-red.png).
+- [Caso 001: fallos de autenticación SSH y acceso correcto](docs/casos/001-autenticacion-ssh.md).
 
-Los documentos de instalación recogen el estado actual; los detalles aún no verificados están indicados como pendientes. Añadiré las investigaciones conforme complete las primeras pruebas de detección.
+Los documentos de instalación recogen el estado actual; los detalles aún no verificados están indicados como pendientes. El primer informe de investigación ya está disponible; añadiré nuevos casos conforme complete las siguientes pruebas.
 
 En mi [portfolio](https://anthlab.github.io/projects/anthwatch/) mostraré el proyecto y los casos que vaya completando.
 

@@ -79,7 +79,7 @@ Las direcciones son las concesiones DHCP actuales de `vboxnet0`; si cambian, hab
 
 ## Siguiente prueba
 
-La instalación y conexión están completadas. Falta comprobar que los eventos de autenticación SSH llegan a Wazuh, generar la primera prueba controlada y documentar las alertas y su análisis.
+La instalación y conexión están completadas. La recogida de fallos y accesos correctos por SSH también está verificada en el [caso 001](../casos/001-autenticacion-ssh.md). Queda validar la detección correlacionada de varios fallos en otra prueba.
 
 ## Referencias
 
