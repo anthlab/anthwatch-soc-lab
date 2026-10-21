@@ -163,4 +163,4 @@ Si una secuencia similar no estuviera autorizada, se comprobarían el origen, el
 
 ## Siguientes pasos
 
-Ampliar la cobertura con nuevos tipos de eventos y conservar exportaciones para futuras investigaciones. La detección de fallos seguidos de éxito con una cuenta existente sigue siendo un caso diferente y no está validada automáticamente por esta prueba.
+La próxima prioridad es una regla propia de fallos seguidos de éxito con una cuenta existente; después se realizará una búsqueda guiada por una hipótesis. Ambas fases están planificadas en la [hoja de ruta](../hoja-de-ruta.md) y no quedan validadas por esta prueba.

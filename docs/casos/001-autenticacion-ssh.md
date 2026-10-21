@@ -124,8 +124,9 @@ En un entorno real, antes de cerrar una secuencia similar se comprobarían la au
 ## Próximos pasos
 
 - Prueba posterior completada: [caso 002](002-fuerza-bruta-ssh.md), correlación con usuario inexistente y control de menor volumen. Sus resultados no se atribuyen al caso 001.
-- Conservar una exportación de los eventos y comprobar las zonas horarias para facilitar futuras cronologías.
-- Continuar con una prueba de integridad de archivos.
+- Siguiente caso: desarrollar y validar una regla propia para detectar fallos SSH seguidos de éxito desde la misma IP y con el mismo usuario.
+- Después: realizar una búsqueda guiada por una hipótesis. El orden y los criterios de validación están en la [hoja de ruta](../hoja-de-ruta.md).
+- En estas fases, conservar exportaciones y comprobar las zonas horarias para facilitar las cronologías.
 
 ## Documentación operativa
 
