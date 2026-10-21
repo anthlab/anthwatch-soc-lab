@@ -123,6 +123,11 @@ En un entorno real, antes de cerrar una secuencia similar se comprobarían la au
 
 ## Próximos pasos
 
-- Validar en una prueba aparte la detección correlacionada de varios fallos y documentar el umbral observado.
+- Prueba posterior completada: [caso 002](002-fuerza-bruta-ssh.md), correlación con usuario inexistente y control de menor volumen. Sus resultados no se atribuyen al caso 001.
 - Conservar una exportación de los eventos y comprobar las zonas horarias para facilitar futuras cronologías.
 - Continuar con una prueba de integridad de archivos.
+
+## Documentación operativa
+
+- [Procedimiento de análisis N1](../playbooks/ssh-autenticacion.md).
+- [Ticket simulado SOC-001](../tickets/SOC-001.md).

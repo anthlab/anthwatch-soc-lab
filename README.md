@@ -2,7 +2,7 @@
 
 Mi laboratorio personal de operaciones de seguridad con Wazuh.
 
-**Estado:** Wazuh 4.14.9 está instalado y los agentes de `anthwatch-server` y `anthwatch-client` aparecen activos en el dashboard. Las tres máquinas se comunican por la red solo-anfitrión y se administran por SSH. La primera prueba SSH está documentada: Wazuh recoge fallos de contraseña y un acceso correcto desde el mismo cliente y usuario.
+**Estado:** Wazuh 4.14.9 está instalado y los agentes de `anthwatch-server` y `anthwatch-client` aparecen activos en el dashboard. Las tres máquinas se comunican por la red solo-anfitrión y se administran por SSH. Hay dos casos SSH documentados: fallos y acceso correcto, y detección correlacionada de intentos con usuario inexistente, acompañada de una prueba de control.
 
 ## Sobre el proyecto
 
@@ -36,7 +36,7 @@ Las tres máquinas virtuales ya están creadas en VirtualBox y tienen Ubuntu Ser
 
 Las máquinas están conectadas entre sí mediante `vboxnet0` (adaptador solo-anfitrión). Conservan un adaptador NAT para instalar y actualizar paquetes; se desconectará durante las simulaciones.
 
-Wazuh está desplegado en `anthwatch-wazuh` con el manager, el indexador y el dashboard en una misma VM. Los otros dos equipos tienen instalado el agente 4.14.9 y aparecen como activos. La conexión de los agentes está verificada; la recogida de eventos SSH y las reglas de fallo y acceso correcto están verificadas. La detección correlacionada de fuerza bruta sigue pendiente.
+Wazuh está desplegado en `anthwatch-wazuh` con el manager, el indexador y el dashboard en una misma VM. Los otros dos equipos tienen instalado el agente 4.14.9 y aparecen como activos. La conexión de los agentes está verificada; la recogida de eventos SSH y las reglas de fallo y acceso correcto están verificadas. La regla `5712` de nivel 10 también está verificada para intentos repetidos con usuario inexistente.
 
 ### Capturas de configuración
 
@@ -95,7 +95,18 @@ Estado de la primera versión:
 
 La regla de fallo observada incluye [T1110.001 — Password Guessing](https://attack.mitre.org/techniques/T1110/001/). La regla de acceso correcto incluye [T1078 — Valid Accounts](https://attack.mitre.org/techniques/T1078/), aunque el acceso de esta prueba fue autorizado; esa etiqueta no demuestra compromiso.
 
-Un acceso correcto después de varios fallos no demuestra por sí solo que la cuenta esté comprometida. El informe distingue la actividad simulada de lo que confirman los registros. La correlación automática de fuerza bruta o de fallos seguidos de éxito todavía no está validada.
+Un acceso correcto después de varios fallos no demuestra por sí solo que la cuenta esté comprometida. El informe distingue la actividad simulada de lo que confirman los registros. La correlación de intentos con usuario inexistente se validó por separado en el caso 002; la detección automática de fallos seguidos de éxito sigue pendiente.
+
+## Segundo caso: intentos SSH repetidos
+
+El [caso 002](docs/casos/002-fuerza-bruta-ssh.md) verifica la alerta `5712`, de nivel 10, desde `anthwatch-client` hacia `anthwatch-server` con el usuario `soc_prueba_inexistente`. La regla correlaciona eventos `5710` de la misma IP en 120 segundos, con un umbral configurado de ocho eventos.
+
+- [x] Revisar la regla instalada y sus condiciones.
+- [x] Generar la prueba y observar la alerta correlacionada.
+- [x] Revisar un control posterior con eventos individuales y sin nueva `5712` en la ventana consultada.
+- [x] Documentar evidencias, limitaciones y decisión en el informe y el ticket simulado SOC-002.
+
+Los eventos de log no equivalen necesariamente a conexiones. El control conservado muestra cuatro eventos `5710`; no permite asegurar que procedan de una sola conexión ni estimar una tasa general de falsos positivos.
 
 ## Ficha de investigación
 
@@ -113,7 +124,7 @@ El [caso 001](docs/casos/001-autenticacion-ssh.md) aplica esta estructura: objet
 
 ## Próximas fases
 
-La siguiente ampliación será validar la detección correlacionada de varios fallos SSH. Después probaré cambios en archivos monitorizados, creación de usuarios y actividad con `sudo`. Más adelante añadiré reglas propias y practicaré búsquedas de actividad sospechosa a partir de una hipótesis.
+La correlación de intentos con usuario inexistente ya está documentada. Las siguientes ampliaciones serán cambios en archivos monitorizados, creación de usuarios y actividad con `sudo`, además de incorporar Windows y sus registros de seguridad por fases. Más adelante añadiré reglas propias y practicaré búsquedas de actividad sospechosa a partir de una hipótesis.
 
 El analizador de logs en Python será otro proyecto. Usará datos exportados de Anthwatch para agrupar eventos y ordenar lo ocurrido en una cronología.
 
@@ -127,8 +138,12 @@ Documentación disponible:
 - [Configuración y comprobación de la red](docs/arquitectura/red-del-laboratorio.md).
 - [Diagrama de red](docs/arquitectura/diagrama-red.png).
 - [Caso 001: fallos de autenticación SSH y acceso correcto](docs/casos/001-autenticacion-ssh.md).
+- [Procedimiento N1: análisis de autenticación SSH](docs/playbooks/ssh-autenticacion.md).
+- [Ticket simulado SOC-001](docs/tickets/SOC-001.md).
+- [Caso 002: correlación de intentos SSH con usuario inexistente](docs/casos/002-fuerza-bruta-ssh.md).
+- [Ticket simulado SOC-002](docs/tickets/SOC-002.md).
 
-Los documentos de instalación recogen el estado actual; los detalles aún no verificados están indicados como pendientes. El primer informe de investigación ya está disponible; añadiré nuevos casos conforme complete las siguientes pruebas.
+Los documentos de instalación recogen el estado actual; los detalles aún no verificados están indicados como pendientes. Los dos informes, el procedimiento de análisis N1 y sus tickets simulados ya están disponibles; añadiré nuevos casos conforme complete las siguientes pruebas.
 
 En mi [portfolio](https://anthlab.github.io/projects/anthwatch/) mostraré el proyecto y los casos que vaya completando.
 
