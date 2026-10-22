@@ -2,6 +2,10 @@
 
 [Volver al README](../../README.md)
 
+Detecté fallos de contraseña y un acceso SSH correcto desde el cliente al servidor.  
+Validé la recepción en Wazuh con las reglas `5760` y `5715` y revisé sus campos de origen y cuenta.  
+Aprendí a reconstruir una secuencia y justificar el cierre N1 con el contexto del laboratorio.
+
 **Fecha:** 22 de octubre de 2026, según el dashboard.  
 **Estado:** prueba controlada completada; recogida de eventos SSH validada.  
 **Clasificación:** actividad autorizada del laboratorio.  
@@ -11,7 +15,7 @@
 
 Comprobar que Wazuh recibe los registros de autenticación SSH de `anthwatch-server`, distingue un fallo de un acceso correcto y permite identificar el equipo de origen y el usuario.
 
-Desde `anthwatch-client` se introdujo una contraseña incorrecta tres veces y, después, se inició una nueva conexión con la contraseña correcta. El usuario del laboratorio fue `anthlab` en ambos casos. No se utilizaron herramientas de fuerza bruta ni listas de contraseñas.
+Desde `anthwatch-client` se introdujo una contraseña incorrecta tres veces y, después, se inició una nueva conexión con la contraseña correcta. El usuario del laboratorio fue `anthlab` en ambos casos. La secuencia se generó manualmente con la cuenta del laboratorio.
 
 | Componente | Dirección | Papel |
 | --- | --- | --- |
@@ -57,7 +61,7 @@ Desde el mismo cliente se inició una nueva conexión, esta vez con la contrase�
 ssh -o PubkeyAuthentication=no -o PreferredAuthentications=password anthlab@192.168.56.102
 ```
 
-La prueba indicaba comprobar el nombre del equipo con `hostname` y salir con `exit`. No se conserva una captura de la ejecución de esos dos comandos. El acceso correcto sí queda confirmado por el registro `Accepted password` de Wazuh.
+El registro `Accepted password` de Wazuh confirma el acceso correcto.
 
 ## Cronología y evidencias
 
@@ -88,7 +92,7 @@ Oct 21 22:38:57 anthwatch-server sshd[2222]: Accepted password for anthlab from 
 
 ![Detalle del acceso correcto SSH: regla 5715, origen y usuario](../capturas/ssh-acceso-correcto-detalle.png)
 
-Los mensajes originales muestran el 21 de octubre a las 22:xx y el dashboard el 22 de octubre a las 00:xx. El desfase de dos horas es compatible con UTC frente a Europe/Madrid en esa fecha, pero las capturas no prueban por sí solas la configuración horaria de cada componente. Además, `full_log` contiene la hora del mensaje original y `timestamp` la del evento en Wazuh; no se deben equiparar sus segundos ni interpretar el desfase como un retraso de dos horas.
+Este caso conserva las horas originales anteriores al ajuste horario. La configuración de las tres VMs se corrigió antes del caso 003. La recogida posterior de `timedatectl` documenta Europe/Madrid, sincronización y NTP activo en los tres equipos; el colector de journald formatea el mensaje en UTC. Véanse las [evidencias horarias](../evidencias/README.md).
 
 ## Análisis
 
@@ -105,13 +109,15 @@ La captura del fallo contiene `rule.firedtimes: 4` y la del acceso correcto `rul
 | Fallo | `T1110.001` — Password Guessing; `T1021.004` — SSH | Metadatos de la regla, compatibles con el uso de SSH y la prueba de contraseñas incorrectas |
 | Acceso correcto | `T1078` — Valid Accounts; `T1021` — Remote Services | Metadatos de la regla; el acceso realizado fue autorizado |
 
-Las etiquetas no demuestran que se hayan producido todas las tácticas que enumera la regla. En particular, un acceso correcto no confirma el uso malicioso de una cuenta válida.
+Las etiquetas MITRE facilitan la clasificación de los eventos observados.
 
 ## Conclusión y límites
 
 La prueba valida la recogida y el análisis de registros SSH: Wazuh muestra un fallo de contraseña y un acceso correcto, ambos del cliente al servidor y con el usuario esperado.
 
-No se confirma una cuenta comprometida, un ataque real ni una alerta correlacionada de fuerza bruta. La relación entre los dos eventos se estableció al revisarlos manualmente; no se ha validado una regla que detecte específicamente «fallos seguidos de éxito».
+No se confirma una cuenta comprometida, un ataque real ni una alerta correlacionada de fuerza bruta. La relación entre los dos eventos se estableció al revisarlos manualmente; en este caso no se validó una regla que detectara específicamente «fallos seguidos de éxito». Esa detección se completó después en el caso 003.
+
+Las etiquetas MITRE son metadatos de las reglas y el acceso de la prueba fue autorizado. Tampoco se conservó una captura de `hostname` y `exit`.
 
 La evidencia incluye una terminal con tres solicitudes fallidas, una vista general y el detalle de un fallo y de un acceso correcto. No se dispone de una exportación completa de los eventos, por lo que no se reconstruye cada fallo individual ni se atribuyen todos los contadores del panel a esta prueba. Tampoco se conservó evidencia del estado del adaptador NAT durante la ejecución.
 
@@ -123,10 +129,10 @@ En un entorno real, antes de cerrar una secuencia similar se comprobarían la au
 
 ## Próximos pasos
 
-- Prueba posterior completada: [caso 002](002-fuerza-bruta-ssh.md), correlación con usuario inexistente y control de menor volumen. Sus resultados no se atribuyen al caso 001.
-- Siguiente caso: desarrollar y validar una regla propia para detectar fallos SSH seguidos de éxito desde la misma IP y con el mismo usuario.
+- Prueba posterior completada: [caso 002](002-usuario-inexistente-repetido.md), correlación con usuario inexistente y control de menor volumen. Sus resultados no se atribuyen al caso 001.
+- Prueba posterior completada: [caso 003](003-ssh-fallos-seguidos-de-exito.md), regla propia para fallos SSH seguidos de éxito desde la misma IP y con el mismo usuario.
 - Después: realizar una búsqueda guiada por una hipótesis. El orden y los criterios de validación están en la [hoja de ruta](../hoja-de-ruta.md).
-- En estas fases, conservar exportaciones y comprobar las zonas horarias para facilitar las cronologías.
+- El ajuste horario se completó antes del caso 003. En las siguientes pruebas se conservarán también exportaciones de los registros.
 
 ## Documentación operativa
 

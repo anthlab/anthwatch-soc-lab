@@ -1,0 +1,145 @@
+# Caso 003 · Acceso SSH correcto tras varios fallos
+
+[Volver al README](../../README.md)
+
+Creé la regla `100100` para detectar un acceso SSH correcto tras tres fallos de la misma cuenta e IP.  
+La validé primero con pruebas positivas y negativas en `wazuh-logtest` y después con SSH real: alerta en una secuencia de 23 segundos.  
+Aprendí a verificar el umbral, comprobar identidad y tiempo y conservar el contexto de la correlación.
+
+**Fecha:** 22/10/2026.  
+**Estado:** regla propia probada con registros de muestra y validada con conexiones reales del laboratorio.  
+**Clasificación:** detección correcta de una simulación autorizada.  
+**Hora de las VMs:** ajustada a Europe/Madrid con NTP antes de esta prueba.
+
+## Objetivo y alcance
+
+Detectar un acceso SSH correcto después de tres fallos de contraseña, para la misma cuenta y desde la misma IP, dentro de 120 segundos. La alerta reúne la secuencia para su investigación por un analista.
+
+| Componente | Dirección | Función |
+| --- | --- | --- |
+| `anthwatch-client` | `192.168.56.101` | Origen de los intentos |
+| `anthwatch-server` | `192.168.56.102` | Servidor SSH, agente `001` |
+| `anthwatch-wazuh` | `192.168.56.103` | Wazuh 4.14.9, análisis y consulta |
+
+Se utilizó la cuenta existente `anthlab` y las tres VMs del laboratorio, con intentos manuales de contraseña.
+
+## Detección implementada
+
+La [regla versionada](../../rules/anthwatch_ssh_rules.xml) tiene ID `100100`, nivel `10`, `frequency="4"` y `timeframe="120"`.
+
+- El evento actual debe coincidir con `5715`: autenticación correcta.
+- El historial consultado corresponde a `5760`: fallo de contraseña.
+- `same_srcip` mantiene la asociación con la IP de origen.
+- `same_user` mantiene la asociación con la cuenta decodificada en `dstuser` en estas muestras.
+- El diseño mantiene el alcance por agente con `global_frequency` deshabilitado.
+
+Se comprobó el umbral con tres fallos más éxito (alerta propia) y dos fallos más éxito (regla base de éxito). La alerta lleva las etiquetas MITRE `T1110.001` y `T1078`.
+
+## Validación previa con wazuh-logtest
+
+Primero se verificaron las reglas instaladas y la decodificación: `Failed password` activa `5760` y `Accepted password` activa `5715`; ambos mensajes contienen `dstuser` y `srcip`. Después se guardó la regla local y se abrió una sesión nueva para cada escenario independiente, sin reiniciar aún el manager.
+
+Los [registros y las instrucciones reproducibles](../../tests/caso-003/README.md) permiten repetir las comprobaciones.
+
+| Escenario | Resultado observado | Evidencia |
+| --- | --- | --- |
+| Tres fallos + éxito, misma cuenta e IP | `100100`, nivel 10 | [Positiva](../capturas/003-logtest-positivo.png) |
+| Dos fallos + éxito | `5715`, nivel 3 | [Umbral](../capturas/003-logtest-dos-fallos.png) |
+| Tres fallos para `anthlab`, éxito de `otro_usuario` | `5715`, sin correlación propia | [Otro usuario](../capturas/003-logtest-otro-usuario.png) |
+| Tres fallos desde `.101`, éxito desde `.104` | `5715`, sin correlación propia | [Otra IP](../capturas/003-logtest-otra-ip.png) |
+| Éxito tras la espera indicada de 130 segundos | `5715`, sin correlación propia | [Fuera de ventana](../capturas/003-logtest-fuera-ventana.png) |
+| Éxito sin fallos previos, sesión nueva | `5715`, nivel 3 | [Éxito aislado](../capturas/003-logtest-exito-solo.png) |
+| Tres fallos sin éxito todavía | Tres `5760`, sin `100100` | Salida completa compartida de la prueba positiva; control observado como prefijo |
+
+Las muestras y sus resultados están separados de las evidencias de la simulación real.
+
+## Despliegue realizado
+
+La regla se guardó en `/var/ossec/etc/rules/anthwatch_ssh_rules.xml`. Se ejecutó:
+
+```bash
+sudo /var/ossec/bin/wazuh-analysisd -t
+sudo systemctl restart wazuh-manager
+sudo systemctl status wazuh-manager --no-pager -l
+```
+
+La validación terminó sin mensajes de error y el servicio quedó `active (running)`.
+
+![Validación de configuración y manager activo](../capturas/003-manager-validado.png)
+
+Para reproducir el despliegue desde este repositorio, copiar el XML al directorio local de reglas del manager, revisar colisiones de ID y conservar fuera de ese directorio cualquier copia anterior. Ejecutar la validación antes de reiniciar. La validación se completa con los eventos reales de los agentes descritos a continuación.
+
+## Simulación con conexiones reales
+
+Desde la terminal de `anthwatch-client`:
+
+```bash
+ssh -o PubkeyAuthentication=no -o PreferredAuthentications=password -o NumberOfPasswordPrompts=3 anthlab@192.168.56.102
+```
+
+Se introdujo una contraseña incorrecta tres veces. La conexión terminó con `Permission denied`. A continuación se abrió otra conexión y se introdujo la contraseña correcta, antes de agotar la ventana:
+
+```bash
+ssh -o PubkeyAuthentication=no -o PreferredAuthentications=password anthlab@192.168.56.102
+```
+
+![Tres solicitudes rechazadas y acceso correcto posterior](../capturas/003-ssh-terminal.png)
+
+## Evidencia en Wazuh
+
+La alerta muestra `agent.id: 001`, `agent.name: anthwatch-server`, `data.dstuser: anthlab`, `data.srcip: 192.168.56.101`, `location: journald` y decodificador `sshd`.
+
+Transcripción de los tres registros visibles en `previous_output`, ordenados cronológicamente, y del acceso correcto visible en `full_log`:
+
+```text
+Oct 22 12:12:40 anthwatch-server sshd[2232]: Failed password for anthlab from 192.168.56.101 port 33978 ssh2
+Oct 22 12:12:43 anthwatch-server sshd[2232]: Failed password for anthlab from 192.168.56.101 port 33978 ssh2
+Oct 22 12:12:49 anthwatch-server sshd[2232]: Failed password for anthlab from 192.168.56.101 port 33978 ssh2
+Oct 22 12:13:03 anthwatch-server sshd[2234]: Accepted password for anthlab from 192.168.56.101 port 57914 ssh2
+```
+
+Hay **23 segundos entre el primer fallo y el éxito**, según las marcas de los mensajes originales. Los tres fallos comparten PID y puerto; el éxito pertenece a otra conexión. Se distinguen así los fallos de contraseña de las conexiones SSH.
+
+**La hora de las tres VMs se corrigió antes del caso 003**, configurando Europe/Madrid y NTP. La terminal muestra **14:13:03 CEST** y el dashboard **22/10/2026 14:13:04.148**. El colector de journald de Wazuh 4.14.9 formatea el mensaje en UTC mediante `gmtime_r`: **12:13:03** en `full_log` equivale a **14:13:03 CEST**. La [revisión del código y las fuentes](../evidencias/README.md#representación-horaria-de-journald-en-wazuh-4149) explica esta conversión. La duración de 23 segundos se calcula entre los mensajes originales de la misma fuente. Véase [configuración horaria](../estado-del-laboratorio.md#configuración-horaria).
+
+![Regla 100100 con los fallos previos y el éxito](../capturas/003-alerta-dashboard.png)
+
+## Consultas para revisar el caso
+
+En Threat Hunting / Events, seleccionar un intervalo absoluto que incluya el 22/10/2026 de 14:10 a 14:16 en Europe/Madrid y aplicar:
+
+```text
+agent.name:"anthwatch-server" AND rule.id:100100
+```
+
+Para ampliar a los eventos de la cuenta y del origen:
+
+```text
+agent.name:"anthwatch-server" AND data.srcip:"192.168.56.101" AND data.dstuser:"anthlab" AND rule.groups:sshd
+```
+
+Revisar `previous_output`, `full_log`, identidad y marcas temporales. Las consultas permiten repetir la revisión mientras los eventos sigan retenidos.
+
+## Decisión N1
+
+Se cierra el [ticket simulado SOC-003](../tickets/SOC-003.md) como prueba autorizada. El patrón detectado es correcto y la cuenta se utilizó con permiso. No se aplicó contención ni se realizó un escalado real.
+
+En una situación sin contexto de simulación, verificar la autorización del acceso, el uso habitual de la cuenta y de la IP, los privilegios y la actividad posterior. Escalar a N2 si el usuario niega el acceso, el origen no se justifica o aparecen acciones sospechosas. La prioridad operativa se decide con ese contexto, no únicamente por el nivel 10 de la regla.
+
+## Límites de la validación
+
+- Cobertura: secuencias documentadas en Wazuh 4.14.9; quedan fuera otras variantes de autenticación, umbrales superiores, pérdida o reordenación de eventos, aislamiento entre agentes y actividad posterior de procesos.
+- Evidencia: capturas y transcripciones, sin exportación completa del índice. La captura del control temporal conserva el resultado final, sin una medición independiente de la espera.
+- Interpretación: las etiquetas MITRE y el nivel de la regla describen la detección; el contexto autorizado permite cerrar el caso. No se ha medido una tasa general de falsos positivos ni se confirma una cuenta comprometida.
+- Tiempo: el ajuste de las VMs está completado. El control adicional del caso 002, recogido después de esta prueba, conserva journal con zona explícita `+02:00` y su correspondencia en Wazuh; las [evidencias originales](../evidencias/README.md) incluyen también `timedatectl` de las tres VMs con reloj sincronizado y NTP activo.
+- Umbral: las pruebas de tres y dos fallos validan el escenario; `rule.firedtimes` y `frequency` no se utilizan como conteo de conexiones.
+
+## Siguiente paso
+
+Realizar una búsqueda basada en una hipótesis sobre accesos SSH y actividad posterior, con las tres VMs existentes. Primero verificar la cobertura de sesiones y `sudo`; no presuponer telemetría de comandos o procesos. Windows queda aplazado por el límite de 16 GB de RAM del portátil.
+
+## Referencias
+
+- [Sintaxis de reglas de Wazuh](https://documentation.wazuh.com/current/user-manual/ruleset/ruleset-xml-syntax/rules.html).
+- [Pruebas con wazuh-logtest](https://documentation.wazuh.com/current/user-manual/ruleset/testing.html).
+- [Reglas personalizadas](https://documentation.wazuh.com/current/user-manual/ruleset/rules/custom.html).

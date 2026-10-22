@@ -4,7 +4,7 @@
 
 Mi laboratorio personal de operaciones de seguridad con Wazuh.
 
-**Estado:** Wazuh 4.14.9 está instalado y los agentes de `anthwatch-server` y `anthwatch-client` aparecen activos en el dashboard. Las tres máquinas se comunican por la red solo-anfitrión y se administran por SSH. Hay dos casos SSH documentados: fallos y acceso correcto, y detección correlacionada de intentos con usuario inexistente, acompañada de una prueba de control.
+**Estado:** Wazuh 4.14.9 está instalado y los agentes de `anthwatch-server` y `anthwatch-client` aparecen activos en el dashboard. Las tres máquinas se comunican por la red solo-anfitrión y se administran por SSH. Hay tres casos SSH documentados: eventos individuales, correlación con usuario inexistente y regla propia de fallos seguidos de éxito con una cuenta existente.
 
 ## Sobre el proyecto
 
@@ -95,20 +95,18 @@ Estado de la primera versión:
 - [x] Realizar un acceso correcto y compararlo con los fallos anteriores.
 - [x] Escribir el informe con las evidencias y la conclusión.
 
-La regla de fallo observada incluye [T1110.001 — Password Guessing](https://attack.mitre.org/techniques/T1110/001/). La regla de acceso correcto incluye [T1078 — Valid Accounts](https://attack.mitre.org/techniques/T1078/), aunque el acceso de esta prueba fue autorizado; esa etiqueta no demuestra compromiso.
-
-Un acceso correcto después de varios fallos no demuestra por sí solo que la cuenta esté comprometida. El informe distingue la actividad simulada de lo que confirman los registros. La correlación de intentos con usuario inexistente se validó por separado en el caso 002; la detección automática de fallos seguidos de éxito sigue pendiente.
+Las reglas asocian los eventos con [T1110.001 — Password Guessing](https://attack.mitre.org/techniques/T1110/001/) y [T1078 — Valid Accounts](https://attack.mitre.org/techniques/T1078/). Los casos 002 y 003 amplían este punto de partida con correlación automática y una regla propia.
 
 ## Segundo caso: intentos SSH repetidos
 
-El [caso 002](casos/002-fuerza-bruta-ssh.md) verifica la alerta `5712`, de nivel 10, desde `anthwatch-client` hacia `anthwatch-server` con el usuario `soc_prueba_inexistente`. La regla correlaciona eventos `5710` de la misma IP en 120 segundos, con un umbral configurado de ocho eventos.
+El [caso 002](casos/002-usuario-inexistente-repetido.md) verifica la alerta `5712`, de nivel 10, desde `anthwatch-client` hacia `anthwatch-server` con el usuario `soc_prueba_inexistente`. La regla correlaciona eventos `5710` de la misma IP en 120 segundos, con un umbral configurado de ocho eventos.
 
 - [x] Revisar la regla instalada y sus condiciones.
 - [x] Generar la prueba y observar la alerta correlacionada.
 - [x] Revisar un control posterior con eventos individuales y sin nueva `5712` en la ventana consultada.
 - [x] Documentar evidencias, limitaciones y decisión en el informe y el ticket simulado SOC-002.
 
-Los eventos de log no equivalen necesariamente a conexiones. El control conservado muestra cuatro eventos `5710`; no permite asegurar que procedan de una sola conexión ni estimar una tasa general de falsos positivos.
+El control se repitió con journal: una conexión identificada por PID `2044` y puerto `34332` produjo dos eventos `5710`, sin nueva `5712` en la ventana conservada. El informe incluye capturas y el [journal original](evidencias/caso-002-control-journal.txt). El control histórico de cuatro eventos se mantiene separado.
 
 ## Ficha de investigación
 
@@ -124,9 +122,17 @@ Los informes siguen una misma estructura y recogen:
 
 El [caso 001](casos/001-autenticacion-ssh.md) aplica esta estructura: objetivo, procedimiento, cronología, evidencias, análisis, límites y decisión.
 
+## Tercer caso: regla propia de fallos seguidos de éxito
+
+El [caso 003](casos/003-ssh-fallos-seguidos-de-exito.md) valida `100100`, nivel 10: tres fallos y un éxito desde `.101` hacia `.102`, misma cuenta `anthlab`, en 23 segundos. Se probaron registros de muestra con `wazuh-logtest` antes de reiniciar el manager y se conservaron controles de umbral, identidad y tiempo. El informe, XML, muestras, capturas y ticket están versionados.
+
+## Configuración horaria
+
+La hora de las tres VMs se ajustó antes del caso 003; las salidas de `timedatectl` confirman Europe/Madrid, reloj sincronizado y NTP activo. La diferencia de dos horas entre `full_log` y la hora local se debe al formato UTC del colector de journald de Wazuh 4.14.9. Los archivos originales, las comparaciones y las líneas del código están en [evidencias](evidencias/README.md).
+
 ## Próximas fases
 
-La prioridad es desarrollar y validar una regla propia para detectar varios fallos SSH seguidos de éxito desde la misma IP y con el mismo usuario. Después se realizará una investigación guiada por una hipótesis. Los criterios de prueba y los resultados aún pendientes se recogen en la [hoja de ruta](hoja-de-ruta.md).
+La siguiente prioridad es una investigación guiada por una hipótesis, con las mismas tres VMs. Windows queda aplazado por los 16 GB de RAM del portátil. El alcance y la cobertura que falta verificar se recogen en la [hoja de ruta](hoja-de-ruta.md).
 
 Las ampliaciones de Windows, integridad de archivos, usuarios y actividad con `sudo` servirán para enriquecer las investigaciones posteriores.
 
@@ -142,10 +148,12 @@ Documentación disponible:
 - [Caso 001: fallos de autenticación SSH y acceso correcto](casos/001-autenticacion-ssh.md).
 - [Procedimiento N1: análisis de autenticación SSH](playbooks/ssh-autenticacion.md).
 - [Ticket simulado SOC-001](tickets/SOC-001.md).
-- [Caso 002: correlación de intentos SSH con usuario inexistente](casos/002-fuerza-bruta-ssh.md).
+- [Caso 002: correlación de intentos SSH con usuario inexistente](casos/002-usuario-inexistente-repetido.md).
 - [Ticket simulado SOC-002](tickets/SOC-002.md).
+- [Caso 003: regla propia de fallos seguidos de éxito](casos/003-ssh-fallos-seguidos-de-exito.md).
+- [Ticket SOC-003](tickets/SOC-003.md) · [Regla XML](../rules/anthwatch_ssh_rules.xml) · [Muestras y controles](../tests/caso-003/README.md).
 
-Los documentos de instalación recogen el estado actual; los detalles aún no verificados están indicados como pendientes. Los dos informes, el procedimiento de análisis N1 y sus tickets simulados están disponibles. Los casos pendientes figuran en la [hoja de ruta](hoja-de-ruta.md).
+Los documentos de instalación recogen el estado actual; los detalles aún no verificados están indicados como pendientes. Los tres informes, el procedimiento de análisis N1 y sus tickets simulados están disponibles. Los casos pendientes figuran en la [hoja de ruta](hoja-de-ruta.md).
 
 Mi [portfolio](https://anthlab.github.io/) presenta mis proyectos, incluido Anthwatch.
 

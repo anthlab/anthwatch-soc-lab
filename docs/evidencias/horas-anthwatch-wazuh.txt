@@ -1,0 +1,9 @@
+anthwatch-wazuh
+               Local time: jue 2026-10-22 16:43:45 CEST
+           Universal time: jue 2026-10-22 14:43:45 UTC
+                 RTC time: jue 2026-10-22 14:43:45
+                Time zone: Europe/Madrid (CEST, +0200)
+System clock synchronized: yes
+              NTP service: active
+          RTC in local TZ: no
+2026-10-22T16:43:45+02:00

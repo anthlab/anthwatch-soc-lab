@@ -1,0 +1,9 @@
+anthwatch-server
+               Local time: jue 2026-10-22 16:43:48 CEST
+           Universal time: jue 2026-10-22 14:43:48 UTC
+                 RTC time: jue 2026-10-22 14:43:48
+                Time zone: Europe/Madrid (CEST, +0200)
+System clock synchronized: yes
+              NTP service: active
+          RTC in local TZ: no
+2026-10-22T16:43:48+02:00

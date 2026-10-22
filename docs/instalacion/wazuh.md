@@ -79,7 +79,7 @@ Las direcciones son las concesiones DHCP actuales de `vboxnet0`; si cambian, hab
 
 ## Siguiente prueba
 
-La instalación y conexión están completadas. La recogida de fallos y accesos correctos por SSH también está verificada en el [caso 001](../casos/001-autenticacion-ssh.md). La correlación con usuario inexistente también está verificada en el [caso 002](../casos/002-fuerza-bruta-ssh.md), junto a un control posterior de menor volumen.
+La instalación y conexión están completadas. La recogida de fallos y accesos correctos por SSH también está verificada en el [caso 001](../casos/001-autenticacion-ssh.md). La correlación con usuario inexistente también está verificada en el [caso 002](../casos/002-usuario-inexistente-repetido.md), junto a un control posterior de menor volumen.
 
 ## Referencias
 

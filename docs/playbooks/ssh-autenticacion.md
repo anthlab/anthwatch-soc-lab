@@ -2,9 +2,9 @@
 
 [Volver al README](../../README.md)
 
-**Versión:** 1.1 · 22/10/2026.  
+**Versión:** 1.2 · 22/10/2026.  
 **Tipo:** procedimiento manual propuesto para el laboratorio.  
-**Validación:** aplicado retrospectivamente a las evidencias del [caso 001](../casos/001-autenticacion-ssh.md) y ampliado con el [caso 002](../casos/002-fuerza-bruta-ssh.md). No es una automatización de respuesta.
+**Validación:** aplicado retrospectivamente a las evidencias del [caso 001](../casos/001-autenticacion-ssh.md) y ampliado con el [caso 002](../casos/002-usuario-inexistente-repetido.md) y el [caso 003](../casos/003-ssh-fallos-seguidos-de-exito.md). No es una automatización de respuesta.
 
 ## Objetivo
 
@@ -57,7 +57,17 @@ agent.name:"anthwatch-server" AND data.srcip:"192.168.56.101" AND rule.id:5712
 
 La regla instalada tiene `frequency="8"`, `timeframe="120"`, `if_matched_sid` `5710`, misma IP e `ignore="60"`. Revisar `previous_output` cuando aparezca. No interpretar ocho eventos como ocho conexiones. Buscar el caso en un intervalo que incluya el 22/10/2026 a las 01:03 del dashboard; para el control, revisar 01:21–01:27.
 
-Un control sin nueva alerta solo prueba el resultado observado en esa ventana; no demuestra por sí mismo ausencia general de falsos positivos. Para la revisión, distinguir una detección correcta de una actividad autorizada de una detección incorrecta.
+El control adicional del caso 002 atribuye una conexión por PID `2044` y puerto `34332` en journal y la contrasta con dos `5710`, sin `5712`, entre 16:13:38.269 y 16:25:38.269 del 22/10/2026. Usar IP, puerto, proceso y cierre para distinguir conexiones de registros. Este control verifica esa ventana, no una tasa general de falsos positivos.
+
+### Regla propia: fallos seguidos de éxito
+
+Para revisar el caso 003, seleccionar el 22/10/2026 de 14:10 a 14:16 en Europe/Madrid y buscar:
+
+```text
+agent.name:"anthwatch-server" AND rule.id:100100
+```
+
+Contrastar `data.dstuser`, `data.srcip`, `full_log` y los fallos de `previous_output`. La secuencia validada es tres fallos y un éxito, misma cuenta e IP, en 120 segundos. Confirmar el umbral en el XML y en las pruebas, no solo en `frequency`. El caso real dura 23 segundos y termina en un acceso autorizado. Investigar la actividad posterior según la cobertura disponible; este caso no valida telemetría de procesos.
 
 ## 3. Clasificar y priorizar
 
@@ -91,4 +101,4 @@ Registrar el motivo de cierre, la clasificación, las acciones realizadas y las 
 
 En el caso 001 se observó el fallo `5760` y el acceso correcto `5715`, con el origen y usuario de la prueba. Se cierra como actividad autorizada; no se afirma detección automática de fuerza bruta ni compromiso de cuenta.
 
-Ejemplos de tickets: [SOC-001](../tickets/SOC-001.md) y [SOC-002](../tickets/SOC-002.md).
+Ejemplos de tickets: [SOC-001](../tickets/SOC-001.md), [SOC-002](../tickets/SOC-002.md) y [SOC-003](../tickets/SOC-003.md).
