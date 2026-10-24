@@ -1,0 +1,156 @@
+INICIO: 2026-10-22T21:15:44,993346668+02:00
+Starting wazuh-logtest v4.14.9
+Type one log per line
+
+
+**Phase 1: Completed pre-decoding.
+	full event: '2026-10-22T20:00:00.000000+02:00 anthwatch-server sshd[9001]: Failed password for anthlab from 192.168.56.101 port 40001 ssh2'
+	timestamp: '2026-10-22T20:00:00.000000+02:00'
+	program_name: 'sshd'
+
+**Phase 2: Completed decoding.
+	name: 'sshd'
+	parent: 'sshd'
+	dstuser: 'anthlab'
+	srcip: '192.168.56.101'
+	srcport: '40001'
+
+**Phase 3: Completed filtering (rules).
+	id: '5760'
+	level: '5'
+	description: 'sshd: authentication failed.'
+	groups: '['syslog', 'sshd', 'authentication_failed']'
+	firedtimes: '1'
+	gdpr: '['IV_35.7.d', 'IV_32.2']'
+	gpg13: '['7.1']'
+	hipaa: '['164.312.b']'
+	mail: 'False'
+	mitre.id: '['T1110.001', 'T1021.004']'
+	mitre.tactic: '['Credential Access', 'Lateral Movement']'
+	mitre.technique: '['Password Guessing', 'SSH']'
+	nist_800_53: '['AU.14', 'AC.7']'
+	pci_dss: '['10.2.4', '10.2.5']'
+	tsc: '['CC6.1', 'CC6.8', 'CC7.2', 'CC7.3']'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: '2026-10-22T20:00:00.000000+02:00 anthwatch-server sshd[9001]: Failed password for anthlab from 192.168.56.101 port 40001 ssh2'
+	timestamp: '2026-10-22T20:00:00.000000+02:00'
+	program_name: 'sshd'
+
+**Phase 2: Completed decoding.
+	name: 'sshd'
+	parent: 'sshd'
+	dstuser: 'anthlab'
+	srcip: '192.168.56.101'
+	srcport: '40001'
+
+**Phase 3: Completed filtering (rules).
+	id: '5760'
+	level: '5'
+	description: 'sshd: authentication failed.'
+	groups: '['syslog', 'sshd', 'authentication_failed']'
+	firedtimes: '2'
+	gdpr: '['IV_35.7.d', 'IV_32.2']'
+	gpg13: '['7.1']'
+	hipaa: '['164.312.b']'
+	mail: 'False'
+	mitre.id: '['T1110.001', 'T1021.004']'
+	mitre.tactic: '['Credential Access', 'Lateral Movement']'
+	mitre.technique: '['Password Guessing', 'SSH']'
+	nist_800_53: '['AU.14', 'AC.7']'
+	pci_dss: '['10.2.4', '10.2.5']'
+	tsc: '['CC6.1', 'CC6.8', 'CC7.2', 'CC7.3']'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: '2026-10-22T20:00:01.000000+02:00 anthwatch-server sshd[9001]: Failed password for anthlab from 192.168.56.101 port 40001 ssh2'
+	timestamp: '2026-10-22T20:00:01.000000+02:00'
+	program_name: 'sshd'
+
+**Phase 2: Completed decoding.
+	name: 'sshd'
+	parent: 'sshd'
+	dstuser: 'anthlab'
+	srcip: '192.168.56.101'
+	srcport: '40001'
+
+**Phase 3: Completed filtering (rules).
+	id: '5760'
+	level: '5'
+	description: 'sshd: authentication failed.'
+	groups: '['syslog', 'sshd', 'authentication_failed']'
+	firedtimes: '3'
+	gdpr: '['IV_35.7.d', 'IV_32.2']'
+	gpg13: '['7.1']'
+	hipaa: '['164.312.b']'
+	mail: 'False'
+	mitre.id: '['T1110.001', 'T1021.004']'
+	mitre.tactic: '['Credential Access', 'Lateral Movement']'
+	mitre.technique: '['Password Guessing', 'SSH']'
+	nist_800_53: '['AU.14', 'AC.7']'
+	pci_dss: '['10.2.4', '10.2.5']'
+	tsc: '['CC6.1', 'CC6.8', 'CC7.2', 'CC7.3']'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: '2026-10-22T20:00:01.000000+02:00 anthwatch-server sshd[9001]: Failed password for anthlab from 192.168.56.101 port 40001 ssh2'
+	timestamp: '2026-10-22T20:00:01.000000+02:00'
+	program_name: 'sshd'
+
+**Phase 2: Completed decoding.
+	name: 'sshd'
+	parent: 'sshd'
+	dstuser: 'anthlab'
+	srcip: '192.168.56.101'
+	srcport: '40001'
+
+**Phase 3: Completed filtering (rules).
+	id: '5760'
+	level: '5'
+	description: 'sshd: authentication failed.'
+	groups: '['syslog', 'sshd', 'authentication_failed']'
+	firedtimes: '4'
+	gdpr: '['IV_35.7.d', 'IV_32.2']'
+	gpg13: '['7.1']'
+	hipaa: '['164.312.b']'
+	mail: 'False'
+	mitre.id: '['T1110.001', 'T1021.004']'
+	mitre.tactic: '['Credential Access', 'Lateral Movement']'
+	mitre.technique: '['Password Guessing', 'SSH']'
+	nist_800_53: '['AU.14', 'AC.7']'
+	pci_dss: '['10.2.4', '10.2.5']'
+	tsc: '['CC6.1', 'CC6.8', 'CC7.2', 'CC7.3']'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: '2026-10-22T20:00:02.000000+02:00 anthwatch-server sshd[9002]: Accepted password for anthlab from 192.168.56.101 port 40002 ssh2'
+	timestamp: '2026-10-22T20:00:02.000000+02:00'
+	program_name: 'sshd'
+
+**Phase 2: Completed decoding.
+	name: 'sshd'
+	parent: 'sshd'
+	dstuser: 'anthlab'
+	srcip: '192.168.56.101'
+	srcport: '40002'
+
+**Phase 3: Completed filtering (rules).
+	id: '100100'
+	level: '10'
+	description: 'Anthwatch: acceso SSH correcto tras varios fallos para anthlab desde 192.168.56.101.'
+	groups: '['local', 'sshd', 'anthwatch', 'authentication_success']'
+	firedtimes: '1'
+	frequency: '4'
+	mail: 'False'
+	mitre.id: '['T1110.001', 'T1078']'
+	mitre.tactic: '['Credential Access', 'Defense Evasion', 'Persistence', 'Privilege Escalation', 'Initial Access']'
+	mitre.technique: '['Password Guessing', 'Valid Accounts']'
+**Alert to be generated.
+
+FIN: 2026-10-22T21:15:45,588153920+02:00
+CODIGO_SALIDA: 0

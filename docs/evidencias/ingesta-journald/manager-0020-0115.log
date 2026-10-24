@@ -1,0 +1,243 @@
+2026/10/22 00:27:39 wazuh-modulesd:router: INFO: Loaded router module.
+2026/10/22 00:27:39 wazuh-modulesd:content_manager: INFO: Loaded content_manager module.
+2026/10/22 00:27:39 wazuh-modulesd:inventory-harvester: INFO: Loaded Inventory harvester module.
+2026/10/22 00:27:43 wazuh-csyslogd: INFO: Remote syslog server not configured. Clean exit.
+2026/10/22 00:27:43 wazuh-integratord: INFO: Remote integrations not configured. Clean exit.
+2026/10/22 00:27:43 wazuh-agentlessd: INFO: Not configured. Exiting.
+2026/10/22 00:27:43 wazuh-authd: INFO: Started (pid: 1170).
+2026/10/22 00:27:43 wazuh-authd: INFO: Accepting connections on port 1515. No password required.
+2026/10/22 00:27:43 wazuh-authd: INFO: Setting network timeout to 1.000000 sec.
+2026/10/22 00:27:44 wazuh-execd: INFO: Started (pid: 1217).
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: Started (pid: 1247).
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6003): Monitoring path: '/bin', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | scheduled'.
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6003): Monitoring path: '/boot', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | scheduled'.
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6003): Monitoring path: '/etc', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | scheduled'.
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6003): Monitoring path: '/sbin', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | scheduled'.
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6003): Monitoring path: '/usr/bin', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | scheduled'.
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6003): Monitoring path: '/usr/sbin', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | scheduled'.
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/mtab'
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/hosts.deny'
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/mail/statistics'
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/random-seed'
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/random.seed'
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/adjtime'
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/httpd/logs'
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/utmpx'
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/wtmpx'
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/cups/certs'
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/dumpdates'
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/svc/volatile'
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6207): Ignore 'file' sregex '.log$|.swp$'
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6004): No diff for file: '/etc/shadow'
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6004): No diff for file: '/etc/shadow-'
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6004): No diff for file: '/etc/gshadow'
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6004): No diff for file: '/etc/gshadow-'
+2026/10/22 00:27:46 rootcheck: INFO: Starting rootcheck scan.
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6000): Starting daemon...
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6010): File integrity monitoring scan frequency: 43200 seconds
+2026/10/22 00:27:46 wazuh-syscheckd: INFO: (6008): File integrity monitoring scan started.
+2026/10/22 00:27:48 wazuh-logcollector: INFO: Monitoring output of command(360): df -P
+2026/10/22 00:27:48 wazuh-logcollector: INFO: Monitoring full output of command(360): netstat -tulpn | sed 's/\([[:alnum:]]\+\)\ \+[[:digit:]]\+\ \+[[:digit:]]\+\ \+\(.*\):\([[:digit:]]*\)\ \+\([0-9\.\:\*]\+\).\+\ \([[:digit:]]*\/[[:alnum:]\-]*\).*/\1 \2 == \3 == \4 \5/' | sort -k 4 -g | sed 's/ == \(.*\) ==/:\1/' | sed 1,2d
+2026/10/22 00:27:48 wazuh-logcollector: INFO: Monitoring full output of command(360): last -n 20
+2026/10/22 00:27:48 wazuh-logcollector: INFO: (1950): Analyzing file: '/var/ossec/logs/active-responses.log'.
+2026/10/22 00:27:48 wazuh-logcollector: INFO: (1950): Analyzing file: '/var/log/dpkg.log'.
+2026/10/22 00:27:48 wazuh-logcollector: INFO: Started (pid: 1348).
+2026/10/22 00:27:50 wazuh-modulesd:router: INFO: Loaded router module.
+2026/10/22 00:27:50 wazuh-modulesd:content_manager: INFO: Loaded content_manager module.
+2026/10/22 00:27:50 wazuh-modulesd:inventory-harvester: INFO: Loaded Inventory harvester module.
+2026/10/22 00:27:50 wazuh-modulesd: INFO: Started (pid: 1385).
+2026/10/22 00:27:50 wazuh-modulesd:agent-upgrade: INFO: (8153): Module Agent Upgrade started.
+2026/10/22 00:27:50 wazuh-modulesd:osquery: INFO: Module disabled. Exiting...
+2026/10/22 00:27:50 wazuh-modulesd:vulnerability-scanner: INFO: Starting vulnerability_scanner module.
+2026/10/22 00:27:50 sca: INFO: Module started.
+2026/10/22 00:27:50 wazuh-modulesd:ciscat: INFO: Module disabled. Exiting...
+2026/10/22 00:27:50 sca: INFO: Loaded policy '/var/ossec/ruleset/sca/cis_ubuntu24-04.yml'
+2026/10/22 00:27:50 wazuh-modulesd:router: INFO: Starting router module.
+2026/10/22 00:27:50 wazuh-modulesd:task-manager: INFO: (8200): Module Task Manager started.
+2026/10/22 00:27:50 sca: INFO: Starting Security Configuration Assessment scan.
+2026/10/22 00:27:50 wazuh-modulesd:database: INFO: Module started.
+2026/10/22 00:27:50 wazuh-modulesd:content_manager: INFO: Starting content_manager module.
+2026/10/22 00:27:50 wazuh-modulesd:download: INFO: Module started.
+2026/10/22 00:27:50 wazuh-modulesd:inventory-harvester: INFO: Starting inventory_harvester module.
+2026/10/22 00:27:50 wazuh-modulesd:control: INFO: Starting control thread.
+2026/10/22 00:27:50 sca: INFO: Starting evaluation of policy: '/var/ossec/ruleset/sca/cis_ubuntu24-04.yml'
+2026/10/22 00:27:51 wazuh-logcollector: INFO: (9203): Monitoring journal entries.
+2026/10/22 00:27:51 wazuh-modulesd:syscollector: INFO: Module started.
+2026/10/22 00:27:51 wazuh-modulesd:syscollector: INFO: Starting evaluation.
+2026/10/22 00:27:53 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-vulnerabilities-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 00:27:53 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-packages-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 00:27:54 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-system-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 00:27:54 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-processes-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 00:27:56 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-ports-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 00:27:57 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-hotfixes-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 00:27:58 wazuh-modulesd:syscollector: INFO: Evaluation finished.
+2026/10/22 00:27:58 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-hardware-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 00:27:58 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-protocols-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 00:27:58 sca: INFO: Evaluation finished for policy '/var/ossec/ruleset/sca/cis_ubuntu24-04.yml'
+2026/10/22 00:27:58 sca: INFO: Security Configuration Assessment scan finished. Duration: 8 seconds.
+2026/10/22 00:27:59 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-interfaces-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 00:27:59 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-networks-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 00:27:59 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-users-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 00:28:01 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-groups-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 00:28:01 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-browser-extensions-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 00:28:03 logger-helper: INFO: InventoryHarvesterFacade module started.
+2026/10/22 00:28:03 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-services-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 00:28:07 indexer-connector: WARNING: Failed to sync agent '001': No available server
+2026/10/22 00:28:07 indexer-connector: WARNING: Failed to sync agent '001': No available server
+2026/10/22 00:28:07 indexer-connector: WARNING: Failed to sync agent '001': No available server
+2026/10/22 00:28:08 indexer-connector: WARNING: Failed to sync agent '001': No available server
+2026/10/22 00:28:08 indexer-connector: WARNING: Failed to sync agent '001': No available server
+2026/10/22 00:28:08 indexer-connector: WARNING: Failed to sync agent '001': No available server
+2026/10/22 00:28:08 indexer-connector: WARNING: Failed to sync agent '001': No available server
+2026/10/22 00:28:08 indexer-connector: WARNING: Failed to sync agent '001': No available server
+2026/10/22 00:28:08 indexer-connector: WARNING: Failed to sync agent '001': No available server
+2026/10/22 00:28:10 wazuh-modulesd:vulnerability-scanner: INFO: Vulnerability scanner module started.
+2026/10/22 00:28:10 indexer-connector: WARNING: Failed to sync agent '002': No available server
+2026/10/22 00:28:15 indexer-connector: WARNING: Failed to sync agent '002': No available server
+2026/10/22 00:28:15 indexer-connector: WARNING: Failed to sync agent '002': No available server
+2026/10/22 00:28:16 wazuh-syscheckd: INFO: (6009): File integrity monitoring scan ended.
+2026/10/22 00:28:16 wazuh-syscheckd: INFO: FIM sync module started.
+2026/10/22 00:29:00 indexer-connector: WARNING: Failed to sync agent '002': No available server
+2026/10/22 00:29:00 indexer-connector: WARNING: Failed to sync agent '002': No available server
+2026/10/22 00:29:00 indexer-connector: WARNING: Failed to sync agent '002': No available server
+2026/10/22 00:29:00 indexer-connector: WARNING: Failed to sync agent '002': No available server
+2026/10/22 00:29:00 indexer-connector: WARNING: Failed to sync agent '002': No available server
+2026/10/22 00:29:31 wazuh-syscheckd: INFO: netstat not available. Skipping port check.
+2026/10/22 00:29:36 rootcheck: INFO: Ending rootcheck scan.
+2026/10/22 00:30:03 wazuh-logcollector: INFO: (9204): 'Journald' timestamp was refreshed due to rotation.
+2026/10/22 00:30:05 wazuh-logcollector: INFO: (9204): 'Journald' timestamp was refreshed due to rotation.
+2026/10/22 00:30:11 wazuh-logcollector: INFO: (9204): 'Journald' timestamp was refreshed due to rotation.
+2026/10/22 00:31:07 wazuh-modulesd:vulnerability-scanner: INFO: Initiating update feed process.
+2026/10/22 00:31:57 indexer-connector: INFO: IndexerConnector initialized successfully for index: wazuh-states-inventory-packages-anthwatch-wazuh.
+2026/10/22 00:31:57 indexer-connector: INFO: IndexerConnector initialized successfully for index: wazuh-states-vulnerabilities-anthwatch-wazuh.
+2026/10/22 00:31:58 indexer-connector: INFO: IndexerConnector initialized successfully for index: wazuh-states-inventory-processes-anthwatch-wazuh.
+2026/10/22 00:31:58 indexer-connector: INFO: IndexerConnector initialized successfully for index: wazuh-states-inventory-system-anthwatch-wazuh.
+2026/10/22 00:32:00 indexer-connector: INFO: IndexerConnector initialized successfully for index: wazuh-states-inventory-ports-anthwatch-wazuh.
+2026/10/22 00:32:02 indexer-connector: INFO: IndexerConnector initialized successfully for index: wazuh-states-inventory-hotfixes-anthwatch-wazuh.
+2026/10/22 00:32:02 indexer-connector: INFO: IndexerConnector initialized successfully for index: wazuh-states-inventory-hardware-anthwatch-wazuh.
+2026/10/22 00:32:02 indexer-connector: INFO: IndexerConnector initialized successfully for index: wazuh-states-inventory-protocols-anthwatch-wazuh.
+2026/10/22 00:32:03 indexer-connector: INFO: IndexerConnector initialized successfully for index: wazuh-states-inventory-interfaces-anthwatch-wazuh.
+2026/10/22 00:32:03 indexer-connector: INFO: IndexerConnector initialized successfully for index: wazuh-states-inventory-networks-anthwatch-wazuh.
+2026/10/22 00:32:03 indexer-connector: INFO: IndexerConnector initialized successfully for index: wazuh-states-inventory-users-anthwatch-wazuh.
+2026/10/22 00:32:04 indexer-connector: INFO: IndexerConnector initialized successfully for index: wazuh-states-inventory-groups-anthwatch-wazuh.
+2026/10/22 00:32:05 indexer-connector: INFO: IndexerConnector initialized successfully for index: wazuh-states-inventory-browser-extensions-anthwatch-wazuh.
+2026/10/22 00:32:08 indexer-connector: INFO: IndexerConnector initialized successfully for index: wazuh-states-inventory-services-anthwatch-wazuh.
+2026/10/22 01:05:58 wazuh-modulesd:router: INFO: Loaded router module.
+2026/10/22 01:05:58 wazuh-modulesd:content_manager: INFO: Loaded content_manager module.
+2026/10/22 01:05:58 wazuh-modulesd:inventory-harvester: INFO: Loaded Inventory harvester module.
+2026/10/22 01:06:03 wazuh-csyslogd: INFO: Remote syslog server not configured. Clean exit.
+2026/10/22 01:06:03 wazuh-integratord: INFO: Remote integrations not configured. Clean exit.
+2026/10/22 01:06:03 wazuh-agentlessd: INFO: Not configured. Exiting.
+2026/10/22 01:06:03 wazuh-authd: INFO: Started (pid: 1164).
+2026/10/22 01:06:03 wazuh-authd: INFO: Accepting connections on port 1515. No password required.
+2026/10/22 01:06:03 wazuh-authd: INFO: Setting network timeout to 1.000000 sec.
+2026/10/22 01:06:05 wazuh-execd: INFO: Started (pid: 1222).
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: Started (pid: 1256).
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6003): Monitoring path: '/bin', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | scheduled'.
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6003): Monitoring path: '/boot', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | scheduled'.
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6003): Monitoring path: '/etc', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | scheduled'.
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6003): Monitoring path: '/sbin', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | scheduled'.
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6003): Monitoring path: '/usr/bin', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | scheduled'.
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6003): Monitoring path: '/usr/sbin', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | scheduled'.
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/mtab'
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/hosts.deny'
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/mail/statistics'
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/random-seed'
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/random.seed'
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/adjtime'
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/httpd/logs'
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/utmpx'
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/wtmpx'
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/cups/certs'
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/dumpdates'
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/svc/volatile'
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6207): Ignore 'file' sregex '.log$|.swp$'
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6004): No diff for file: '/etc/shadow'
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6004): No diff for file: '/etc/shadow-'
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6004): No diff for file: '/etc/gshadow'
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6004): No diff for file: '/etc/gshadow-'
+2026/10/22 01:06:06 rootcheck: INFO: Starting rootcheck scan.
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6000): Starting daemon...
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6010): File integrity monitoring scan frequency: 43200 seconds
+2026/10/22 01:06:06 wazuh-syscheckd: INFO: (6008): File integrity monitoring scan started.
+2026/10/22 01:06:07 wazuh-logcollector: INFO: Monitoring output of command(360): df -P
+2026/10/22 01:06:07 wazuh-logcollector: INFO: Monitoring full output of command(360): netstat -tulpn | sed 's/\([[:alnum:]]\+\)\ \+[[:digit:]]\+\ \+[[:digit:]]\+\ \+\(.*\):\([[:digit:]]*\)\ \+\([0-9\.\:\*]\+\).\+\ \([[:digit:]]*\/[[:alnum:]\-]*\).*/\1 \2 == \3 == \4 \5/' | sort -k 4 -g | sed 's/ == \(.*\) ==/:\1/' | sed 1,2d
+2026/10/22 01:06:07 wazuh-logcollector: INFO: Monitoring full output of command(360): last -n 20
+2026/10/22 01:06:07 wazuh-logcollector: INFO: (1950): Analyzing file: '/var/ossec/logs/active-responses.log'.
+2026/10/22 01:06:07 wazuh-logcollector: INFO: (1950): Analyzing file: '/var/log/dpkg.log'.
+2026/10/22 01:06:07 wazuh-logcollector: INFO: Started (pid: 1312).
+2026/10/22 01:06:08 wazuh-modulesd:router: INFO: Loaded router module.
+2026/10/22 01:06:08 wazuh-modulesd:content_manager: INFO: Loaded content_manager module.
+2026/10/22 01:06:08 wazuh-modulesd:inventory-harvester: INFO: Loaded Inventory harvester module.
+2026/10/22 01:06:08 wazuh-modulesd: INFO: Started (pid: 1350).
+2026/10/22 01:06:08 wazuh-modulesd:agent-upgrade: INFO: (8153): Module Agent Upgrade started.
+2026/10/22 01:06:08 wazuh-modulesd:osquery: INFO: Module disabled. Exiting...
+2026/10/22 01:06:08 wazuh-modulesd:vulnerability-scanner: INFO: Starting vulnerability_scanner module.
+2026/10/22 01:06:08 wazuh-modulesd:router: INFO: Starting router module.
+2026/10/22 01:06:08 sca: INFO: Module started.
+2026/10/22 01:06:08 wazuh-modulesd:ciscat: INFO: Module disabled. Exiting...
+2026/10/22 01:06:08 sca: INFO: Loaded policy '/var/ossec/ruleset/sca/cis_ubuntu24-04.yml'
+2026/10/22 01:06:09 wazuh-modulesd:content_manager: INFO: Starting content_manager module.
+2026/10/22 01:06:09 wazuh-modulesd:task-manager: INFO: (8200): Module Task Manager started.
+2026/10/22 01:06:09 sca: INFO: Starting Security Configuration Assessment scan.
+2026/10/22 01:06:09 wazuh-modulesd:database: INFO: Module started.
+2026/10/22 01:06:09 wazuh-modulesd:control: INFO: Starting control thread.
+2026/10/22 01:06:09 wazuh-modulesd:download: INFO: Module started.
+2026/10/22 01:06:09 wazuh-modulesd:inventory-harvester: INFO: Starting inventory_harvester module.
+2026/10/22 01:06:09 sca: INFO: Starting evaluation of policy: '/var/ossec/ruleset/sca/cis_ubuntu24-04.yml'
+2026/10/22 01:06:10 wazuh-logcollector: INFO: (9203): Monitoring journal entries.
+2026/10/22 01:06:10 wazuh-modulesd:syscollector: INFO: Module started.
+2026/10/22 01:06:10 wazuh-modulesd:syscollector: INFO: Starting evaluation.
+2026/10/22 01:06:14 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-packages-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 01:06:15 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-vulnerabilities-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 01:06:19 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-system-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 01:06:22 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-processes-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 01:06:23 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-ports-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 01:06:23 wazuh-modulesd:syscollector: INFO: Evaluation finished.
+2026/10/22 01:06:24 sca: INFO: Evaluation finished for policy '/var/ossec/ruleset/sca/cis_ubuntu24-04.yml'
+2026/10/22 01:06:24 sca: INFO: Security Configuration Assessment scan finished. Duration: 15 seconds.
+2026/10/22 01:06:24 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-hotfixes-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 01:06:26 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-hardware-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 01:06:28 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-protocols-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 01:06:29 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-interfaces-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 01:06:30 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-networks-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 01:06:31 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-users-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 01:06:32 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-groups-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 01:06:33 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-browser-extensions-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 01:06:34 logger-helper: INFO: InventoryHarvesterFacade module started.
+2026/10/22 01:06:34 indexer-connector: WARNING: IndexerConnector initialization failed for index 'wazuh-states-inventory-services-anthwatch-wazuh', retrying until the connection is successful.
+2026/10/22 01:06:34 indexer-connector: WARNING: Failed to sync agent '001': No available server
+2026/10/22 01:06:34 indexer-connector: WARNING: Failed to sync agent '001': No available server
+2026/10/22 01:06:34 indexer-connector: WARNING: Failed to sync agent '001': No available server
+2026/10/22 01:06:34 indexer-connector: WARNING: Failed to sync agent '001': No available server
+2026/10/22 01:06:34 indexer-connector: WARNING: Failed to sync agent '001': No available server
+2026/10/22 01:06:34 indexer-connector: WARNING: Failed to sync agent '001': No available server
+2026/10/22 01:06:34 indexer-connector: WARNING: Failed to sync agent '001': No available server
+2026/10/22 01:06:34 indexer-connector: WARNING: Failed to sync agent '001': No available server
+2026/10/22 01:06:34 indexer-connector: WARNING: Failed to sync agent '001': No available server
+2026/10/22 01:06:34 indexer-connector: WARNING: Failed to sync agent '001': No available server
+2026/10/22 01:06:34 indexer-connector: WARNING: Failed to sync agent '001': No available server
+2026/10/22 01:06:34 indexer-connector: WARNING: Failed to sync agent '002': No available server
+2026/10/22 01:06:34 indexer-connector: WARNING: Failed to sync agent '002': No available server
+2026/10/22 01:06:34 indexer-connector: WARNING: Failed to sync agent '002': No available server
+2026/10/22 01:06:34 indexer-connector: WARNING: Failed to sync agent '002': No available server
+2026/10/22 01:06:34 indexer-connector: WARNING: Failed to sync agent '002': No available server
+2026/10/22 01:06:34 indexer-connector: WARNING: Failed to sync agent '002': No available server
+2026/10/22 01:06:34 indexer-connector: WARNING: Failed to sync agent '002': No available server
+2026/10/22 01:06:34 indexer-connector: WARNING: Failed to sync agent '002': No available server
+2026/10/22 01:06:34 indexer-connector: WARNING: Failed to sync agent '002': No available server
+2026/10/22 01:06:34 indexer-connector: WARNING: Failed to sync agent '002': No available server
+2026/10/22 01:06:34 indexer-connector: WARNING: Failed to sync agent '002': No available server
+2026/10/22 01:06:38 wazuh-modulesd:vulnerability-scanner: INFO: Vulnerability scanner module started.
+2026/10/22 01:06:38 indexer-connector: WARNING: Failed to sync agent '001': No available server
+2026/10/22 01:06:38 indexer-connector: WARNING: Failed to sync agent '001': No available server
+2026/10/22 01:06:38 indexer-connector: WARNING: Failed to sync agent '002': No available server
+2026/10/22 01:06:38 indexer-connector: WARNING: Failed to sync agent '002': No available server
+2026/10/22 01:06:50 wazuh-syscheckd: INFO: (6009): File integrity monitoring scan ended.
+2026/10/22 01:06:50 wazuh-syscheckd: INFO: FIM sync module started.
+2026/10/22 01:07:18 wazuh-logcollector: INFO: (9204): 'Journald' timestamp was refreshed due to rotation.
+2026/10/22 01:07:20 wazuh-logcollector: INFO: (9204): 'Journald' timestamp was refreshed due to rotation.
+2026/10/22 01:07:24 wazuh-logcollector: INFO: (9204): 'Journald' timestamp was refreshed due to rotation.
+2026/10/22 01:09:09 wazuh-modulesd:vulnerability-scanner: INFO: Initiating update feed process.
+2026/10/22 01:10:31 wazuh-syscheckd: INFO: netstat not available. Skipping port check.
+2026/10/22 01:10:36 rootcheck: INFO: Ending rootcheck scan.

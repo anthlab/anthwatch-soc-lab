@@ -4,16 +4,20 @@
 
 Creé la regla `100100` para detectar un acceso SSH correcto tras tres fallos de la misma cuenta e IP.  
 La validé primero con pruebas positivas y negativas en `wazuh-logtest` y después con SSH real: alerta en una secuencia de 23 segundos.  
-Aprendí a verificar el umbral, comprobar identidad y tiempo y conservar el contexto de la correlación.
+La revalidación posterior me enseñó a comprobar cómo llegan los registros, además de revisar la regla; lo explico en [lo que aprendí al cambiar a auth.log](../validaciones/caso-003-auth-log/README.md).
 
 **Fecha:** 22/10/2026.  
 **Estado:** regla propia probada con registros de muestra y validada con conexiones reales del laboratorio.  
 **Clasificación:** detección correcta de una simulación autorizada.  
 **Hora de las VMs:** ajustada a Europe/Madrid con NTP antes de esta prueba.
 
+## Revisión del 24/10/2026
+
+La [revalidación posterior](003-revalidacion.md) incorpora entradas, salidas completas, hashes, controles por identidad y una espera declarada de 130,003 s (132,122 s entre marcas). También documenta el cambio de fuente a auth.log y la corrección de rsyslog. Este informe conserva el escenario histórico con journald y sus capturas; los límites de aquella captura temporal no describen la evidencia adicional posterior.
+
 ## Objetivo y alcance
 
-Detectar un acceso SSH correcto después de tres fallos de contraseña, para la misma cuenta y desde la misma IP, dentro de 120 segundos. La alerta reúne la secuencia para su investigación por un analista.
+Quería reunir en una alerta los fallos de contraseña y el acceso correcto posterior. Fijé el escenario en tres fallos de la misma cuenta e IP, seguidos de un éxito dentro de 120 segundos.
 
 | Componente | Dirección | Función |
 | --- | --- | --- |
@@ -21,7 +25,7 @@ Detectar un acceso SSH correcto después de tres fallos de contraseña, para la 
 | `anthwatch-server` | `192.168.56.102` | Servidor SSH, agente `001` |
 | `anthwatch-wazuh` | `192.168.56.103` | Wazuh 4.14.9, análisis y consulta |
 
-Se utilizó la cuenta existente `anthlab` y las tres VMs del laboratorio, con intentos manuales de contraseña.
+Usé la cuenta existente `anthlab` y las tres VMs del laboratorio. Introduje las contraseñas manualmente.
 
 ## Detección implementada
 
@@ -33,11 +37,11 @@ La [regla versionada](../../rules/anthwatch_ssh_rules.xml) tiene ID `100100`, ni
 - `same_user` mantiene la asociación con la cuenta decodificada en `dstuser` en estas muestras.
 - El diseño mantiene el alcance por agente con `global_frequency` deshabilitado.
 
-Se comprobó el umbral con tres fallos más éxito (alerta propia) y dos fallos más éxito (regla base de éxito). La alerta lleva las etiquetas MITRE `T1110.001` y `T1078`.
+Comprobé el umbral con dos secuencias: tres fallos más éxito activaron mi regla; dos fallos más éxito terminaron en la regla base de acceso correcto. Añadí las etiquetas MITRE `T1110.001` y `T1078`.
 
 ## Validación previa con wazuh-logtest
 
-Primero se verificaron las reglas instaladas y la decodificación: `Failed password` activa `5760` y `Accepted password` activa `5715`; ambos mensajes contienen `dstuser` y `srcip`. Después se guardó la regla local y se abrió una sesión nueva para cada escenario independiente, sin reiniciar aún el manager.
+Primero revisé las reglas instaladas y la decodificación: `Failed password` activa `5760` y `Accepted password` activa `5715`. Comprobé que ambos mensajes contenían `dstuser` y `srcip`. Guardé la regla local y abrí una sesión nueva de logtest para cada escenario, antes de reiniciar el manager.
 
 Los [registros y las instrucciones reproducibles](../../tests/caso-003/README.md) permiten repetir las comprobaciones.
 
@@ -55,7 +59,7 @@ Las muestras y sus resultados están separados de las evidencias de la simulaci�
 
 ## Despliegue realizado
 
-La regla se guardó en `/var/ossec/etc/rules/anthwatch_ssh_rules.xml`. Se ejecutó:
+Guardé la regla en `/var/ossec/etc/rules/anthwatch_ssh_rules.xml`. Validé la configuración, reinicié el manager y comprobé su estado:
 
 ```bash
 sudo /var/ossec/bin/wazuh-analysisd -t
@@ -71,13 +75,13 @@ Para reproducir el despliegue desde este repositorio, copiar el XML al directori
 
 ## Simulación con conexiones reales
 
-Desde la terminal de `anthwatch-client`:
+En la terminal de `anthwatch-client` ejecuté:
 
 ```bash
 ssh -o PubkeyAuthentication=no -o PreferredAuthentications=password -o NumberOfPasswordPrompts=3 anthlab@192.168.56.102
 ```
 
-Se introdujo una contraseña incorrecta tres veces. La conexión terminó con `Permission denied`. A continuación se abrió otra conexión y se introdujo la contraseña correcta, antes de agotar la ventana:
+Introduje una contraseña incorrecta tres veces y la conexión terminó con `Permission denied`. Después abrí otra conexión e introduje la contraseña correcta dentro de la ventana:
 
 ```bash
 ssh -o PubkeyAuthentication=no -o PreferredAuthentications=password anthlab@192.168.56.102
@@ -98,9 +102,9 @@ Oct 22 12:12:49 anthwatch-server sshd[2232]: Failed password for anthlab from 19
 Oct 22 12:13:03 anthwatch-server sshd[2234]: Accepted password for anthlab from 192.168.56.101 port 57914 ssh2
 ```
 
-Hay **23 segundos entre el primer fallo y el éxito**, según las marcas de los mensajes originales. Los tres fallos comparten PID y puerto; el éxito pertenece a otra conexión. Se distinguen así los fallos de contraseña de las conexiones SSH.
+Calculé **23 segundos entre el primer fallo y el éxito** con las marcas de los mensajes originales. Los tres fallos comparten PID y puerto; el éxito pertenece a otra conexión. Usé esos campos para distinguir los fallos de contraseña de las conexiones SSH.
 
-**La hora de las tres VMs se corrigió antes del caso 003**, configurando Europe/Madrid y NTP. La terminal muestra **14:13:03 CEST** y el dashboard **22/10/2026 14:13:04.148**. El colector de journald de Wazuh 4.14.9 formatea el mensaje en UTC mediante `gmtime_r`: **12:13:03** en `full_log` equivale a **14:13:03 CEST**. La [revisión del código y las fuentes](../evidencias/README.md#representación-horaria-de-journald-en-wazuh-4149) explica esta conversión. La duración de 23 segundos se calcula entre los mensajes originales de la misma fuente. Véase [configuración horaria](../estado-del-laboratorio.md#configuración-horaria).
+**Ajusté la hora de las tres VMs antes del caso 003**, configurando Europe/Madrid y NTP. La terminal muestra **14:13:03 CEST** y el dashboard **22/10/2026 14:13:04.148**. El colector de journald de Wazuh 4.14.9 formatea el mensaje en UTC mediante `gmtime_r`: **12:13:03** en `full_log` equivale a **14:13:03 CEST**. Documenté esta conversión en la [revisión del código y las fuentes](../evidencias/README.md#representación-horaria-de-journald-en-wazuh-4149). Calculé los 23 segundos entre mensajes de la misma fuente. Véase [configuración horaria](../estado-del-laboratorio.md#configuración-horaria).
 
 ![Regla 100100 con los fallos previos y el éxito](../capturas/003-alerta-dashboard.png)
 
@@ -122,9 +126,9 @@ Revisar `previous_output`, `full_log`, identidad y marcas temporales. Las consul
 
 ## Decisión N1
 
-Se cierra el [ticket simulado SOC-003](../tickets/SOC-003.md) como prueba autorizada. El patrón detectado es correcto y la cuenta se utilizó con permiso. No se aplicó contención ni se realizó un escalado real.
+Cerré el [ticket simulado SOC-003](../tickets/SOC-003.md) como prueba autorizada: la alerta detectó la secuencia que había generado con mi cuenta. No apliqué contención ni hice un escalado real.
 
-En una situación sin contexto de simulación, verificar la autorización del acceso, el uso habitual de la cuenta y de la IP, los privilegios y la actividad posterior. Escalar a N2 si el usuario niega el acceso, el origen no se justifica o aparecen acciones sospechosas. La prioridad operativa se decide con ese contexto, no únicamente por el nivel 10 de la regla.
+En un caso real comprobaría la autorización del acceso, el uso habitual de la cuenta y la IP, los privilegios y la actividad posterior. Escalaría a N2 si el usuario niega el acceso, el origen no se justifica o aparecen acciones sospechosas. Con ese contexto decidiría la prioridad operativa, además de revisar el nivel 10 de la regla.
 
 ## Límites de la validación
 
@@ -136,7 +140,7 @@ En una situación sin contexto de simulación, verificar la autorización del ac
 
 ## Siguiente paso
 
-Realizar una búsqueda basada en una hipótesis sobre accesos SSH y actividad posterior, con las tres VMs existentes. Primero verificar la cobertura de sesiones y `sudo`; no presuponer telemetría de comandos o procesos. Windows queda aplazado por el límite de 16 GB de RAM del portátil.
+El [Hunt 001](../hunts/001-ssh-y-sudo.md) amplía el análisis a SSH y sudo y revisa la calidad de los datos. El siguiente paso es ampliar la telemetría de procesos y contrastar Filebeat y los documentos del índice con `_id`. Windows sigue aplazado por el límite de 16 GB de RAM del portátil.
 
 ## Referencias
 

@@ -1,0 +1,6 @@
+2026-10-22T19:07:16.502003+02:00 anthwatch-server sshd[2078]: Accepted password for anthlab from 192.168.56.101 port 55578 ssh2
+2026-10-22T19:07:16.502731+02:00 anthwatch-server sshd[2078]: pam_unix(sshd:session): session opened for user anthlab(uid=1000) by anthlab(uid=0)
+2026-10-22T19:07:16.506958+02:00 anthwatch-server systemd-logind[644]: New session 4 of user anthlab.
+2026-10-22T19:07:28.505149+02:00 anthwatch-server sudo:  anthlab : TTY=pts/1 ; PWD=/home/anthlab ; USER=root ; COMMAND=/usr/bin/id
+2026-10-22T19:07:28.603679+02:00 anthwatch-server sudo: pam_unix(sudo:session): session opened for user root(uid=0) by anthlab(uid=1000)
+2026-10-22T19:07:28.603775+02:00 anthwatch-server sudo: pam_unix(sudo:session): session closed for user root

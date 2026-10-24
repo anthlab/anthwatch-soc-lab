@@ -2,7 +2,7 @@
 
 [Volver al README](../../README.md)
 
-**Versión:** 1.2 · 22/10/2026.  
+**Versión:** 1.3 · 24/10/2026.  
 **Tipo:** procedimiento manual propuesto para el laboratorio.  
 **Validación:** aplicado retrospectivamente a las evidencias del [caso 001](../casos/001-autenticacion-ssh.md) y ampliado con el [caso 002](../casos/002-usuario-inexistente-repetido.md) y el [caso 003](../casos/003-ssh-fallos-seguidos-de-exito.md). No es una automatización de respuesta.
 
@@ -68,6 +68,12 @@ agent.name:"anthwatch-server" AND rule.id:100100
 ```
 
 Contrastar `data.dstuser`, `data.srcip`, `full_log` y los fallos de `previous_output`. La secuencia validada es tres fallos y un éxito, misma cuenta e IP, en 120 segundos. Confirmar el umbral en el XML y en las pruebas, no solo en `frequency`. El caso real dura 23 segundos y termina en un acceso autorizado. Investigar la actividad posterior según la cobertura disponible; este caso no valida telemetría de procesos.
+
+### Actividad posterior y calidad del dato
+
+El [Hunt 001](../hunts/001-ssh-y-sudo.md) amplía la revisión a sesiones y sudo. Buscar `rule.groups:sudo` y revisar `5402` y `5403`; contar por separado comandos, sesiones y aperturas/cierres PAM. Relacionar cuenta, terminal, IP/puerto y tiempo sin atribuir automáticamente toda actividad de una cuenta a una sola sesión.
+
+Comprobar `location` antes de normalizar horas. La recogida pasó de journald a auth.log; revisar mensajes individuales si rsyslog agrupa repetidos. Ante dos documentos, comparar `_index`, `_id`, `id` de alerta y registro del manager antes de contar dos acciones. Un duplicado del índice no demuestra duplicación en el motor de correlación. Consultar la [revalidación de 100100](../casos/003-revalidacion.md).
 
 ## 3. Clasificar y priorizar
 

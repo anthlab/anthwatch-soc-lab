@@ -1,0 +1,14 @@
+2026-10-22T20:07:34.309848+02:00 anthwatch-server sshd[2512]: Received disconnect from 192.168.56.101 port 44804:11: disconnected by user
+2026-10-22T20:07:34.380470+02:00 anthwatch-server sshd[2512]: Disconnected from user anthlab 192.168.56.101 port 44804
+2026-10-22T20:07:34.396459+02:00 anthwatch-server sshd[2455]: pam_unix(sshd:session): session closed for user anthlab
+2026-10-22T20:07:34.396858+02:00 anthwatch-server systemd-logind[644]: Session 13 logged out. Waiting for processes to exit.
+2026-10-22T20:07:34.396966+02:00 anthwatch-server systemd-logind[644]: Removed session 13.
+2026-10-22T20:07:47.095273+02:00 anthwatch-server sshd[2655]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.56.101  user=anthlab
+2026-10-22T20:07:49.077659+02:00 anthwatch-server sshd[2655]: Failed password for anthlab from 192.168.56.101 port 52640 ssh2
+2026-10-22T20:07:53.558096+02:00 anthwatch-server sshd[2655]: Failed password for anthlab from 192.168.56.101 port 52640 ssh2
+2026-10-22T20:07:57.321162+02:00 anthwatch-server sshd[2655]: Failed password for anthlab from 192.168.56.101 port 52640 ssh2
+2026-10-22T20:07:57.543073+02:00 anthwatch-server sshd[2655]: Connection closed by authenticating user anthlab 192.168.56.101 port 52640 [preauth]
+2026-10-22T20:07:57.543515+02:00 anthwatch-server sshd[2655]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.56.101  user=anthlab
+2026-10-22T20:08:09.403719+02:00 anthwatch-server sshd[2657]: Accepted password for anthlab from 192.168.56.101 port 60570 ssh2
+2026-10-22T20:08:09.404675+02:00 anthwatch-server sshd[2657]: pam_unix(sshd:session): session opened for user anthlab(uid=1000) by anthlab(uid=0)
+2026-10-22T20:08:09.408828+02:00 anthwatch-server systemd-logind[644]: New session 15 of user anthlab.

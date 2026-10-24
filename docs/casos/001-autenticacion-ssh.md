@@ -13,9 +13,9 @@ Aprendí a reconstruir una secuencia y justificar el cierre N1 con el contexto d
 
 ## Objetivo y alcance
 
-Comprobar que Wazuh recibe los registros de autenticación SSH de `anthwatch-server`, distingue un fallo de un acceso correcto y permite identificar el equipo de origen y el usuario.
+Quería comprobar que los registros SSH de `anthwatch-server` llegaban a Wazuh y que podía distinguir un fallo de un acceso correcto, con su origen y usuario.
 
-Desde `anthwatch-client` se introdujo una contraseña incorrecta tres veces y, después, se inició una nueva conexión con la contraseña correcta. El usuario del laboratorio fue `anthlab` en ambos casos. La secuencia se generó manualmente con la cuenta del laboratorio.
+Desde `anthwatch-client` introduje una contraseña incorrecta tres veces. Después abrí otra conexión con la contraseña correcta. Usé `anthlab` en ambas conexiones.
 
 | Componente | Dirección | Papel |
 | --- | --- | --- |
@@ -29,33 +29,33 @@ El entorno utiliza Ubuntu Server 24.04.5 LTS y Wazuh 4.14.9. Los eventos examina
 
 ### 1. Intentos con contraseña incorrecta
 
-Dentro de la sesión SSH de `anthwatch-client`, se ejecutó:
+En la terminal de `anthwatch-client` ejecuté:
 
 ```bash
 ssh -o PubkeyAuthentication=no -o PreferredAuthentications=password -o NumberOfPasswordPrompts=3 anthlab@192.168.56.102
 ```
 
-Se introdujo una contraseña incorrecta en las tres solicitudes. La terminal mostró dos mensajes `Permission denied, please try again.` y terminó con `Permission denied (publickey,password).`, devolviendo el control a la consola del cliente.
+Introduje una contraseña incorrecta en las tres solicitudes. La terminal mostró dos mensajes `Permission denied, please try again.` y terminó con `Permission denied (publickey,password).`, devolviendo el control a la consola del cliente.
 
 ![Tres solicitudes de contraseña rechazadas desde anthwatch-client](../capturas/ssh-intentos-fallidos-terminal.png)
 
 ### 2. Búsqueda en Wazuh
 
-En **Threat Hunting** se seleccionaron los últimos 15 minutos y se aplicó el filtro:
+En **Threat Hunting** seleccioné los últimos 15 minutos y apliqué este filtro:
 
 ```text
 agent.name:"anthwatch-server" AND rule.groups:sshd
 ```
 
-El panel de esa ventana temporal mostró seis eventos: cuatro de fallo y dos de autenticación correcta. Estos contadores incluyen toda la actividad que coincide con el filtro en ese intervalo; no se interpretan como el número exacto de contraseñas introducidas en la conexión de prueba.
+El panel mostró seis eventos: cuatro fallos y dos accesos correctos. Para entender qué correspondía a la prueba, abrí el detalle de los registros.
 
 ![Vista general de eventos SSH en Wazuh](../capturas/ssh-eventos-dashboard.png)
 
-Se abrió **Events** y se examinó un fallo reciente. Sus campos confirmaron el origen `192.168.56.101`, el destino monitorizado `anthwatch-server` y el usuario `anthlab`.
+En **Events** revisé un fallo reciente. Comprobé el origen `192.168.56.101`, el destino monitorizado `anthwatch-server` y el usuario `anthlab`.
 
 ### 3. Acceso con contraseña correcta
 
-Desde el mismo cliente se inició una nueva conexión, esta vez con la contraseña correcta:
+Desde el mismo cliente abrí otra conexión con la contraseña correcta:
 
 ```bash
 ssh -o PubkeyAuthentication=no -o PreferredAuthentications=password anthlab@192.168.56.102
@@ -96,11 +96,11 @@ Este caso conserva las horas originales anteriores al ajuste horario. La configu
 
 ## Análisis
 
-Los dos eventos seleccionados tienen el mismo origen y el mismo usuario, y se registran en el agente del servidor. Esto permite reconstruir una secuencia de fallo seguida de acceso correcto. Los distintos puertos de origen y procesos `sshd` son coherentes con conexiones distintas.
+Relacioné los dos eventos por el origen, el usuario y el agente del servidor. Los puertos de origen y los procesos `sshd` eran distintos: el fallo y el éxito pertenecían a conexiones diferentes.
 
 La regla `5760`, de nivel 5, identifica el fallo. La regla `5715`, de nivel 3, identifica el acceso correcto. Los niveles son los valores de las reglas observadas; la prioridad del caso se valora además con el contexto de la prueba.
 
-La captura del fallo contiene `rule.firedtimes: 4` y la del acceso correcto `rule.firedtimes: 6`. No se usan esos valores como conteo de intentos de una conexión concreta.
+Revisé también `rule.firedtimes`: la captura del fallo muestra `4` y la del acceso correcto `6`.
 
 ### Etiquetas MITRE ATT&CK observadas
 
@@ -111,27 +111,29 @@ La captura del fallo contiene `rule.firedtimes: 4` y la del acceso correcto `rul
 
 Las etiquetas MITRE facilitan la clasificación de los eventos observados.
 
-## Conclusión y límites
+## Resultado
 
-La prueba valida la recogida y el análisis de registros SSH: Wazuh muestra un fallo de contraseña y un acceso correcto, ambos del cliente al servidor y con el usuario esperado.
+Comprobé que Wazuh recibía y analizaba ambos tipos de registro. El fallo y el acceso correcto mostraban el cliente, el servidor y el usuario esperados.
 
-No se confirma una cuenta comprometida, un ataque real ni una alerta correlacionada de fuerza bruta. La relación entre los dos eventos se estableció al revisarlos manualmente; en este caso no se validó una regla que detectara específicamente «fallos seguidos de éxito». Esa detección se completó después en el caso 003.
+## Límites
+
+Relacioné los eventos manualmente. La detección automática de «fallos seguidos de éxito» la trabajé después en el caso 003. Esta primera prueba valida la recogida de autenticaciones, con actividad autorizada.
 
 Las etiquetas MITRE son metadatos de las reglas y el acceso de la prueba fue autorizado. Tampoco se conservó una captura de `hostname` y `exit`.
 
-La evidencia incluye una terminal con tres solicitudes fallidas, una vista general y el detalle de un fallo y de un acceso correcto. No se dispone de una exportación completa de los eventos, por lo que no se reconstruye cada fallo individual ni se atribuyen todos los contadores del panel a esta prueba. Tampoco se conservó evidencia del estado del adaptador NAT durante la ejecución.
+Conservé la terminal con tres solicitudes fallidas, la vista general y el detalle de un fallo y un éxito. Falta una exportación completa para reconstruir cada intento. Los contadores del panel incluyen toda la ventana consultada y `rule.firedtimes` cuenta activaciones de la regla, no intentos de una conexión concreta. Tampoco conservé el estado del adaptador NAT durante la ejecución.
 
 ## Decisión y respuesta propuesta
 
-Se cierra la validación como actividad autorizada del laboratorio, sin medidas de contención.
+Cerré el caso como actividad autorizada del laboratorio, sin aplicar contención.
 
-En un entorno real, antes de cerrar una secuencia similar se comprobarían la autorización del acceso, la procedencia de la IP, el historial del usuario y la actividad posterior. Se escalaría si el usuario niega el acceso, el origen no es esperado o aparecen acciones sospechosas. Según los hallazgos, se propondrían medidas sobre la cuenta, las sesiones y el origen de la conexión.
+En un entorno real comprobaría quién hizo el acceso, desde dónde y qué ocurrió después. Escalaría si el usuario lo niega, el origen es inesperado o aparecen acciones sospechosas. Con esos datos valoraría medidas sobre la cuenta, las sesiones y el origen.
 
 ## Próximos pasos
 
 - Prueba posterior completada: [caso 002](002-usuario-inexistente-repetido.md), correlación con usuario inexistente y control de menor volumen. Sus resultados no se atribuyen al caso 001.
 - Prueba posterior completada: [caso 003](003-ssh-fallos-seguidos-de-exito.md), regla propia para fallos SSH seguidos de éxito desde la misma IP y con el mismo usuario.
-- Después: realizar una búsqueda guiada por una hipótesis. El orden y los criterios de validación están en la [hoja de ruta](../hoja-de-ruta.md).
+- Investigación posterior completada: [Hunt 001](../hunts/001-ssh-y-sudo.md), accesos SSH y actividad con sudo. El seguimiento está en la [hoja de ruta](../hoja-de-ruta.md).
 - El ajuste horario se completó antes del caso 003. En las siguientes pruebas se conservarán también exportaciones de los registros.
 
 ## Documentación operativa

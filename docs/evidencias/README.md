@@ -1,5 +1,13 @@
 # Evidencias originales y configuración horaria
 
+## Hunt y revalidación · Actualización del 24/10/2026
+
+- [Hunt 001](hunt-001/README.md): exportación original de 28 comandos sudo y manifiesto SHA-256 generado al integrar.
+- [Revalidación del caso 003](revalidacion-003/README.md): entradas, salidas, tiempos, XML y manifiestos originales; verificación portátil adicional.
+- [Ingesta journald](ingesta-journald/README.md): diagnóstico del manager y alerta original investigada por duplicación documental.
+
+El formato UTC descrito abajo corresponde a journald. Los eventos posteriores de auth.log contienen zona explícita y deben interpretarse según su propio formato.
+
 ## Archivos originales del laboratorio
 
 | Archivo | Procedencia y contenido |

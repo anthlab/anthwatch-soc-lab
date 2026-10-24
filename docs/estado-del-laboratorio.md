@@ -126,15 +126,21 @@ El [caso 001](casos/001-autenticacion-ssh.md) aplica esta estructura: objetivo, 
 
 El [caso 003](casos/003-ssh-fallos-seguidos-de-exito.md) valida `100100`, nivel 10: tres fallos y un éxito desde `.101` hacia `.102`, misma cuenta `anthlab`, en 23 segundos. Se probaron registros de muestra con `wazuh-logtest` antes de reiniciar el manager y se conservaron controles de umbral, identidad y tiempo. El informe, XML, muestras, capturas y ticket están versionados.
 
+## Hunt y revalidación
+
+El [Hunt 001](hunts/001-ssh-y-sudo.md) documenta SSH seguido de sudo y corrige el inventario a 28 comandos: 26 `5402` y 2 `5403`. La exportación conserva el cambio de journald a `/var/log/auth.log`; no debe aplicarse al nuevo formato ISO la corrección horaria histórica de journald.
+
+La [revalidación del caso 003](casos/003-revalidacion.md) conserva resultados completos de logtest para positiva, otra IP, otro usuario y control temporal con espera declarada de 130,003 s (132,122 s entre marcas). El XML recogido y el del repositorio tienen la misma lógica. Conservé también los [originales de la corrección de rsyslog y la nueva prueba real](validaciones/caso-003-auth-log/README.md).
+
 ## Configuración horaria
 
 La hora de las tres VMs se ajustó antes del caso 003; las salidas de `timedatectl` confirman Europe/Madrid, reloj sincronizado y NTP activo. La diferencia de dos horas entre `full_log` y la hora local se debe al formato UTC del colector de journald de Wazuh 4.14.9. Los archivos originales, las comparaciones y las líneas del código están en [evidencias](evidencias/README.md).
 
 ## Próximas fases
 
-La siguiente prioridad es una investigación guiada por una hipótesis, con las mismas tres VMs. Windows queda aplazado por los 16 GB de RAM del portátil. El alcance y la cobertura que falta verificar se recogen en la [hoja de ruta](hoja-de-ruta.md).
+El primer hunt está documentado. Mi siguiente prioridad es recoger Filebeat y los documentos con `_id` para contrastar la hipótesis de reintentos, y ampliar cobertura de procesos. Windows queda aplazado por los 16 GB de RAM del portátil. El alcance y la cobertura que falta verificar se recogen en la [hoja de ruta](hoja-de-ruta.md).
 
-Las ampliaciones de Windows, integridad de archivos, usuarios y actividad con `sudo` servirán para enriquecer las investigaciones posteriores.
+Las ampliaciones de integridad de archivos, usuarios y procesos servirán para enriquecer las investigaciones posteriores; la primera revisión de actividad con `sudo` ya está documentada.
 
 ## Documentación
 

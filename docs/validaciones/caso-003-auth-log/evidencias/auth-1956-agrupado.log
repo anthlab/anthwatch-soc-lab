@@ -1,0 +1,8 @@
+2026-10-22T19:56:06.579355+02:00 anthwatch-server sshd[2453]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.56.101  user=anthlab
+2026-10-22T19:56:19.166755+02:00 anthwatch-server sshd[2453]: Failed password for anthlab from 192.168.56.101 port 53022 ssh2
+2026-10-22T19:56:26.517590+02:00 anthwatch-server sshd[2453]: message repeated 2 times: [ Failed password for anthlab from 192.168.56.101 port 53022 ssh2]
+2026-10-22T19:56:27.744920+02:00 anthwatch-server sshd[2453]: Connection closed by authenticating user anthlab 192.168.56.101 port 53022 [preauth]
+2026-10-22T19:56:27.746228+02:00 anthwatch-server sshd[2453]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.56.101  user=anthlab
+2026-10-22T19:56:42.430264+02:00 anthwatch-server sshd[2455]: Accepted password for anthlab from 192.168.56.101 port 44804 ssh2
+2026-10-22T19:56:42.431727+02:00 anthwatch-server sshd[2455]: pam_unix(sshd:session): session opened for user anthlab(uid=1000) by anthlab(uid=0)
+2026-10-22T19:56:42.436169+02:00 anthwatch-server systemd-logind[644]: New session 13 of user anthlab.

@@ -1,0 +1,4 @@
+2026-10-24T19:38:55.160573+02:00 anthwatch-server sshd[9301]: Failed password for anthlab from 192.168.56.101 port 49001 ssh2
+2026-10-24T19:38:55.160616+02:00 anthwatch-server sshd[9301]: Failed password for anthlab from 192.168.56.101 port 49001 ssh2
+2026-10-24T19:38:55.160637+02:00 anthwatch-server sshd[9301]: Failed password for anthlab from 192.168.56.101 port 49001 ssh2
+2026-10-24T19:41:07.282485+02:00 anthwatch-server sshd[9302]: Accepted password for anthlab from 192.168.56.101 port 49002 ssh2
