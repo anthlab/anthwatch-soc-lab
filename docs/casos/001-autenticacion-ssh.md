@@ -49,6 +49,8 @@ agent.name:"anthwatch-server" AND rule.groups:sshd
 
 El panel mostró seis eventos: cuatro fallos y dos accesos correctos. Para entender qué correspondía a la prueba, abrí el detalle de los registros.
 
+**Revisión posterior:** esta franja contiene documentos duplicados en el índice; la captura muestra lo que había entonces. Al repetir hoy la consulta pueden aparecer recuentos distintos. Documenté el contraste en la [revisión de duplicados](../hunts/hunt-001/repeticiones-exportacion.md#pista-temporal-en-la-captura-del-caso-001).
+
 ![Vista general de eventos SSH en Wazuh](../capturas/ssh-eventos-dashboard.png)
 
 En **Events** revisé un fallo reciente. Comprobé el origen `192.168.56.101`, el destino monitorizado `anthwatch-server` y el usuario `anthlab`.

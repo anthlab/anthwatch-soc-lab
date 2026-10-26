@@ -1,0 +1,1193 @@
+{
+  "review_date": "2026-10-26",
+  "scope": "wazuh-alerts-4.x-* accessible to the query user",
+  "total_documents": {
+    "value": 1672,
+    "relation": "eq"
+  },
+  "shards": {
+    "total": 21,
+    "successful": 21,
+    "skipped": 0,
+    "failed": 0
+  },
+  "timed_out": false,
+  "aggregation_error_upper_bound": 0,
+  "sum_other_doc_count": 0,
+  "repeated_id_groups": 68,
+  "documents_in_groups": 136,
+  "identical_source_pairs": 68,
+  "console_triple_quoted_strings_normalized": 12,
+  "rules_by_pair": {
+    "503": 2,
+    "502": 1,
+    "5503": 9,
+    "5760": 4,
+    "5501": 12,
+    "5715": 7,
+    "5502": 7,
+    "2502": 1,
+    "5402": 2,
+    "5710": 15,
+    "5712": 1,
+    "2904": 4,
+    "2902": 1,
+    "5551": 1,
+    "506": 1
+  },
+  "agents_by_pair": {
+    "anthwatch-server": 43,
+    "anthwatch-wazuh": 10,
+    "anthwatch-client": 15
+  },
+  "indices_by_pair": {
+    "wazuh-alerts-4.x-2026.10.21": 66,
+    "wazuh-alerts-4.x-2026.10.22": 2
+  },
+  "historical_csv_pairs_matched": [
+    {
+      "id": "1792623715.15517",
+      "rule_id": "5502",
+      "timestamp_csv": "Oct 22, 2026 @ 01:01:55.130",
+      "all_exported_fields_match": true
+    },
+    {
+      "id": "1792622339.11745",
+      "rule_id": "5501",
+      "timestamp_csv": "Oct 22, 2026 @ 00:38:59.117",
+      "all_exported_fields_match": true
+    },
+    {
+      "id": "1792622339.11276",
+      "rule_id": "5715",
+      "timestamp_csv": "Oct 22, 2026 @ 00:38:59.087",
+      "all_exported_fields_match": true
+    },
+    {
+      "id": "1792621956.6989",
+      "rule_id": "5502",
+      "timestamp_csv": "Oct 22, 2026 @ 00:32:36.249",
+      "all_exported_fields_match": true
+    },
+    {
+      "id": "1792621933.6539",
+      "rule_id": "5501",
+      "timestamp_csv": "Oct 22, 2026 @ 00:32:13.721",
+      "all_exported_fields_match": true
+    },
+    {
+      "id": "1792621933.6071",
+      "rule_id": "5715",
+      "timestamp_csv": "Oct 22, 2026 @ 00:32:13.629",
+      "all_exported_fields_match": true
+    },
+    {
+      "id": "1792621731.2538",
+      "rule_id": "5501",
+      "timestamp_csv": "Oct 22, 2026 @ 00:28:51.571",
+      "all_exported_fields_match": true
+    },
+    {
+      "id": "1792621731.1624",
+      "rule_id": "5501",
+      "timestamp_csv": "Oct 22, 2026 @ 00:28:51.554",
+      "all_exported_fields_match": true
+    },
+    {
+      "id": "1792621731.2074",
+      "rule_id": "5715",
+      "timestamp_csv": "Oct 22, 2026 @ 00:28:51.554",
+      "all_exported_fields_match": true
+    }
+  ],
+  "pairs": [
+    {
+      "id": "1792621678.0",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "dYGXYKEBuyfJP5vvRLwx",
+        "7m3EYKEB2FcM32JORPmE"
+      ],
+      "timestamp_utc": "2026-10-21T22:27:58.962+0000",
+      "timestamp_madrid": "2026-10-22T00:27:58.962000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "503",
+      "location": "wazuh-agent",
+      "source_equal": true,
+      "source_sha256": "4662561dd81ddf7bb0d2e9d1188cc33e38f29de092e0f2f3061c08d8a49aa5d8"
+    },
+    {
+      "id": "1792621679.337",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "723EYKEB2FcM32JORPmE",
+        "doGXYKEBuyfJP5vvRLwz"
+      ],
+      "timestamp_utc": "2026-10-21T22:27:59.724+0000",
+      "timestamp_madrid": "2026-10-22T00:27:59.724000+02:00",
+      "agent_id": "000",
+      "agent_name": "anthwatch-wazuh",
+      "rule_id": "502",
+      "location": "wazuh-monitord",
+      "source_equal": true,
+      "source_sha256": "cc546d3bca01de57958b5fb79ea3e67c6899f91f44553db7c529e74792c5c847"
+    },
+    {
+      "id": "1792621727.590",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "8G3EYKEB2FcM32JORPmE",
+        "eoGXYKEBuyfJP5vvX7zz"
+      ],
+      "timestamp_utc": "2026-10-21T22:28:47.500+0000",
+      "timestamp_madrid": "2026-10-22T00:28:47.500000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5503",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "7fb940be2899d5e3a35a859069301f5342cbf00c2f181a7c681eefc03fe0a336"
+    },
+    {
+      "id": "1792621729.1134",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "e4GXYKEBuyfJP5vvX7z0",
+        "8W3EYKEB2FcM32JORPmE"
+      ],
+      "timestamp_utc": "2026-10-21T22:28:49.543+0000",
+      "timestamp_madrid": "2026-10-22T00:28:49.543000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5760",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "bbe54cfd398da1cd57459065388ea70692585f9561c13c3a2f927aeffd0d9e48"
+    },
+    {
+      "id": "1792621731.1624",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "8m3EYKEB2FcM32JORPmE",
+        "fIGXYKEBuyfJP5vvX7z0"
+      ],
+      "timestamp_utc": "2026-10-21T22:28:51.554+0000",
+      "timestamp_madrid": "2026-10-22T00:28:51.554000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5501",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "c9b60aca9f747d6c1788f35216663c4affe3e0f44cf681801b93734a8f4e97b2"
+    },
+    {
+      "id": "1792621731.2074",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "823EYKEB2FcM32JORPmE",
+        "fYGXYKEBuyfJP5vvX7z0"
+      ],
+      "timestamp_utc": "2026-10-21T22:28:51.554+0000",
+      "timestamp_madrid": "2026-10-22T00:28:51.554000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5715",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "151fc6a5e4c2e64f5ede830def4b6f7cf61560ed536ca738d1113d7c5f677e78"
+    },
+    {
+      "id": "1792621731.2538",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "9G3EYKEB2FcM32JORPmE",
+        "foGXYKEBuyfJP5vvX7z0"
+      ],
+      "timestamp_utc": "2026-10-21T22:28:51.571+0000",
+      "timestamp_madrid": "2026-10-22T00:28:51.571000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5501",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "fd57f933b26491c325d34881168e29275e6958af1af45b3aa723ca66c5dd0591"
+    },
+    {
+      "id": "1792621733.3001",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "9W3EYKEB2FcM32JORPmE",
+        "f4GXYKEBuyfJP5vvX7z0"
+      ],
+      "timestamp_utc": "2026-10-21T22:28:53.436+0000",
+      "timestamp_madrid": "2026-10-22T00:28:53.436000+02:00",
+      "agent_id": "002",
+      "agent_name": "anthwatch-client",
+      "rule_id": "503",
+      "location": "wazuh-agent",
+      "source_equal": true,
+      "source_sha256": "c5c2cce6190872db4d2207fdd8c9d89774dbe15512d2586d3a3921facc643a7d"
+    },
+    {
+      "id": "1792621749.3341",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "gIGXYKEBuyfJP5vvX7z0",
+        "9m3EYKEB2FcM32JORPmE"
+      ],
+      "timestamp_utc": "2026-10-21T22:29:09.834+0000",
+      "timestamp_madrid": "2026-10-22T00:29:09.834000+02:00",
+      "agent_id": "002",
+      "agent_name": "anthwatch-client",
+      "rule_id": "5501",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "df2bdc089b129554f83f4a4c02064ad093b8b1994619c97ae041ef5d0f07a7d9"
+    },
+    {
+      "id": "1792621749.3791",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "gYGXYKEBuyfJP5vvX7z0",
+        "923EYKEB2FcM32JORPmE"
+      ],
+      "timestamp_utc": "2026-10-21T22:29:09.834+0000",
+      "timestamp_madrid": "2026-10-22T00:29:09.834000+02:00",
+      "agent_id": "002",
+      "agent_name": "anthwatch-client",
+      "rule_id": "5715",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "1b7f95e5cdefa693fb040bab734da44d6b005ce54c55a14a8901acbcece8a206"
+    },
+    {
+      "id": "1792621751.4255",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "-G3EYKEB2FcM32JORPmE",
+        "goGXYKEBuyfJP5vvX7z0"
+      ],
+      "timestamp_utc": "2026-10-21T22:29:11.913+0000",
+      "timestamp_madrid": "2026-10-22T00:29:11.913000+02:00",
+      "agent_id": "002",
+      "agent_name": "anthwatch-client",
+      "rule_id": "5501",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "51b229d6994e1d746a3e49e5c3f8001ba5339391f4e7c37b10df412b85b604d4"
+    },
+    {
+      "id": "1792621785.4718",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "-W3EYKEB2FcM32JORPmE",
+        "g4GXYKEBuyfJP5vvX7z0"
+      ],
+      "timestamp_utc": "2026-10-21T22:29:45.116+0000",
+      "timestamp_madrid": "2026-10-22T00:29:45.116000+02:00",
+      "agent_id": "000",
+      "agent_name": "anthwatch-wazuh",
+      "rule_id": "5501",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "a2f309459c6392951a1577266c261ede6655ab433ee67e7e7506a5a734bd617e"
+    },
+    {
+      "id": "1792621785.5160",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "-m3EYKEB2FcM32JORPmE",
+        "hIGXYKEBuyfJP5vvX7z0"
+      ],
+      "timestamp_utc": "2026-10-21T22:29:45.116+0000",
+      "timestamp_madrid": "2026-10-22T00:29:45.116000+02:00",
+      "agent_id": "000",
+      "agent_name": "anthwatch-wazuh",
+      "rule_id": "5715",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "055ce9c57d521da2a53e584ec199924487547220b6e3b8517d6228e5d0a43ed8"
+    },
+    {
+      "id": "1792621787.5616",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "-23EYKEB2FcM32JORPmE",
+        "hYGXYKEBuyfJP5vvX7z0"
+      ],
+      "timestamp_utc": "2026-10-21T22:29:47.125+0000",
+      "timestamp_madrid": "2026-10-22T00:29:47.125000+02:00",
+      "agent_id": "000",
+      "agent_name": "anthwatch-wazuh",
+      "rule_id": "5501",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "90260df0c1870fbecf47cbc1afc615463fe2ce012b6e677b2114df8782b80d57"
+    },
+    {
+      "id": "1792621933.6071",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "_G3EYKEB2FcM32JORPmE",
+        "hoGYYKEBuyfJP5vvDryk"
+      ],
+      "timestamp_utc": "2026-10-21T22:32:13.629+0000",
+      "timestamp_madrid": "2026-10-22T00:32:13.629000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5715",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "996564e0d3eee9752883134c2dfb406b2d1577d77a9076fae4486fe978caddc7"
+    },
+    {
+      "id": "1792621933.6539",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "_W3EYKEB2FcM32JORPmE",
+        "h4GYYKEBuyfJP5vvDryk"
+      ],
+      "timestamp_utc": "2026-10-21T22:32:13.721+0000",
+      "timestamp_madrid": "2026-10-22T00:32:13.721000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5501",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "7f4570a5f370a20892ee61ccdce968268aaa1cd9c122a37df678bb2a32c99a86"
+    },
+    {
+      "id": "1792621956.6989",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "iIGYYKEBuyfJP5vvcLxH",
+        "_m3EYKEB2FcM32JORPmE"
+      ],
+      "timestamp_utc": "2026-10-21T22:32:36.249+0000",
+      "timestamp_madrid": "2026-10-22T00:32:36.249000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5502",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "82bf8c390da884f55412c40c70f156a50d7416e467c4fdbc13819f1aa96891fb"
+    },
+    {
+      "id": "1792621956.7381",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "iYGYYKEBuyfJP5vvcLxH",
+        "_23EYKEB2FcM32JORPmE"
+      ],
+      "timestamp_utc": "2026-10-21T22:32:36.284+0000",
+      "timestamp_madrid": "2026-10-22T00:32:36.284000+02:00",
+      "agent_id": "002",
+      "agent_name": "anthwatch-client",
+      "rule_id": "5502",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "5cf58107e4f5ae6a4ebaa09de5ce3872d5ba3f953d385af13bb1f1b56a7ce3ca"
+    },
+    {
+      "id": "1792621962.7773",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "AG3EYKEB2FcM32JORPqE",
+        "ioGYYKEBuyfJP5vvcLxH"
+      ],
+      "timestamp_utc": "2026-10-21T22:32:42.201+0000",
+      "timestamp_madrid": "2026-10-22T00:32:42.201000+02:00",
+      "agent_id": "002",
+      "agent_name": "anthwatch-client",
+      "rule_id": "5501",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "273cbead70adfdf61a67ecd1a4997c93778e549c89a8789feb5140ff2c06fbc3"
+    },
+    {
+      "id": "1792621962.8223",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "AW3EYKEB2FcM32JORPqE",
+        "i4GYYKEBuyfJP5vvcLxH"
+      ],
+      "timestamp_utc": "2026-10-21T22:32:42.201+0000",
+      "timestamp_madrid": "2026-10-22T00:32:42.201000+02:00",
+      "agent_id": "002",
+      "agent_name": "anthwatch-client",
+      "rule_id": "5715",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "b2c8a10d054afd33783b26e6fd5c6c0f2c15f99d305b7b26c0b55e0268611ed2"
+    },
+    {
+      "id": "1792621974.8687",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "jIGYYKEBuyfJP5vvqrz6",
+        "Am3EYKEB2FcM32JORPqE"
+      ],
+      "timestamp_utc": "2026-10-21T22:32:54.344+0000",
+      "timestamp_madrid": "2026-10-22T00:32:54.344000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5503",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "a36355e396c07c0594ac0487bc07e264f628a867aff443d331930881bd02906d"
+    },
+    {
+      "id": "1792621976.9236",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "A23EYKEB2FcM32JORPqE",
+        "jYGYYKEBuyfJP5vvqrz6"
+      ],
+      "timestamp_utc": "2026-10-21T22:32:56.323+0000",
+      "timestamp_madrid": "2026-10-22T00:32:56.323000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5760",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "c1130482b804f64cfa007a8ad7434c97c1f02236c4311e2bd6f1163b1f50807f"
+    },
+    {
+      "id": "1792621984.9730",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "BG3EYKEB2FcM32JORPqE",
+        "joGYYKEBuyfJP5vvxrxR"
+      ],
+      "timestamp_utc": "2026-10-21T22:33:04.444+0000",
+      "timestamp_madrid": "2026-10-22T00:33:04.444000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5760",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "e86fac4afbf1aadff5f28ed595982b882f03ed4a1a7089fd68273b1dfa920b56"
+    },
+    {
+      "id": "1792621993.10224",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "j4GZYKEBuyfJP5vvALz9",
+        "BW3EYKEB2FcM32JORPqE"
+      ],
+      "timestamp_utc": "2026-10-21T22:33:13.314+0000",
+      "timestamp_madrid": "2026-10-22T00:33:13.314000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5760",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "8855d9212dfa199e9ca4cef93d30e04b72e4caa06ab773513fe5372f3fe0f66a"
+    },
+    {
+      "id": "1792621995.10719",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "kIGZYKEBuyfJP5vvALz9",
+        "Bm3EYKEB2FcM32JORPqE"
+      ],
+      "timestamp_utc": "2026-10-21T22:33:15.323+0000",
+      "timestamp_madrid": "2026-10-22T00:33:15.323000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "2502",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "10c90bca0c694e286b583f76d71ee98d068628256382859512c1b6acb1c37a57"
+    },
+    {
+      "id": "1792622339.11276",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "k4GeYKEBuyfJP5vvSrwW",
+        "B23EYKEB2FcM32JORPqE"
+      ],
+      "timestamp_utc": "2026-10-21T22:38:59.087+0000",
+      "timestamp_madrid": "2026-10-22T00:38:59.087000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5715",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "7dc3291f4d67ff2dda5cea13a124a2396562b5fbf26e10ce2b12a0af1ae7c64c"
+    },
+    {
+      "id": "1792622339.11745",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "lIGeYKEBuyfJP5vvSrwW",
+        "CG3EYKEB2FcM32JORPqE"
+      ],
+      "timestamp_utc": "2026-10-21T22:38:59.117+0000",
+      "timestamp_madrid": "2026-10-22T00:38:59.117000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5501",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "1873ce1e7245daa67633a219ae39deb2a7a9647897fb4dd47f3bb81909c05a1f"
+    },
+    {
+      "id": "1792623596.12196",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "CW3EYKEB2FcM32JORPqE",
+        "n4GxYKEBuyfJP5vvYbx1"
+      ],
+      "timestamp_utc": "2026-10-21T22:59:56.442+0000",
+      "timestamp_madrid": "2026-10-22T00:59:56.442000+02:00",
+      "agent_id": "000",
+      "agent_name": "anthwatch-wazuh",
+      "rule_id": "5501",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "896db3144c17b59f8943c6950b3107c4a820256debdb1a06a98ff9e7dae6b0b6"
+    },
+    {
+      "id": "1792623596.12636",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "oIGxYKEBuyfJP5vvYbx1",
+        "Cm3EYKEB2FcM32JORPqE"
+      ],
+      "timestamp_utc": "2026-10-21T22:59:56.442+0000",
+      "timestamp_madrid": "2026-10-22T00:59:56.442000+02:00",
+      "agent_id": "000",
+      "agent_name": "anthwatch-wazuh",
+      "rule_id": "5402",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "cc300f935603bd0ec18e0e8e038a1bf260bb2501f995a2910444cd972fb26849"
+    },
+    {
+      "id": "1792623596.13281",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "C23EYKEB2FcM32JORPqE",
+        "oYGxYKEBuyfJP5vvYbx1"
+      ],
+      "timestamp_utc": "2026-10-21T22:59:56.442+0000",
+      "timestamp_madrid": "2026-10-22T00:59:56.442000+02:00",
+      "agent_id": "000",
+      "agent_name": "anthwatch-wazuh",
+      "rule_id": "5502",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "9034505b2af636730ee4a23708de0ac9aa8ccdeef3f5d247713146979ddf972a"
+    },
+    {
+      "id": "1792623612.13660",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "DG3EYKEB2FcM32JORPqE",
+        "poGxYKEBuyfJP5vvnLwR"
+      ],
+      "timestamp_utc": "2026-10-21T23:00:12.469+0000",
+      "timestamp_madrid": "2026-10-22T01:00:12.469000+02:00",
+      "agent_id": "000",
+      "agent_name": "anthwatch-wazuh",
+      "rule_id": "5402",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "5f8be0d844729b65cf86f2d18209aac423c7eb04fb8af615434d601601c7b002"
+    },
+    {
+      "id": "1792623612.14305",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "DW3EYKEB2FcM32JORPqE",
+        "p4GxYKEBuyfJP5vvnLwR"
+      ],
+      "timestamp_utc": "2026-10-21T23:00:12.469+0000",
+      "timestamp_madrid": "2026-10-22T01:00:12.469000+02:00",
+      "agent_id": "000",
+      "agent_name": "anthwatch-wazuh",
+      "rule_id": "5501",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "8a534264648f2e146aa14b2f811c330fb6ce529f999b547b1ff23ab7cbff3a03"
+    },
+    {
+      "id": "1792623612.14745",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "qIGxYKEBuyfJP5vvnLwR",
+        "Dm3EYKEB2FcM32JORPqE"
+      ],
+      "timestamp_utc": "2026-10-21T23:00:12.469+0000",
+      "timestamp_madrid": "2026-10-22T01:00:12.469000+02:00",
+      "agent_id": "000",
+      "agent_name": "anthwatch-wazuh",
+      "rule_id": "5502",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "65b4e01abcafd485ef0200820d5ae0b712df2d98faa8795a7ece4985451cd00a"
+    },
+    {
+      "id": "1792623714.15124",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "qYGzYKEBuyfJP5vvNryG",
+        "D23EYKEB2FcM32JORPqE"
+      ],
+      "timestamp_utc": "2026-10-21T23:01:54.990+0000",
+      "timestamp_madrid": "2026-10-22T01:01:54.990000+02:00",
+      "agent_id": "002",
+      "agent_name": "anthwatch-client",
+      "rule_id": "5502",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "b4dbb7aea07b9fc2311584be7bcd83604987168ecc5a44a4653a56974e98dd05"
+    },
+    {
+      "id": "1792623715.15517",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "EG3EYKEB2FcM32JORPqF",
+        "qoGzYKEBuyfJP5vvNryG"
+      ],
+      "timestamp_utc": "2026-10-21T23:01:55.130+0000",
+      "timestamp_madrid": "2026-10-22T01:01:55.130000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5502",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "cec600beecba9e3711536591f9e0032281cc742e1e67ff3f77629ebf8f4a160b"
+    },
+    {
+      "id": "1792623723.15910",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "EW3EYKEB2FcM32JORPqF",
+        "q4GzYKEBuyfJP5vvUbza"
+      ],
+      "timestamp_utc": "2026-10-21T23:02:03.002+0000",
+      "timestamp_madrid": "2026-10-22T01:02:03.002000+02:00",
+      "agent_id": "002",
+      "agent_name": "anthwatch-client",
+      "rule_id": "5715",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "5c53023f3c1c6b986d1a7d13a2a2159cbae365075da943775c64443acec0c56b"
+    },
+    {
+      "id": "1792623723.16375",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "Em3EYKEB2FcM32JORPqF",
+        "rIGzYKEBuyfJP5vvUbza"
+      ],
+      "timestamp_utc": "2026-10-21T23:02:03.003+0000",
+      "timestamp_madrid": "2026-10-22T01:02:03.003000+02:00",
+      "agent_id": "002",
+      "agent_name": "anthwatch-client",
+      "rule_id": "5501",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "f09c63912d3be80885c66fc917772794431ad9b29c96d2c7acaf47f21fe40892"
+    },
+    {
+      "id": "1792623729.16826",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "E23EYKEB2FcM32JORPqF",
+        "rYGzYKEBuyfJP5vvbbww"
+      ],
+      "timestamp_utc": "2026-10-21T23:02:09.246+0000",
+      "timestamp_madrid": "2026-10-22T01:02:09.246000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5710",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "691c358bc5b5e020efaba801f727d03b3b927fae698f2a3a04fade830b0820bb"
+    },
+    {
+      "id": "1792623758.17376",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "roGzYKEBuyfJP5vv9rxk",
+        "FG3EYKEB2FcM32JORPqF"
+      ],
+      "timestamp_utc": "2026-10-21T23:02:38.183+0000",
+      "timestamp_madrid": "2026-10-22T01:02:38.183000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5503",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "702b1100984a041f52a53c008ca781c9171357bb659fce75f2d57b6a900bb641"
+    },
+    {
+      "id": "1792623762.17898",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "FW3EYKEB2FcM32JORPqF",
+        "r4GzYKEBuyfJP5vv9rxk"
+      ],
+      "timestamp_utc": "2026-10-21T23:02:42.015+0000",
+      "timestamp_madrid": "2026-10-22T01:02:42.015000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5710",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "122f32f3ce20c85025f070301fc54c839c71657b1d4f1f67a4de73197718dcf2"
+    },
+    {
+      "id": "1792623763.18457",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "sIGzYKEBuyfJP5vv9rxk",
+        "Fm3EYKEB2FcM32JORPqF"
+      ],
+      "timestamp_utc": "2026-10-21T23:02:43.974+0000",
+      "timestamp_madrid": "2026-10-22T01:02:43.974000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5710",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "ae7d0930f31bc29fd722075d748202e9b115bc66d74c433604555e0cb4faf3f4"
+    },
+    {
+      "id": "1792623766.19007",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "sYGzYKEBuyfJP5vv9rxk",
+        "F23EYKEB2FcM32JORPqF"
+      ],
+      "timestamp_utc": "2026-10-21T23:02:46.008+0000",
+      "timestamp_madrid": "2026-10-22T01:02:46.008000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5503",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "54f5382cb750facc0d75e8cb0e34fc2c8c888e528d8de0846017ec98d1a21f2b"
+    },
+    {
+      "id": "1792623770.19529",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "GG3EYKEB2FcM32JORPqF",
+        "soG0YKEBuyfJP5vvArwj"
+      ],
+      "timestamp_utc": "2026-10-21T23:02:50.006+0000",
+      "timestamp_madrid": "2026-10-22T01:02:50.006000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5710",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "6272c5d0e70c51787aa9c147052951f2365cb3edc2fc9932dd77725d84d124c4"
+    },
+    {
+      "id": "1792623770.20088",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "GW3EYKEB2FcM32JORPqF",
+        "s4G0YKEBuyfJP5vvArwj"
+      ],
+      "timestamp_utc": "2026-10-21T23:02:50.008+0000",
+      "timestamp_madrid": "2026-10-22T01:02:50.008000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5710",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "9722517f9e596c9e6685934ea81fb5c7f0b25e616bb3c562ca267c08b0c0037b"
+    },
+    {
+      "id": "1792623772.20638",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "tIG0YKEBuyfJP5vvDbzd",
+        "Gm3EYKEB2FcM32JORPqF"
+      ],
+      "timestamp_utc": "2026-10-21T23:02:52.060+0000",
+      "timestamp_madrid": "2026-10-22T01:02:52.060000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5503",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "21d445d4294a1bebfe83f7a0677b7d10c974641102767f85cbdd90ea32771f51"
+    },
+    {
+      "id": "1792623776.21160",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "G23EYKEB2FcM32JORPqF",
+        "tYG0YKEBuyfJP5vvGbym"
+      ],
+      "timestamp_utc": "2026-10-21T23:02:56.329+0000",
+      "timestamp_madrid": "2026-10-22T01:02:56.329000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5710",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "4620d4384b34a4bb43879833b7e8873a522bd6310b12b5cd732d8a557cff3a21"
+    },
+    {
+      "id": "1792623776.21719",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "HG3EYKEB2FcM32JORPqF",
+        "toG0YKEBuyfJP5vvGbym"
+      ],
+      "timestamp_utc": "2026-10-21T23:02:56.331+0000",
+      "timestamp_madrid": "2026-10-22T01:02:56.331000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5710",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "ceba20ff34b5cd48084ac5a4b6c04fbdc04885d83513636844b7d0710a12818e"
+    },
+    {
+      "id": "1792623776.22269",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "t4G0YKEBuyfJP5vvGbym",
+        "HW3EYKEB2FcM32JORPqF"
+      ],
+      "timestamp_utc": "2026-10-21T23:02:56.335+0000",
+      "timestamp_madrid": "2026-10-22T01:02:56.335000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5503",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "5437b85a545c5a96215bea77266990f1b33c10dabb3194daaf91895702d6fd55"
+    },
+    {
+      "id": "1792623783.22791",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "uIG0YKEBuyfJP5vvNbxn",
+        "Hm3EYKEB2FcM32JORPqF"
+      ],
+      "timestamp_utc": "2026-10-21T23:03:03.138+0000",
+      "timestamp_madrid": "2026-10-22T01:03:03.138000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5712",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "8edd653c76681032be43a3868e3cd0124a89f7273f2c702eb8339e08b7309660"
+    },
+    {
+      "id": "1792623783.24210",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "uYG0YKEBuyfJP5vvNbxn",
+        "H23EYKEB2FcM32JORPqF"
+      ],
+      "timestamp_utc": "2026-10-21T23:03:03.140+0000",
+      "timestamp_madrid": "2026-10-22T01:03:03.140000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5710",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "c3c9413ab24d51e6bc30b8d856aaf732c6c0722cd5994377f681e4be4bd76ab6"
+    },
+    {
+      "id": "1792623783.24760",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "zm3EYKEB2FcM32JOQ_mt",
+        "uoG0YKEBuyfJP5vvNbxn"
+      ],
+      "timestamp_utc": "2026-10-21T23:03:03.144+0000",
+      "timestamp_madrid": "2026-10-22T01:03:03.144000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5503",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "8f31c5aea0a2975392540b2056770ff3f399c2a43ee920bfc0ada17757c2d4e7"
+    },
+    {
+      "id": "1792623785.25282",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "u4G0YKEBuyfJP5vvQbwi",
+        "z23EYKEB2FcM32JOQ_mt"
+      ],
+      "timestamp_utc": "2026-10-21T23:03:05.144+0000",
+      "timestamp_madrid": "2026-10-22T01:03:05.144000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5710",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "63936cf1d47291852da0285dbb2a24fa0f6ccffffb614ccd488fe5d4d6d68640"
+    },
+    {
+      "id": "1792623786.25841",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "0G3EYKEB2FcM32JOQ_mt",
+        "vIG0YKEBuyfJP5vvQbwi"
+      ],
+      "timestamp_utc": "2026-10-21T23:03:06.560+0000",
+      "timestamp_madrid": "2026-10-22T01:03:06.560000+02:00",
+      "agent_id": "002",
+      "agent_name": "anthwatch-client",
+      "rule_id": "2904",
+      "location": "/var/log/dpkg.log",
+      "source_equal": true,
+      "source_sha256": "b193c79fb04a3cad0ac043ceac1916b28cfd15d03e8884da9607fef152102a04"
+    },
+    {
+      "id": "1792623787.26345",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "0W3EYKEB2FcM32JOQ_mt",
+        "vYG0YKEBuyfJP5vvRbwM"
+      ],
+      "timestamp_utc": "2026-10-21T23:03:07.161+0000",
+      "timestamp_madrid": "2026-10-22T01:03:07.161000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5710",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "fd07067cf5477b664ccc7798b02110753c85099f635248e691ec9dfc8398f18d"
+    },
+    {
+      "id": "1792623787.26895",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "0m3EYKEB2FcM32JOQ_mt",
+        "voG0YKEBuyfJP5vvRbwM"
+      ],
+      "timestamp_utc": "2026-10-21T23:03:07.164+0000",
+      "timestamp_madrid": "2026-10-22T01:03:07.164000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5503",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "2604bb1911413e3821ce67840e2ccd0694ac1aad640b34611652307bbd2ce6a5"
+    },
+    {
+      "id": "1792623789.27417",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "023EYKEB2FcM32JOQ_mt",
+        "v4G0YKEBuyfJP5vvULzF"
+      ],
+      "timestamp_utc": "2026-10-21T23:03:09.174+0000",
+      "timestamp_madrid": "2026-10-22T01:03:09.174000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5710",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "86e5ef1befb40a6576f17a2722f2b69eebcd96fac7f93a4103f6a1f695eed515"
+    },
+    {
+      "id": "1792623791.27976",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "1G3EYKEB2FcM32JOQ_mt",
+        "wIG0YKEBuyfJP5vvULzF"
+      ],
+      "timestamp_utc": "2026-10-21T23:03:11.156+0000",
+      "timestamp_madrid": "2026-10-22T01:03:11.156000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5710",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "c6b42571b65e0284eb372efc7cb5f980524174e82570b0174977c279b91e329f"
+    },
+    {
+      "id": "1792623793.28526",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "wYG0YKEBuyfJP5vvXLyB",
+        "1W3EYKEB2FcM32JOQ_mt"
+      ],
+      "timestamp_utc": "2026-10-21T23:03:13.115+0000",
+      "timestamp_madrid": "2026-10-22T01:03:13.115000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5503",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "9fdaa388803251a6fa1cb63cce90405257505ca44dedb4dbeda3075e54985e1d"
+    },
+    {
+      "id": "1792623795.29048",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "woG0YKEBuyfJP5vvYLxv",
+        "1m3EYKEB2FcM32JOQ_mt"
+      ],
+      "timestamp_utc": "2026-10-21T23:03:15.082+0000",
+      "timestamp_madrid": "2026-10-22T01:03:15.082000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5710",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "2a5c41763eba8a3a7f8d9ac628ee86e56dba70bf3dcbb6517e143f02c78f2980"
+    },
+    {
+      "id": "1792623795.29607",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "w4G0YKEBuyfJP5vvYLxv",
+        "123EYKEB2FcM32JOQ_mt"
+      ],
+      "timestamp_utc": "2026-10-21T23:03:15.086+0000",
+      "timestamp_madrid": "2026-10-22T01:03:15.086000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5710",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "3603cea72a551f528afebcdbc35743d29678a9fca53b2330ca7e479dfa47425f"
+    },
+    {
+      "id": "1792623796.30157",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "2G3EYKEB2FcM32JOQ_mt",
+        "xIG0YKEBuyfJP5vvbLxo"
+      ],
+      "timestamp_utc": "2026-10-21T23:03:16.420+0000",
+      "timestamp_madrid": "2026-10-22T01:03:16.420000+02:00",
+      "agent_id": "002",
+      "agent_name": "anthwatch-client",
+      "rule_id": "2902",
+      "location": "/var/log/dpkg.log",
+      "source_equal": true,
+      "source_sha256": "5e404bb27896d868194213b65a313af62380b7d705c0278f8186fe1f1f35e8eb"
+    },
+    {
+      "id": "1792623796.30647",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "2W3EYKEB2FcM32JOQ_mt",
+        "xYG0YKEBuyfJP5vvbLxp"
+      ],
+      "timestamp_utc": "2026-10-21T23:03:16.420+0000",
+      "timestamp_madrid": "2026-10-22T01:03:16.420000+02:00",
+      "agent_id": "002",
+      "agent_name": "anthwatch-client",
+      "rule_id": "2904",
+      "location": "/var/log/dpkg.log",
+      "source_equal": true,
+      "source_sha256": "049476ab34d5ea148e472b95f7b7f6e2229dee219793e029a3f196bf0fc8978b"
+    },
+    {
+      "id": "1792623797.31151",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "xoG0YKEBuyfJP5vvbLxp",
+        "2m3EYKEB2FcM32JOQ_mt"
+      ],
+      "timestamp_utc": "2026-10-21T23:03:17.070+0000",
+      "timestamp_madrid": "2026-10-22T01:03:17.070000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5551",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "0a573dc3618b4ba5e94d7b3fee42b0de49748752068ba87763ae1d2b02018c61"
+    },
+    {
+      "id": "1792623799.32773",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "223EYKEB2FcM32JOQ_mt",
+        "x4G0YKEBuyfJP5vvcLxQ"
+      ],
+      "timestamp_utc": "2026-10-21T23:03:19.117+0000",
+      "timestamp_madrid": "2026-10-22T01:03:19.117000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5710",
+      "location": "journald",
+      "source_equal": true,
+      "source_sha256": "34fce3556291a1dd58211cd11333bff43a549ab4923a52c0c81dd69662a19cac"
+    },
+    {
+      "id": "1792623806.33332",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "yIG0YKEBuyfJP5vvqrzv",
+        "3G3EYKEB2FcM32JOQ_mt"
+      ],
+      "timestamp_utc": "2026-10-21T23:03:26.570+0000",
+      "timestamp_madrid": "2026-10-22T01:03:26.570000+02:00",
+      "agent_id": "002",
+      "agent_name": "anthwatch-client",
+      "rule_id": "2904",
+      "location": "/var/log/dpkg.log",
+      "source_equal": true,
+      "source_sha256": "92a1bfdf5080ab42d8e4ae5640ca8e9ca26a2bbc92b1027026a6029e4d721d77"
+    },
+    {
+      "id": "1792623814.33832",
+      "index": "wazuh-alerts-4.x-2026.10.21",
+      "document_ids": [
+        "3W3EYKEB2FcM32JOQ_mt",
+        "yYG0YKEBuyfJP5vvqrzv"
+      ],
+      "timestamp_utc": "2026-10-21T23:03:34.576+0000",
+      "timestamp_madrid": "2026-10-22T01:03:34.576000+02:00",
+      "agent_id": "002",
+      "agent_name": "anthwatch-client",
+      "rule_id": "2904",
+      "location": "/var/log/dpkg.log",
+      "source_equal": true,
+      "source_sha256": "71e14823c31ca75b1e6e416f8008945b1de0d32befa863324cc81fb823f72dc1"
+    },
+    {
+      "id": "1792694327.177796",
+      "index": "wazuh-alerts-4.x-2026.10.22",
+      "document_ids": [
+        "Br_oZKEB5Rj0CWu-oT76",
+        "QNYJZaEBYzlIbanMunAn"
+      ],
+      "timestamp_utc": "2026-10-22T18:38:47.533+0000",
+      "timestamp_madrid": "2026-10-22T20:38:47.533000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "5502",
+      "location": "/var/log/auth.log",
+      "source_equal": true,
+      "source_sha256": "227cff071de37444d6294d6b9fede6c87bf07274ae75e21b1646681ba33c795e"
+    },
+    {
+      "id": "1792694327.178216",
+      "index": "wazuh-alerts-4.x-2026.10.22",
+      "document_ids": [
+        "QdYJZaEBYzlIbanMunAn",
+        "B7_oZKEB5Rj0CWu-oT76"
+      ],
+      "timestamp_utc": "2026-10-22T18:38:47.642+0000",
+      "timestamp_madrid": "2026-10-22T20:38:47.642000+02:00",
+      "agent_id": "001",
+      "agent_name": "anthwatch-server",
+      "rule_id": "506",
+      "location": "wazuh-remoted",
+      "source_equal": true,
+      "source_sha256": "74b9b7b1654442f5d8f56e7d5947342a0eb4c9d0dfee295d13f396f52f939a08"
+    }
+  ]
+}

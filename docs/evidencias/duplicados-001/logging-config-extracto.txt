@@ -1,0 +1,8 @@
+Transcripción del extracto grep mostrado el 26/10/2026 en anthwatch-wazuh.
+No es una copia completa de filebeat.yml ni de los argumentos del servicio.
+
+28:logging.level: info
+29:logging.to_files: true
+30:logging.files:
+33:  keepfiles: 7
+36:logging.metrics.enabled: false

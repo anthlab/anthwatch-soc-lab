@@ -1,0 +1,2017 @@
+{
+  "scope": "Exact alert IDs in the two supplied manager files; not all historical emissions",
+  "method": "Parse every nonempty JSON line after removing only leading NUL bytes in memory; compare all manager fields with both indexed copies",
+  "files": [
+    {
+      "file": "ossec-alerts-21.json",
+      "sha256": "ff5f1bcba14aa1b0e200a762c6d0f496de2e4de5e475f323387b0fa690d58f6e",
+      "bytes": 105820,
+      "records": 110,
+      "nul_bytes": 978,
+      "nul_prefixes": [
+        {
+          "line": 67,
+          "offset_zero_based": 64558,
+          "bytes": 978
+        }
+      ],
+      "first_timestamp": "2026-10-21T22:27:58.962+0000",
+      "last_timestamp": "2026-10-21T23:32:39.881+0000"
+    },
+    {
+      "file": "ossec-alerts-22.json",
+      "sha256": "8cf9e830e7ca74206a25d06b261ef22ecaae7ac977141333115a87f538508964",
+      "bytes": 389305,
+      "records": 423,
+      "nul_bytes": 2928,
+      "nul_prefixes": [
+        {
+          "line": 353,
+          "offset_zero_based": 319757,
+          "bytes": 2928
+        }
+      ],
+      "first_timestamp": "2026-10-22T11:25:47.390+0000",
+      "last_timestamp": "2026-10-22T19:31:04.797+0000"
+    }
+  ],
+  "target_ids": 68,
+  "ids_with_one_occurrence": 68,
+  "ids_missing": [],
+  "ids_with_multiple_occurrences": [],
+  "all_manager_fields_equal_in_both_index_copies": true,
+  "ids": [
+    {
+      "id": "1792621678.0",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 1,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "dYGXYKEBuyfJP5vvRLwx",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "7m3EYKEB2FcM32JORPmE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792621679.337",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 2,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "723EYKEB2FcM32JORPmE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "doGXYKEBuyfJP5vvRLwz",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792621727.590",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 3,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "8G3EYKEB2FcM32JORPmE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "eoGXYKEBuyfJP5vvX7zz",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792621729.1134",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 4,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "e4GXYKEBuyfJP5vvX7z0",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "8W3EYKEB2FcM32JORPmE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792621731.1624",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 5,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "8m3EYKEB2FcM32JORPmE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "fIGXYKEBuyfJP5vvX7z0",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792621731.2074",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 6,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "823EYKEB2FcM32JORPmE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "fYGXYKEBuyfJP5vvX7z0",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792621731.2538",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 7,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "9G3EYKEB2FcM32JORPmE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "foGXYKEBuyfJP5vvX7z0",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792621733.3001",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 8,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "9W3EYKEB2FcM32JORPmE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "f4GXYKEBuyfJP5vvX7z0",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792621749.3341",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 9,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "gIGXYKEBuyfJP5vvX7z0",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "9m3EYKEB2FcM32JORPmE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792621749.3791",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 10,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "gYGXYKEBuyfJP5vvX7z0",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "923EYKEB2FcM32JORPmE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792621751.4255",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 11,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "-G3EYKEB2FcM32JORPmE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "goGXYKEBuyfJP5vvX7z0",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792621785.4718",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 12,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "-W3EYKEB2FcM32JORPmE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "g4GXYKEBuyfJP5vvX7z0",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792621785.5160",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 13,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "-m3EYKEB2FcM32JORPmE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "hIGXYKEBuyfJP5vvX7z0",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792621787.5616",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 14,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "-23EYKEB2FcM32JORPmE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "hYGXYKEBuyfJP5vvX7z0",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792621933.6071",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 15,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "_G3EYKEB2FcM32JORPmE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "hoGYYKEBuyfJP5vvDryk",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792621933.6539",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 16,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "_W3EYKEB2FcM32JORPmE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "h4GYYKEBuyfJP5vvDryk",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792621956.6989",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 17,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "iIGYYKEBuyfJP5vvcLxH",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "_m3EYKEB2FcM32JORPmE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792621956.7381",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 18,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "iYGYYKEBuyfJP5vvcLxH",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "_23EYKEB2FcM32JORPmE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792621962.7773",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 19,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "AG3EYKEB2FcM32JORPqE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "ioGYYKEBuyfJP5vvcLxH",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792621962.8223",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 20,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "AW3EYKEB2FcM32JORPqE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "i4GYYKEBuyfJP5vvcLxH",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792621974.8687",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 21,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "jIGYYKEBuyfJP5vvqrz6",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "Am3EYKEB2FcM32JORPqE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792621976.9236",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 22,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "A23EYKEB2FcM32JORPqE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "jYGYYKEBuyfJP5vvqrz6",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792621984.9730",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 23,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "BG3EYKEB2FcM32JORPqE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "joGYYKEBuyfJP5vvxrxR",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792621993.10224",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 24,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "j4GZYKEBuyfJP5vvALz9",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "BW3EYKEB2FcM32JORPqE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792621995.10719",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 25,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "kIGZYKEBuyfJP5vvALz9",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "Bm3EYKEB2FcM32JORPqE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792622339.11276",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 26,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "k4GeYKEBuyfJP5vvSrwW",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "B23EYKEB2FcM32JORPqE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792622339.11745",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 27,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "lIGeYKEBuyfJP5vvSrwW",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "CG3EYKEB2FcM32JORPqE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623596.12196",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 28,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "CW3EYKEB2FcM32JORPqE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "n4GxYKEBuyfJP5vvYbx1",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623596.12636",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 29,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "oIGxYKEBuyfJP5vvYbx1",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "Cm3EYKEB2FcM32JORPqE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623596.13281",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 30,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "C23EYKEB2FcM32JORPqE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "oYGxYKEBuyfJP5vvYbx1",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623612.13660",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 31,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "DG3EYKEB2FcM32JORPqE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "poGxYKEBuyfJP5vvnLwR",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623612.14305",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 32,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "DW3EYKEB2FcM32JORPqE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "p4GxYKEBuyfJP5vvnLwR",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623612.14745",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 33,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "qIGxYKEBuyfJP5vvnLwR",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "Dm3EYKEB2FcM32JORPqE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623714.15124",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 34,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "qYGzYKEBuyfJP5vvNryG",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "D23EYKEB2FcM32JORPqE",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623715.15517",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 35,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "EG3EYKEB2FcM32JORPqF",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "qoGzYKEBuyfJP5vvNryG",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623723.15910",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 36,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "EW3EYKEB2FcM32JORPqF",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "q4GzYKEBuyfJP5vvUbza",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623723.16375",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 37,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "Em3EYKEB2FcM32JORPqF",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "rIGzYKEBuyfJP5vvUbza",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623729.16826",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 38,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "E23EYKEB2FcM32JORPqF",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "rYGzYKEBuyfJP5vvbbww",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623758.17376",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 39,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "roGzYKEBuyfJP5vv9rxk",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "FG3EYKEB2FcM32JORPqF",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623762.17898",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 40,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "FW3EYKEB2FcM32JORPqF",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "r4GzYKEBuyfJP5vv9rxk",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623763.18457",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 41,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "sIGzYKEBuyfJP5vv9rxk",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "Fm3EYKEB2FcM32JORPqF",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623766.19007",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 42,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "sYGzYKEBuyfJP5vv9rxk",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "F23EYKEB2FcM32JORPqF",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623770.19529",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 43,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "GG3EYKEB2FcM32JORPqF",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "soG0YKEBuyfJP5vvArwj",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623770.20088",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 44,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "GW3EYKEB2FcM32JORPqF",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "s4G0YKEBuyfJP5vvArwj",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623772.20638",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 45,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "tIG0YKEBuyfJP5vvDbzd",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "Gm3EYKEB2FcM32JORPqF",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623776.21160",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 46,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "G23EYKEB2FcM32JORPqF",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "tYG0YKEBuyfJP5vvGbym",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623776.21719",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 47,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "HG3EYKEB2FcM32JORPqF",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "toG0YKEBuyfJP5vvGbym",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623776.22269",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 48,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "t4G0YKEBuyfJP5vvGbym",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "HW3EYKEB2FcM32JORPqF",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623783.22791",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 49,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "uIG0YKEBuyfJP5vvNbxn",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "Hm3EYKEB2FcM32JORPqF",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623783.24210",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 50,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "uYG0YKEBuyfJP5vvNbxn",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "H23EYKEB2FcM32JORPqF",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623783.24760",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 51,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "zm3EYKEB2FcM32JOQ_mt",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "uoG0YKEBuyfJP5vvNbxn",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623785.25282",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 52,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "u4G0YKEBuyfJP5vvQbwi",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "z23EYKEB2FcM32JOQ_mt",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623786.25841",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 53,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "0G3EYKEB2FcM32JOQ_mt",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "vIG0YKEBuyfJP5vvQbwi",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623787.26345",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 54,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "0W3EYKEB2FcM32JOQ_mt",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "vYG0YKEBuyfJP5vvRbwM",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623787.26895",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 55,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "0m3EYKEB2FcM32JOQ_mt",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "voG0YKEBuyfJP5vvRbwM",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623789.27417",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 56,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "023EYKEB2FcM32JOQ_mt",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "v4G0YKEBuyfJP5vvULzF",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623791.27976",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 57,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "1G3EYKEB2FcM32JOQ_mt",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "wIG0YKEBuyfJP5vvULzF",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623793.28526",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 58,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "wYG0YKEBuyfJP5vvXLyB",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "1W3EYKEB2FcM32JOQ_mt",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623795.29048",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 59,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "woG0YKEBuyfJP5vvYLxv",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "1m3EYKEB2FcM32JOQ_mt",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623795.29607",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 60,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "w4G0YKEBuyfJP5vvYLxv",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "123EYKEB2FcM32JOQ_mt",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623796.30157",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 61,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "2G3EYKEB2FcM32JOQ_mt",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "xIG0YKEBuyfJP5vvbLxo",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623796.30647",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 62,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "2W3EYKEB2FcM32JOQ_mt",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "xYG0YKEBuyfJP5vvbLxp",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623797.31151",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 63,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "xoG0YKEBuyfJP5vvbLxp",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "2m3EYKEB2FcM32JOQ_mt",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623799.32773",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 64,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "223EYKEB2FcM32JOQ_mt",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "x4G0YKEBuyfJP5vvcLxQ",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623806.33332",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 65,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "yIG0YKEBuyfJP5vvqrzv",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "3G3EYKEB2FcM32JOQ_mt",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792623814.33832",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-21.json",
+          "line": 66,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "3W3EYKEB2FcM32JOQ_mt",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "yYG0YKEBuyfJP5vvqrzv",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792694327.177796",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-22.json",
+          "line": 375,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "Br_oZKEB5Rj0CWu-oT76",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "QNYJZaEBYzlIbanMunAn",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1792694327.178216",
+      "occurrences": 1,
+      "matches": [
+        {
+          "file": "ossec-alerts-22.json",
+          "line": 376,
+          "nul_prefix_bytes": 0,
+          "index_comparisons": [
+            {
+              "document_id": "QdYJZaEBYzlIbanMunAn",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            },
+            {
+              "document_id": "B7_oZKEB5Rj0CWu-oT76",
+              "all_manager_fields_equal": true,
+              "index_only_fields": [
+                "@timestamp",
+                "input"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -20,7 +20,7 @@ Al probar la regla con conexiones reales apareció el problema de rsyslog: agrup
 - [Revalidación del caso 003](docs/casos/003-revalidacion.md): positivo `100100`, controles por IP/usuario y control temporal con 130,003 s declarados de espera y 132,122 s entre las marcas; XML equivalente al del repositorio.
 - [Evidencias del hunt](docs/evidencias/hunt-001/README.md) · [Evidencias de revalidación](docs/evidencias/revalidacion-003/README.md) · [HUNT-001](docs/tickets/HUNT-001.md).
 
-Conservé extractos originales, CSV, capturas y hashes del hunt y la revalidación real. No identifiqué actividad no autorizada en la muestra; la causa de las repeticiones sigue pendiente de contraste con Filebeat y documentos con `_id`.
+Conservé extractos originales, CSV, capturas y hashes del hunt y la revalidación real. No identifiqué actividad no autorizada en la muestra. Amplié la [revisión de duplicados](docs/hunts/hunt-001/repeticiones-exportacion.md) a los índices consultados: confirmé 68 parejas con contenido idéntico, incluidas las nueve del CSV. Contrasté los 68 `id` con los dos archivos del manager: cada uno aparece una vez y sus campos coinciden con ambas copias indexadas. La duplicación posterior a la emisión queda respaldada en esos archivos; la causa concreta sigue indeterminada y faltan los logs de Filebeat de madrugada.
 
 ## Documentación
 

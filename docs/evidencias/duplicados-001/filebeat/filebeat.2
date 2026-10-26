@@ -1,0 +1,82 @@
+2026-10-22T21:10:11.056+0200	INFO	instance/beat.go:645	Home path: [/usr/share/filebeat] Config path: [/etc/filebeat] Data path: [/var/lib/filebeat] Logs path: [/var/log/filebeat]
+2026-10-22T21:10:11.082+0200	INFO	instance/beat.go:653	Beat ID: e943120d-e7c9-489c-8252-02939db74e8d
+2026-10-22T21:10:11.083+0200	INFO	[seccomp]	seccomp/seccomp.go:124	Syscall filter successfully installed
+2026-10-22T21:10:11.083+0200	INFO	[beat]	instance/beat.go:981	Beat info	{"system_info": {"beat": {"path": {"config": "/etc/filebeat", "data": "/var/lib/filebeat", "home": "/usr/share/filebeat", "logs": "/var/log/filebeat"}, "type": "filebeat", "uuid": "e943120d-e7c9-489c-8252-02939db74e8d"}}}
+2026-10-22T21:10:11.083+0200	INFO	[beat]	instance/beat.go:990	Build info	{"system_info": {"build": {"commit": "aacf9ecd9c494aa0908f61fbca82c906b16562a8", "libbeat": "7.10.2", "time": "2025-10-17T12:05:43.000Z", "version": "7.10.2"}}}
+2026-10-22T21:10:11.083+0200	INFO	[beat]	instance/beat.go:993	Go runtime info	{"system_info": {"go": {"os":"linux","arch":"amd64","max_procs":4,"version":"go1.14.12"}}}
+2026-10-22T21:10:11.083+0200	INFO	[beat]	instance/beat.go:997	Host info	{"system_info": {"host": {"architecture":"x86_64","boot_time":"2026-10-22T21:09:48+02:00","containerized":false,"name":"anthwatch-wazuh","ip":["127.0.0.1/8","::1/128","10.0.2.15/24","fd17:625c:f037:2:a00:27ff:fe1b:e5cc/64","fe80::a00:27ff:fe1b:e5cc/64","192.168.56.103/24","fe80::a00:27ff:fe00:560b/64"],"kernel_version":"6.8.0-147-generic","mac":["08:00:27:1b:e5:cc","08:00:27:00:56:0b"],"os":{"family":"debian","platform":"ubuntu","name":"Ubuntu","version":"24.04.5 LTS (Noble Numbat)","major":24,"minor":4,"patch":5,"codename":"noble"},"timezone":"CEST","timezone_offset_sec":7200,"id":"45f527f1d95d4b5c8782ff7fd28dbcd3"}}}
+2026-10-22T21:10:11.084+0200	INFO	[beat]	instance/beat.go:1026	Process info	{"system_info": {"process": {"capabilities": {"inheritable":null,"permitted":["chown","dac_override","dac_read_search","fowner","fsetid","kill","setgid","setuid","setpcap","linux_immutable","net_bind_service","net_broadcast","net_admin","net_raw","ipc_lock","ipc_owner","sys_module","sys_rawio","sys_chroot","sys_ptrace","sys_pacct","sys_admin","sys_boot","sys_nice","sys_resource","sys_time","sys_tty_config","mknod","lease","audit_write","audit_control","setfcap","mac_override","mac_admin","syslog","wake_alarm","block_suspend","audit_read","38","39","40"],"effective":["chown","dac_override","dac_read_search","fowner","fsetid","kill","setgid","setuid","setpcap","linux_immutable","net_bind_service","net_broadcast","net_admin","net_raw","ipc_lock","ipc_owner","sys_module","sys_rawio","sys_chroot","sys_ptrace","sys_pacct","sys_admin","sys_boot","sys_nice","sys_resource","sys_time","sys_tty_config","mknod","lease","audit_write","audit_control","setfcap","mac_override","mac_admin","syslog","wake_alarm","block_suspend","audit_read","38","39","40"],"bounding":["chown","dac_override","dac_read_search","fowner","fsetid","kill","setgid","setuid","setpcap","linux_immutable","net_bind_service","net_broadcast","net_admin","net_raw","ipc_lock","ipc_owner","sys_module","sys_rawio","sys_chroot","sys_ptrace","sys_pacct","sys_admin","sys_boot","sys_nice","sys_resource","sys_time","sys_tty_config","mknod","lease","audit_write","audit_control","setfcap","mac_override","mac_admin","syslog","wake_alarm","block_suspend","audit_read","38","39","40"],"ambient":null}, "cwd": "/", "exe": "/usr/share/filebeat/bin/filebeat", "name": "filebeat", "pid": 732, "ppid": 1, "seccomp": {"mode":"filter","no_new_privs":true}, "start_time": "2026-10-22T21:09:59.940+0200"}}}
+2026-10-22T21:10:11.084+0200	INFO	instance/beat.go:299	Setup Beat: filebeat; Version: 7.10.2
+2026-10-22T21:10:11.225+0200	INFO	eslegclient/connection.go:99	elasticsearch url: https://127.0.0.1:9200
+2026-10-22T21:10:11.244+0200	INFO	[publisher]	pipeline/module.go:113	Beat name: anthwatch-wazuh
+2026-10-22T21:10:11.876+0200	INFO	beater/filebeat.go:117	Enabled modules/filesets: wazuh (alerts),  ()
+2026-10-22T21:10:11.925+0200	INFO	instance/beat.go:455	filebeat start running.
+2026-10-22T21:10:11.989+0200	INFO	memlog/store.go:119	Loading data file of '/var/lib/filebeat/registry/filebeat' succeeded. Active transaction id=0
+2026-10-22T21:10:12.043+0200	INFO	memlog/store.go:124	Finished loading transaction log file for '/var/lib/filebeat/registry/filebeat'. Active transaction id=273
+2026-10-22T21:10:12.044+0200	INFO	[registrar]	registrar/registrar.go:109	States Loaded from registrar: 1
+2026-10-22T21:10:12.044+0200	INFO	[crawler]	beater/crawler.go:71	Loading Inputs: 1
+2026-10-22T21:10:12.044+0200	INFO	log/input.go:157	Configured paths: [/var/ossec/logs/alerts/alerts.json]
+2026-10-22T21:10:12.044+0200	INFO	[crawler]	beater/crawler.go:141	Starting input (ID: 9132358592892857476)
+2026-10-22T21:10:12.044+0200	INFO	[crawler]	beater/crawler.go:108	Loading and starting Inputs completed. Enabled inputs: 1
+2026-10-22T21:10:12.068+0200	INFO	log/harvester.go:302	Harvester started for file: /var/ossec/logs/alerts/alerts.json
+2026-10-22T21:10:13.098+0200	INFO	[publisher]	pipeline/retry.go:219	retryer: send unwait signal to consumer
+2026-10-22T21:10:13.098+0200	INFO	[publisher]	pipeline/retry.go:223	  done
+2026-10-22T21:10:13.112+0200	INFO	[publisher_pipeline_output]	pipeline/output.go:143	Connecting to backoff(elasticsearch(https://127.0.0.1:9200))
+2026-10-22T21:10:14.981+0200	ERROR	[publisher_pipeline_output]	pipeline/output.go:154	Failed to connect to backoff(elasticsearch(https://127.0.0.1:9200)): Get "https://127.0.0.1:9200": dial tcp 127.0.0.1:9200: connect: connection refused
+2026-10-22T21:10:14.981+0200	INFO	[publisher_pipeline_output]	pipeline/output.go:145	Attempting to reconnect to backoff(elasticsearch(https://127.0.0.1:9200)) with 1 reconnect attempt(s)
+2026-10-22T21:10:14.981+0200	INFO	[publisher]	pipeline/retry.go:219	retryer: send unwait signal to consumer
+2026-10-22T21:10:14.981+0200	INFO	[publisher]	pipeline/retry.go:223	  done
+2026-10-22T21:10:17.536+0200	ERROR	[publisher_pipeline_output]	pipeline/output.go:154	Failed to connect to backoff(elasticsearch(https://127.0.0.1:9200)): Get "https://127.0.0.1:9200": dial tcp 127.0.0.1:9200: connect: connection refused
+2026-10-22T21:10:17.536+0200	INFO	[publisher_pipeline_output]	pipeline/output.go:145	Attempting to reconnect to backoff(elasticsearch(https://127.0.0.1:9200)) with 2 reconnect attempt(s)
+2026-10-22T21:10:17.536+0200	INFO	[publisher]	pipeline/retry.go:219	retryer: send unwait signal to consumer
+2026-10-22T21:10:17.536+0200	INFO	[publisher]	pipeline/retry.go:223	  done
+2026-10-22T21:10:22.621+0200	ERROR	[publisher_pipeline_output]	pipeline/output.go:154	Failed to connect to backoff(elasticsearch(https://127.0.0.1:9200)): Get "https://127.0.0.1:9200": dial tcp 127.0.0.1:9200: connect: connection refused
+2026-10-22T21:10:22.621+0200	INFO	[publisher_pipeline_output]	pipeline/output.go:145	Attempting to reconnect to backoff(elasticsearch(https://127.0.0.1:9200)) with 3 reconnect attempt(s)
+2026-10-22T21:10:22.621+0200	INFO	[publisher]	pipeline/retry.go:219	retryer: send unwait signal to consumer
+2026-10-22T21:10:22.621+0200	INFO	[publisher]	pipeline/retry.go:223	  done
+2026-10-22T21:10:37.469+0200	ERROR	[publisher_pipeline_output]	pipeline/output.go:154	Failed to connect to backoff(elasticsearch(https://127.0.0.1:9200)): Get "https://127.0.0.1:9200": dial tcp 127.0.0.1:9200: connect: connection refused
+2026-10-22T21:10:37.469+0200	INFO	[publisher_pipeline_output]	pipeline/output.go:145	Attempting to reconnect to backoff(elasticsearch(https://127.0.0.1:9200)) with 4 reconnect attempt(s)
+2026-10-22T21:10:37.469+0200	INFO	[publisher]	pipeline/retry.go:219	retryer: send unwait signal to consumer
+2026-10-22T21:10:37.469+0200	INFO	[publisher]	pipeline/retry.go:223	  done
+2026-10-22T21:11:02.945+0200	ERROR	[publisher_pipeline_output]	pipeline/output.go:154	Failed to connect to backoff(elasticsearch(https://127.0.0.1:9200)): Get "https://127.0.0.1:9200": dial tcp 127.0.0.1:9200: connect: connection refused
+2026-10-22T21:11:02.945+0200	INFO	[publisher_pipeline_output]	pipeline/output.go:145	Attempting to reconnect to backoff(elasticsearch(https://127.0.0.1:9200)) with 5 reconnect attempt(s)
+2026-10-22T21:11:02.945+0200	INFO	[publisher]	pipeline/retry.go:219	retryer: send unwait signal to consumer
+2026-10-22T21:11:02.945+0200	INFO	[publisher]	pipeline/retry.go:223	  done
+2026-10-22T21:11:47.977+0200	ERROR	[publisher_pipeline_output]	pipeline/output.go:154	Failed to connect to backoff(elasticsearch(https://127.0.0.1:9200)): Get "https://127.0.0.1:9200": dial tcp 127.0.0.1:9200: connect: connection refused
+2026-10-22T21:11:47.978+0200	INFO	[publisher_pipeline_output]	pipeline/output.go:145	Attempting to reconnect to backoff(elasticsearch(https://127.0.0.1:9200)) with 6 reconnect attempt(s)
+2026-10-22T21:11:47.978+0200	INFO	[publisher]	pipeline/retry.go:219	retryer: send unwait signal to consumer
+2026-10-22T21:11:47.978+0200	INFO	[publisher]	pipeline/retry.go:223	  done
+2026-10-22T21:12:39.614+0200	ERROR	[publisher_pipeline_output]	pipeline/output.go:154	Failed to connect to backoff(elasticsearch(https://127.0.0.1:9200)): Get "https://127.0.0.1:9200": dial tcp 127.0.0.1:9200: connect: connection refused
+2026-10-22T21:12:39.614+0200	INFO	[publisher_pipeline_output]	pipeline/output.go:145	Attempting to reconnect to backoff(elasticsearch(https://127.0.0.1:9200)) with 7 reconnect attempt(s)
+2026-10-22T21:12:39.614+0200	INFO	[publisher]	pipeline/retry.go:219	retryer: send unwait signal to consumer
+2026-10-22T21:12:39.614+0200	INFO	[publisher]	pipeline/retry.go:223	  done
+2026-10-22T21:13:32.245+0200	ERROR	[publisher_pipeline_output]	pipeline/output.go:154	Failed to connect to backoff(elasticsearch(https://127.0.0.1:9200)): Get "https://127.0.0.1:9200": dial tcp 127.0.0.1:9200: connect: connection refused
+2026-10-22T21:13:32.246+0200	INFO	[publisher_pipeline_output]	pipeline/output.go:145	Attempting to reconnect to backoff(elasticsearch(https://127.0.0.1:9200)) with 8 reconnect attempt(s)
+2026-10-22T21:13:32.246+0200	INFO	[publisher]	pipeline/retry.go:219	retryer: send unwait signal to consumer
+2026-10-22T21:13:32.246+0200	INFO	[publisher]	pipeline/retry.go:223	  done
+2026-10-22T21:14:05.830+0200	ERROR	[publisher_pipeline_output]	pipeline/output.go:154	Failed to connect to backoff(elasticsearch(https://127.0.0.1:9200)): Get "https://127.0.0.1:9200": dial tcp 127.0.0.1:9200: connect: connection refused
+2026-10-22T21:14:05.830+0200	INFO	[publisher_pipeline_output]	pipeline/output.go:145	Attempting to reconnect to backoff(elasticsearch(https://127.0.0.1:9200)) with 9 reconnect attempt(s)
+2026-10-22T21:14:05.830+0200	INFO	[publisher]	pipeline/retry.go:219	retryer: send unwait signal to consumer
+2026-10-22T21:14:05.830+0200	INFO	[publisher]	pipeline/retry.go:223	  done
+2026-10-22T21:14:58.205+0200	ERROR	[publisher_pipeline_output]	pipeline/output.go:154	Failed to connect to backoff(elasticsearch(https://127.0.0.1:9200)): Get "https://127.0.0.1:9200": dial tcp 127.0.0.1:9200: connect: connection refused
+2026-10-22T21:14:58.205+0200	INFO	[publisher_pipeline_output]	pipeline/output.go:145	Attempting to reconnect to backoff(elasticsearch(https://127.0.0.1:9200)) with 10 reconnect attempt(s)
+2026-10-22T21:14:58.205+0200	INFO	[publisher]	pipeline/retry.go:219	retryer: send unwait signal to consumer
+2026-10-22T21:14:58.205+0200	INFO	[publisher]	pipeline/retry.go:223	  done
+2026-10-22T21:14:58.652+0200	INFO	[esclientleg]	eslegclient/connection.go:314	Attempting to connect to Elasticsearch version 7.10.2
+2026-10-22T21:14:58.657+0200	INFO	[esclientleg]	eslegclient/connection.go:314	Attempting to connect to Elasticsearch version 7.10.2
+2026-10-22T21:14:58.663+0200	INFO	template/load.go:97	Template wazuh already exists and will not be overwritten.
+2026-10-22T21:14:58.663+0200	INFO	[index-management]	idxmgmt/std.go:298	Loaded index template.
+2026-10-22T21:14:58.683+0200	INFO	[publisher_pipeline_output]	pipeline/output.go:151	Connection to backoff(elasticsearch(https://127.0.0.1:9200)) established
+2026-10-22T21:23:53.543+0200	INFO	log/harvester.go:333	File is inactive: /var/ossec/logs/alerts/alerts.json. Closing because close_inactive of 5m0s reached.
+2026-10-22T21:26:06.252+0200	INFO	log/harvester.go:302	Harvester started for file: /var/ossec/logs/alerts/alerts.json
+2026-10-22T21:32:15.320+0200	INFO	beater/filebeat.go:515	Stopping filebeat
+2026-10-22T21:32:15.321+0200	INFO	beater/crawler.go:148	Stopping Crawler
+2026-10-22T21:32:15.321+0200	INFO	beater/crawler.go:158	Stopping 1 inputs
+2026-10-22T21:32:15.321+0200	INFO	[crawler]	beater/crawler.go:163	Stopping input: 9132358592892857476
+2026-10-22T21:32:15.321+0200	INFO	input/input.go:136	input ticker stopped
+2026-10-22T21:32:15.321+0200	INFO	log/harvester.go:329	Reader was closed: /var/ossec/logs/alerts/alerts.json. Closing.
+2026-10-22T21:32:15.321+0200	INFO	beater/crawler.go:178	Crawler stopped
+2026-10-22T21:32:15.321+0200	INFO	[registrar]	registrar/registrar.go:132	Stopping Registrar
+2026-10-22T21:32:15.321+0200	INFO	[registrar]	registrar/registrar.go:166	Ending Registrar
+2026-10-22T21:32:15.321+0200	INFO	[registrar]	registrar/registrar.go:137	Registrar stopped
+2026-10-22T21:32:15.676+0200	INFO	instance/beat.go:461	filebeat stopped.

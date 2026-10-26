@@ -50,7 +50,7 @@ Conservé sin modificar las entradas, salidas, tiempos, XML y los tres `SHA256SU
 
 Los controles del 24/10 usan entradas sintéticas. Dos fallos y éxito aislado conservan sus capturas históricas; los fallos sin éxito aparecen como prefijo de las positivas. En esta revisión comprobé salidas, hashes y equivalencia XML, sin volver a ejecutar Wazuh.
 
-Falta el generador y una medición monotónica para explicar los 2,119 s del control temporal. Quedan sin validar aislamiento entre agentes, ráfagas, reordenación, pérdida de eventos y tasa general de falsos positivos. Conservé también la [prueba sintética de entradas duplicadas](../validaciones/caso-003-auth-log/README.md), de prioridad baja; el efecto de las repeticiones históricas sobre la correlación sigue sujeto a la investigación de ingesta.
+Falta el generador y una medición monotónica para explicar los 2,119 s del control temporal. Quedan sin validar aislamiento entre agentes, ráfagas, reordenación, pérdida de eventos y tasa general de falsos positivos. Conservé también la [prueba sintética de entradas duplicadas](../validaciones/caso-003-auth-log/README.md), de prioridad baja; la [revisión ampliada del 26/10](../hunts/hunt-001/repeticiones-exportacion.md) confirmó 68 parejas documentales, cuatro de ellas `5760`, y mantiene la causa histórica indeterminada por falta de logs de madrugada.
 
 ## Decisión
 

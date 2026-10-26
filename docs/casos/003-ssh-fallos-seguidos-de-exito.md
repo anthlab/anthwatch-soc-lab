@@ -140,7 +140,7 @@ En un caso real comprobaría la autorización del acceso, el uso habitual de la 
 
 ## Siguiente paso
 
-El [Hunt 001](../hunts/001-ssh-y-sudo.md) amplía el análisis a SSH y sudo y revisa la calidad de los datos. El siguiente paso es ampliar la telemetría de procesos y contrastar Filebeat y los documentos del índice con `_id`. Windows sigue aplazado por el límite de 16 GB de RAM del portátil.
+El [Hunt 001](../hunts/001-ssh-y-sudo.md) amplía el análisis a SSH y sudo y revisa la calidad de los datos. Cerré la [revisión histórica de Filebeat y documentos con `_id`](../hunts/hunt-001/repeticiones-exportacion.md) el 25/10. El siguiente paso es ampliar la telemetría de procesos. Windows sigue aplazado por el límite de 16 GB de RAM del portátil.
 
 ## Referencias
 

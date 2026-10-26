@@ -102,6 +102,8 @@ agent.name:"anthwatch-server" AND data.srcip:"192.168.56.101" AND rule.groups:ss
 
 ### Alerta correlacionada
 
+**Revisión posterior:** la ejecución original de las 01:02–01:03 cae en una franja con documentos duplicados: identifiqué 15 parejas `5710` y una `5712`. La captura muestra lo que había entonces; al repetir hoy la consulta pueden aparecer recuentos distintos. El control de las 01:23–01:24 y la repetición de las 16:19 quedan fuera de esa franja. Véase la [revisión de duplicados](../hunts/hunt-001/repeticiones-exportacion.md).
+
 | Campo observado | Valor |
 | --- | --- |
 | `timestamp` mostrado | 22/10/2026 01:03:03.138 |

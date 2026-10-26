@@ -138,7 +138,7 @@ La hora de las tres VMs se ajustó antes del caso 003; las salidas de `timedatec
 
 ## Próximas fases
 
-El primer hunt está documentado. Mi siguiente prioridad es recoger Filebeat y los documentos con `_id` para contrastar la hipótesis de reintentos, y ampliar cobertura de procesos. Windows queda aplazado por los 16 GB de RAM del portátil. El alcance y la cobertura que falta verificar se recogen en la [hoja de ruta](hoja-de-ruta.md).
+El primer hunt está documentado y la [revisión histórica del duplicado](hunts/hunt-001/repeticiones-exportacion.md) se amplió el 26/10: 68 parejas documentales confirmadas y causa histórica indeterminada por falta de logs de Filebeat de madrugada. Mi siguiente prioridad es ampliar la cobertura de procesos. Windows queda aplazado por los 16 GB de RAM del portátil. El alcance y la cobertura que falta verificar se recogen en la [hoja de ruta](hoja-de-ruta.md).
 
 Las ampliaciones de integridad de archivos, usuarios y procesos servirán para enriquecer las investigaciones posteriores; la primera revisión de actividad con `sudo` ya está documentada.
 

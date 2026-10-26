@@ -2,7 +2,7 @@
 
 [Volver al README](../README.md)
 
-**Actualización:** 24/10/2026. Documenté los casos 001–003 y el primer hunt; conservé los originales de la prueba SSH/sudo, los CSV históricos, las capturas y la revalidación real con auth.log.
+**Actualización:** 26/10/2026. Documenté los casos 001–003 y el primer hunt; conservé los originales de la prueba SSH/sudo, los CSV históricos, las capturas y la revalidación real con auth.log.
 
 ## Completado
 
@@ -13,15 +13,18 @@
 - [Controles del 24/10](casos/003-revalidacion.md): XML equivalente; positivo, identidad y expiración. Distingo 130,003 s declarados por el generador de 132,122 s entre las marcas externas.
 - [Hunt 001](hunts/hunt-001/README.md): secuencia controlada, 120 filas de accesos/sesiones e inventario ampliado a 28 comandos sudo, incluidos los dos `5403` que mi filtro inicial excluía.
 
+- [Revisión de duplicados](hunts/hunt-001/repeticiones-exportacion.md), ampliada el 26/10: 68 parejas con `_source` idéntico, incluidas las nueve del CSV y cuatro parejas `5760`. Conservé consultas, respuestas, comparación y ocho logs. Verifiqué `keepfiles: 7`; la causa histórica de madrugada queda indeterminada.
+
+- [Contraste de emisión de los 68 IDs](hunts/hunt-001/repeticiones-exportacion.md): completado con los dos JSON del manager, recuentos por archivo y línea, comparación de campos y originales con hashes. Los dos prefijos NUL quedan documentados; su causa no se ha determinado.
+
 ## Siguiente prioridad
 
-1. Recoger Filebeat del 22/10 00:27–01:15 en `anthwatch-wazuh` y exportar ambos documentos con `_id`, `_index` e `id` de alerta. Contrastar la [hipótesis de reintentos](hunts/hunt-001/repeticiones-exportacion.md); no darla por confirmada por los errores del conector del manager.
-2. Ampliar telemetría de procesos y atribución por sesión para contrastar SSH, sudo y actividad posterior con controles legítimos.
-3. Repetir el control temporal conservando el generador y mediciones monotónicas para explicar la diferencia de 2,119 s, manteniendo el resultado actual fuera de la ventana de 120 s.
+1. Ampliar telemetría de procesos y atribución por sesión para contrastar SSH, sudo y actividad posterior con controles legítimos.
+2. Repetir el control temporal conservando el generador y mediciones monotónicas para explicar la diferencia de 2,119 s, manteniendo el resultado actual fuera de la ventana de 120 s.
 
 ## Prioridad baja · Robustez de correlación
 
-Conservé la prueba sintética de fallos duplicados. No la considero evidencia de duplicación de fallos en producción. Es poco probable que copias generadas después de la correlación inflen su contador; debo verificar el punto de duplicación. Ampliaré los controles de aislamiento entre agentes, ráfagas, pérdida y reordenación cuando el alcance lo requiera. No he medido una tasa general de falsos positivos.
+Conservé la prueba sintética de fallos duplicados. Distingo esa prueba de la duplicación documental de cuatro alertas `5760` confirmada en el índice. Los 68 `id` aparecen una sola vez en los dos archivos conservados del manager y dos veces en el índice; todos los campos emitidos coinciden con ambas copias. El contraste respalda la duplicación posterior a la emisión, dentro de estos archivos. Documenté dos prefijos NUL, su tratamiento en memoria y el límite de integridad histórica. Considero poco probable que una copia documental posterior a la emisión infle el contador de correlación. La causa concreta sigue indeterminada. Las nueve parejas del CSV ya están verificadas. El `_bulk` con `EOF` durante la parada es un candidato para las dos parejas tardías; falta identificar el contenido del lote. La captura del caso 001 apunta a un reenvío posterior, suponiendo que el panel contaba documentos. Una reproducción con registros completos permitiría contrastar el mecanismo. Ampliaré los controles de aislamiento entre agentes, ráfagas, pérdida y reordenación cuando el alcance lo requiera. No he medido una tasa general de falsos positivos.
 
 ## Ampliaciones posteriores
 

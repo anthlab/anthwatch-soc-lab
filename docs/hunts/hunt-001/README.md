@@ -6,7 +6,7 @@ Las evidencias iniciales están en [evidencias/](evidencias/); el CSV ampliado a
 - **Validé:** 28 comandos sudo (26 `5402` y 2 `5403`) y 120 filas de accesos/sesiones; reconozco las dos IP de origen como accesos propios.
 - **Aprendí:** separar actividad autorizada, correlación temporal y atribución de sesión; comprobar la cobertura y conservar los registros antes de interpretar alertas.
 
-**Fecha:** 22/10/2026. **Estado:** investigación completada con alcance limitado; sin actividad no autorizada identificada en los registros revisados. Las repeticiones se concentran en una franja de journald; investigo reintentos de entrega/indexación como hipótesis, pendiente de contrastar con Filebeat y documentos identificados por `_id`.
+**Fecha:** 22/10/2026. **Estado:** investigación completada con alcance limitado; sin actividad no autorizada identificada en los registros revisados. Revisé una pareja el 25/10 y amplié la consulta el 26/10: confirmé 68 parejas documentales, incluidas las nueve del CSV. Contrasté sus 68 `id` con los dos archivos del manager: una aparición por alerta y campos coincidentes con ambas copias del índice. La causa histórica queda indeterminada por falta de logs de Filebeat de madrugada.
 
 ## Hipótesis
 
@@ -18,7 +18,7 @@ La prueba controlada inicial verifica la visibilidad. La búsqueda retrospectiva
 
 Amplié el inventario a **28 comandos sudo: 26 `5402` y 2 `5403`**. La [exportación ampliada](../../evidencias/hunt-001/sudo-eventos.csv) conserva dos comandos que mi filtro inicial excluía: `systemctl status wazuh-agent --no-pager`, el 16/10 a las 11:24:12.086, e `/usr/bin/id`, el 22/10 a las 18:52:16.575. Ambos aparecen como `5403`; la diferencia del primer comando respondía al filtro. El rango observado de la ampliación es 16/10 11:24:12.086–22/10 20:20:12.490.
 
-Mantengo intactos el CSV inicial de 26 `5402` y el de 120 filas, con sus manifiestos y capturas. Los recuentos de la sección histórica siguiente describen esa recogida inicial, no el total corregido. Restauré también el extracto SSH/sudo y verifiqué su hash. El [diagnóstico de repeticiones](repeticiones-exportacion.md) incorpora el manager y el siguiente contraste con Filebeat.
+Mantengo intactos el CSV inicial de 26 `5402` y el de 120 filas, con sus manifiestos y capturas. Los recuentos de la sección histórica siguiente describen esa recogida inicial, no el total corregido. Restauré también el extracto SSH/sudo y verifiqué su hash. El [diagnóstico de repeticiones](repeticiones-exportacion.md) conserva la comparación de documentos, la cobertura de Filebeat y el cierre del 25/10.
 
 ## Alcance y fuentes
 
@@ -103,8 +103,8 @@ Clasifiqué la actividad por los comandos, el contexto de las tareas y mi recono
 - Revisé las alertas y auth.log de un agente. El rango de la consulta es más amplio que la cobertura observada; quedan fuera los comandos sin registro en estas fuentes.
 - Comparé fuentes anteriores y posteriores al cambio de recogida, respetando sus formatos horarios.
 - El vínculo técnico SSH → sudo está respaldado para la prueba controlada. Las otras ejecuciones carecen de un identificador común de sesión SSH; la relación de la sesión 4 de logind con `pts/1` queda sin verificar. Las etiquetas MITRE describen reglas, no una clasificación de ataque.
-- Mi siguiente contraste es el log de Filebeat y una exportación con `_id`, `_index` e `id` de alerta. El manager conserva una coincidencia para `1792621933.6071`; no conservo la exportación que permitiría verificar la pareja documental. La hipótesis de reintentos se detalla en [repeticiones-exportacion.md](repeticiones-exportacion.md).
-- Conservé la prueba sintética de fallos duplicados como control de robustez de prioridad baja. Confirma sensibilidad cuando duplico entradas antes del análisis; no reproduce una duplicación posterior en el índice. Considero poco probable que esta última afecte a la correlación: si la copia se genera tras la alerta, no vuelve a alimentar el contador. Este CSV no contiene fallos `5760` ni demuestra un falso positivo histórico.
+- Confirmé 68 parejas documentales en la ampliación del 26/10 y contrasté las nueve del CSV. La causa histórica queda indeterminada: falta Filebeat de madrugada. [Comparación y límites](repeticiones-exportacion.md).
+- Conservé la prueba sintética de fallos duplicados como control de robustez de prioridad baja. Confirma sensibilidad cuando duplico entradas antes del análisis; no reproduce una duplicación posterior en el índice. Considero poco probable que esta última afecte a la correlación: si la copia se genera tras la alerta, no vuelve a alimentar el contador. La ampliación sí confirma cuatro parejas documentales `5760`; su duplicación antes del análisis y un falso positivo histórico siguen sin demostrarse.
 - Quedan pendientes telemetría de procesos y auditoría completa de ejecución.
 - Se completó la [revalidación de 100100 con auth.log](../../validaciones/caso-003-auth-log/README.md), incluidos controles negativos y una prueba real después de corregir la agrupación de rsyslog.
 

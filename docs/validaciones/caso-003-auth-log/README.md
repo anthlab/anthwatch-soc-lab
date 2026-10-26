@@ -74,7 +74,7 @@ Comprobé que la segunda entrada contiene exactamente las líneas 1, 1, 2, 2 y 3
 
 Validé el cambio en `anthwatch-server`. Quedan fuera los eventos exclusivos de journald que no se escriben en las rutas monitorizadas y la revisión completa de configuración centralizada y de las otras máquinas.
 
-La duplicación sintética ocurre antes del análisis. El duplicado investigado en el índice sigue pendiente de localizar: faltan Filebeat y los documentos con `_id`. Considero poco probable que una copia posterior a la correlación infle el contador. Las pruebas conservadas no acreditan duplicación real de `5760` ni un falso positivo histórico.
+La duplicación sintética ocurre antes del análisis. El [cierre del 25/10](../../hunts/hunt-001/repeticiones-exportacion.md) confirma una pareja de documentos para la misma alerta `5715`, con una coincidencia conservada en el manager; la causa queda indeterminada por falta de Filebeat del periodo. Considero poco probable que esas copias posteriores a la emisión inflen el contador. La [ampliación del 26/10](../../hunts/hunt-001/repeticiones-exportacion.md) confirma cuatro parejas documentales `5760` entre 68 parejas. El contraste posterior encontró una sola aparición de cada uno de los 68 `id` en los dos archivos conservados del manager y campos coincidentes con ambas copias indexadas; el informe documenta los prefijos NUL y el límite de integridad histórica. La duplicación de entradas antes de analizar y un falso positivo histórico siguen sin demostrarse.
 
 ## Evidencia conservada
 
