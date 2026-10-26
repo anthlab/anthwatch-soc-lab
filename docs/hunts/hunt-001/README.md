@@ -1,5 +1,7 @@
 # Hunt 001 — Investigación de accesos SSH y uso de sudo
 
+[Resumen, flujo de datos y glosario](../001-ssh-y-sudo.md).
+
 Las evidencias iniciales están en [evidencias/](evidencias/); el CSV ampliado a 28 comandos y la guía conjunta de verificación están en [docs/evidencias/hunt-001](../../evidencias/hunt-001/README.md).
 
 - **Detecté:** una secuencia SSH → sudo en una prueba controlada y nueve filas repetidas en la exportación de accesos y sesiones.

@@ -4,6 +4,12 @@
 
 Comparé las 120 filas del CSV histórico: contienen 111 combinaciones distintas y nueve repeticiones adicionales. Las nueve parejas son journald y se concentran entre 00:28:51 y 01:01:55 del 22/10. Después consulté directamente el índice para verificar una de ellas con sus identificadores.
 
+## Por qué usé Dev Tools
+
+Con Threat Hunting revisaba las alertas, pero necesitaba ver los dos documentos que representaban una misma alerta, sus `_id` y el índice donde estaban guardados. Además, quería agrupar por `id` para buscar repeticiones en todos los índices consultados. Hice esas búsquedas en Dev Tools, usando la API del indexador, y conservé las consultas y sus respuestas para repetir el contraste.
+
+El detalle de una alerta también puede mostrar metadatos del índice; lo que necesitaba aquí era una comparación explícita de documentos y una agregación de todos los `id` repetidos. Wazuh documenta el acceso a la [API del indexador desde Dev Tools](https://documentation.wazuh.com/current/user-manual/indexer-api/getting-started.html#using-the-wazuh-indexer-api-via-the-wazuh-dashboard). El [diagrama y glosario del resumen](../001-ssh-y-sudo.md#por-dónde-pasan-los-datos) sitúan cada componente antes de entrar en los datos.
+
 ## Comparación de documentos
 
 La [consulta conservada](../../evidencias/duplicados-001/consulta.http) devuelve exactamente dos documentos, sin timeout y con los tres shards consultados correctamente. La [respuesta JSON](../../evidencias/duplicados-001/respuesta.json) contiene:

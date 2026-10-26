@@ -1,10 +1,24 @@
 # Anthwatch
 
+Laboratorio SOC con Wazuh: detección propia, validación y threat hunting sobre SSH y sudo.
+
 Monté Anthwatch para empezar a familiarizarme con un SIEM y practicar tareas de un analista SOC. Además, estábamos trabajando con Wazuh en clase de Incidentes de Ciberseguridad y quería seguir practicando por mi cuenta. Mi objetivo era entender cómo llegan los registros, cómo se generan las alertas y cómo investigarlas usando mis propias máquinas.
 
 Trabajo con Wazuh 4.14.9 y tres máquinas Ubuntu Server en VirtualBox. Empecé revisando fallos y accesos SSH, después probé una correlación con un usuario inexistente y acabé creando mi propia regla. En cada caso guardé evidencias, expliqué el resultado y redacté un ticket simulado. Todas las pruebas las hice con mis máquinas y cuentas del laboratorio.
 
 Al probar la regla con conexiones reales apareció el problema de rsyslog: agrupaba los fallos y la secuencia que funcionaba en logtest dejaba de detectarse. Lo corregí y repetí las pruebas. Después amplié la investigación con un hunt de SSH y sudo, donde revisé la cobertura de las consultas y las repeticiones en los datos.
+
+Este proyecto muestra cómo desplegué Wazuh, escribí y validé una regla propia, investigué problemas en los datos y conservé evidencias con hashes para poder comprobar los resultados.
+
+![Alerta real 100100: acceso SSH correcto tras varios fallos, con nivel 10 e historial de los intentos](docs/validaciones/caso-003-auth-log/capturas/caso-003-revalidacion-14-detalle-100100.png)
+
+*Mi regla `100100` detectando un acceso correcto después de tres fallos. La captura conserva el historial de intentos y el resultado de la prueba real.*
+
+## Cómo leer este repositorio
+
+- **2 minutos:** esta página y el resumen inicial del [caso 003](docs/casos/003-ssh-fallos-seguidos-de-exito.md), donde creé mi propia regla de detección.
+- **10 minutos:** el [resumen del hunt](docs/hunts/001-ssh-y-sudo.md), su diagrama y el [análisis de duplicados](docs/hunts/hunt-001/repeticiones-exportacion.md): qué pregunté, cómo lo comprobé y qué quedó sin resolver.
+- **Para consultar:** los informes completos, tickets, registros y hashes respaldan los resultados. No hace falta leer cada registro ni las 68 parejas para seguir la investigación.
 
 ## Casos completados
 
@@ -16,11 +30,12 @@ Al probar la regla con conexiones reales apareció el problema de rsyslog: agrup
 
 ## Threat hunting y revalidación
 
-- [Hunt 001: SSH y sudo](docs/hunts/001-ssh-y-sudo.md): secuencia de prueba y revisión de 28 comandos sudo (`5402` y `5403`), cambio de fuente y análisis de duplicación documental.
-- [Revalidación del caso 003](docs/casos/003-revalidacion.md): positivo `100100`, controles por IP/usuario y control temporal con 130,003 s declarados de espera y 132,122 s entre las marcas; XML equivalente al del repositorio.
+- [Hunt 001: SSH y sudo](docs/hunts/001-ssh-y-sudo.md): investigué qué ocurrió después de un acceso SSH y revisé la actividad con privilegios y las alertas repetidas.
+- [Revalidación del caso 003](docs/casos/003-revalidacion.md): comprobé cuándo se activa mi regla y cuándo debe quedarse sin activar, cambiando el origen, el usuario y el tiempo entre intentos.
 - [Evidencias del hunt](docs/evidencias/hunt-001/README.md) · [Evidencias de revalidación](docs/evidencias/revalidacion-003/README.md) · [HUNT-001](docs/tickets/HUNT-001.md).
 
-Conservé extractos originales, CSV, capturas y hashes del hunt y la revalidación real. No identifiqué actividad no autorizada en la muestra. Amplié la [revisión de duplicados](docs/hunts/hunt-001/repeticiones-exportacion.md) a los índices consultados: confirmé 68 parejas con contenido idéntico, incluidas las nueve del CSV. Contrasté los 68 `id` con los dos archivos del manager: cada uno aparece una vez y sus campos coinciden con ambas copias indexadas. La duplicación posterior a la emisión queda respaldada en esos archivos; la causa concreta sigue indeterminada y faltan los logs de Filebeat de madrugada.
+Conservé los registros, las capturas y los hashes para comprobar los resultados.
+La [investigación de alertas repetidas](docs/hunts/hunt-001/repeticiones-exportacion.md) confirmó copias posteriores a la emisión del manager; la causa concreta quedó sin resolver.
 
 ## Documentación
 
