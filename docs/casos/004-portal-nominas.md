@@ -1,6 +1,15 @@
 # Caso 004 · Detección y triaje en un portal de nóminas simulado
 
-[Volver al README](../../README.md)
+[Índice de documentación](../README.md)
+
+## Resumen
+
+- **Objetivo:** Incorporar y correlacionar registros de un portal simulado.
+- **Método:** Adapté el material de clase, amplié el decodificador y probé reglas con logtest y el agente.
+- **Resultado:** Ráfaga, acceso posterior y exportación externa detectados en vivo.
+- **Límites:** Correlación por IP, sin exigir la misma cuenta; una exportación externa autorizada también alerta.
+
+## Contexto
 
 Probé cómo incorporar a Anthwatch una fuente de aplicación que Wazuh no decodificaba. Usé Wazuh 4.14.9, instalado directamente en `anthwatch-wazuh`, y el agente `001` de `anthwatch-server`. Adapté el escenario de clase al laboratorio. El decodificador inicial y los registros sintéticos proceden de ese ejercicio. Completé las reglas y comprobé su comportamiento con el agente de Anthwatch. La [salida completa de logtest](../evidencias/caso-004/salida-todo.txt) conserva los 32 eventos de SSH y del portal.
 

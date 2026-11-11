@@ -1,6 +1,15 @@
 # Caso 001 · Fallos de autenticación SSH y acceso correcto
 
-[Volver al README](../../README.md)
+[Índice de documentación](../README.md)
+
+## Resumen
+
+- **Objetivo:** Comprobar la recepción de fallos y accesos SSH.
+- **Método:** Generé intentos controlados y revisé cuenta, IP y alertas.
+- **Resultado:** Reglas `5760` y `5715` observadas; secuencia reconstruida manualmente.
+- **Límites:** La relación entre eventos se analizó manualmente; fue actividad autorizada.
+
+## Contexto
 
 Detecté fallos de contraseña y un acceso SSH correcto desde el cliente al servidor.  
 Validé la recepción en Wazuh con las reglas `5760` y `5715` y revisé sus campos de origen y cuenta.  

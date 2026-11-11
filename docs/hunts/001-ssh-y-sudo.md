@@ -1,6 +1,6 @@
 # Hunt 001 · SSH y sudo
 
-[Volver al README](../../README.md) · [Informe completo](hunt-001/README.md) · [Ticket](../tickets/HUNT-001.md)
+[Volver al README](../../README.md) · [Detalle técnico y evidencias](hunt-001/README.md) · [Ticket](../tickets/HUNT-001.md)
 
 ## Resumen
 

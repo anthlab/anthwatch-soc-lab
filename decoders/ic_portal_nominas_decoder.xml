@@ -1,4 +1,9 @@
 <!--
+  Procedencia: decodificador inicial facilitado en un ejercicio de clase
+  de Incidentes de Ciberseguridad. Adaptado a Anthwatch por Anthony Zamora.
+  Ampliación realizada: extracción del campo registros mediante un decoder hermano.
+  Contexto y validación: docs/casos/004-portal-nominas.md.
+
   Decodificador del portal de nóminas (aplicación ficticia).
   Formato de las líneas:
     portal-nominas[PID]: ACCION user=USUARIO src=IP

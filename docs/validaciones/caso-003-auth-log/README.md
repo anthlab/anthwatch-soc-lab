@@ -1,5 +1,7 @@
 # Caso 003 — Revalidación de la regla 100100 con auth.log
 
+> Documento de apoyo. Empieza por el [informe principal](../../casos/003-ssh-fallos-seguidos-de-exito.md).
+
 - **Detecté:** la agrupación de fallos de rsyslog impedía reproducir la detección real con la nueva fuente.
 - **Validé:** prueba positiva y controles negativos sintéticos; tres fallos reales seguidos de éxito disparan 100100 desde /var/log/auth.log después de desactivar la agrupación.
 - **Aprendí:** una regla puede funcionar en logtest y no detectar la misma secuencia en una prueba real. En mi caso, rsyslog agrupaba los fallos y Wazuh no recibía cada intento por separado. Desde entonces, además de revisar la regla, compruebo cómo llegan los registros.

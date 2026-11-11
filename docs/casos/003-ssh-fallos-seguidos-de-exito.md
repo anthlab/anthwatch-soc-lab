@@ -1,6 +1,15 @@
 # Caso 003 · Acceso SSH correcto tras varios fallos
 
-[Volver al README](../../README.md)
+[Índice de documentación](../README.md)
+
+## Resumen
+
+- **Objetivo:** Detectar un acceso correcto tras fallos de la misma cuenta e IP.
+- **Método:** Escribí `100100`, probé controles positivos y negativos y repetí la secuencia con SSH real.
+- **Resultado:** La alerta se activó; corregí la agrupación de rsyslog al cambiar a auth.log.
+- **Límites:** Validación de escenarios controlados; no he medido una tasa general de falsos positivos.
+
+## Contexto
 
 Creé la regla `100100` para detectar un acceso SSH correcto tras tres fallos de la misma cuenta e IP.  
 La validé primero con pruebas positivas y negativas en `wazuh-logtest` y después con SSH real: alerta en una secuencia de 23 segundos.  
@@ -10,6 +19,12 @@ La revalidación posterior me enseñó a comprobar cómo llegan los registros, a
 **Estado:** regla propia probada con registros de muestra y validada con conexiones reales del laboratorio.  
 **Clasificación:** detección correcta de una simulación autorizada.  
 **Hora de las VMs:** ajustada a Europe/Madrid con NTP antes de esta prueba.
+
+## Evidencias y validaciones de este informe
+
+- [Diagnóstico de rsyslog y revalidación con tráfico real](../validaciones/caso-003-auth-log/README.md).
+- [Controles positivos, de identidad y de ventana temporal](003-revalidacion.md).
+- [Muestras y pruebas reproducibles](../../tests/caso-003/README.md).
 
 ## Revisión del 24/10/2026
 

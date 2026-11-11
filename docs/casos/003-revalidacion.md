@@ -1,5 +1,7 @@
 # Caso 003 · Revalidación de la regla 100100
 
+> Documento de apoyo. Empieza por el [informe principal](003-ssh-fallos-seguidos-de-exito.md).
+
 [Caso original](003-ssh-fallos-seguidos-de-exito.md) · [Pruebas](../../tests/caso-003/README.md) · [Hunt 001](../hunts/001-ssh-y-sudo.md)
 
 **Fecha de controles conservados:** 24/10/2026. **Motor:** `wazuh-logtest` 4.14.9.  

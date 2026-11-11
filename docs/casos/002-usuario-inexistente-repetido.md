@@ -1,6 +1,15 @@
 # Caso 002 · Correlación de intentos SSH con usuario inexistente
 
-[Volver al README](../../README.md)
+[Índice de documentación](../README.md)
+
+## Resumen
+
+- **Objetivo:** Validar la correlación de intentos contra una cuenta inexistente.
+- **Método:** Comparé ocho conexiones de prueba con un control de una conexión.
+- **Resultado:** Alerta `5712` de nivel 10; el control produjo `5710` sin `5712`.
+- **Límites:** Conexiones y eventos no equivalen: una conexión puede generar varios registros.
+
+## Contexto
 
 Detecté intentos SSH repetidos contra una cuenta inexistente con la regla `5712`, nivel 10.  
 Validé la alerta tras ocho conexiones de prueba y repetí el control: una conexión atribuida en journal produjo dos eventos `5710`, sin `5712`.  

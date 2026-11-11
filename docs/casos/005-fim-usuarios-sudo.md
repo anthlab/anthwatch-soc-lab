@@ -1,6 +1,15 @@
 # Caso 005 · Integridad de archivos, usuarios y sudo
 
-[Volver al README](../../README.md)
+[Índice de documentación](../README.md)
+
+## Resumen
+
+- **Objetivo:** Comprobar cobertura de archivos, cuentas y autenticación sudo.
+- **Método:** Generé cambios controlados y examiné las alertas del servidor.
+- **Resultado:** FIM en tiempo real, ciclo de cuentas y fallos sudo documentados en 32 alertas.
+- **Límites:** La coincidencia temporal no atribuye las acciones a una misma sesión o persona.
+
+## Contexto
 
 El 29 de octubre de 2026 amplié las comprobaciones de Anthwatch sobre `anthwatch-server`. Revisé cómo el agente comunica cambios de archivos, altas y bajas de cuentas y errores de autenticación con sudo. Este caso amplía la investigación de [SSH y sudo](../hunts/001-ssh-y-sudo.md) con evidencia de cambios concretos.
 
