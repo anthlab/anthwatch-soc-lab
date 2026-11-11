@@ -4,7 +4,7 @@
 
 Mi laboratorio personal de operaciones de seguridad con Wazuh.
 
-**Estado:** Wazuh 4.14.9 está instalado y los agentes de `anthwatch-server` y `anthwatch-client` aparecen activos en el dashboard. Las tres máquinas se comunican por la red solo-anfitrión y se administran por SSH. Hay tres casos SSH documentados: eventos individuales, correlación con usuario inexistente y regla propia de fallos seguidos de éxito con una cuenta existente.
+**Estado documentado al 11/11/2026.** El laboratorio utiliza Wazuh 4.14.9 y tres VMs administradas por SSH: un servidor central y dos equipos con agente. Los cinco casos cubren autenticación SSH (001–003), un portal simulado (004) y FIM, cuentas y sudo (005). Las evidencias conservan el estado de los agentes durante cada prueba.
 
 ## Sobre el proyecto
 
@@ -146,7 +146,7 @@ La hora de las tres VMs se ajustó antes del caso 003; las salidas de `timedatec
 
 ## Próximas fases
 
-El primer hunt está documentado y la [revisión histórica del duplicado](hunts/hunt-001/repeticiones-exportacion.md) se amplió el 26/10: 68 parejas documentales confirmadas y causa histórica indeterminada por falta de logs de Filebeat de madrugada. Mi siguiente prioridad es ampliar la cobertura de procesos. Windows queda aplazado por los 16 GB de RAM del portátil. El alcance y la cobertura que falta verificar se recogen en la [hoja de ruta](hoja-de-ruta.md).
+El primer hunt está documentado y la [revisión histórica del duplicado](anexos/duplicados-indexacion.md) se amplió el 26/10: 68 parejas documentales confirmadas y causa histórica indeterminada por falta de logs de Filebeat de madrugada. Mi siguiente prioridad es ampliar la cobertura de procesos. Windows queda aplazado por los 16 GB de RAM del portátil. El alcance y la cobertura que falta verificar se recogen en la [hoja de ruta](hoja-de-ruta.md).
 
 La integridad de archivos y el ciclo de usuarios cuentan con evidencia en el caso 005. La atribución de acciones a procesos sigue siendo una prioridad.
 
@@ -167,7 +167,7 @@ Documentación disponible:
 - [Caso 003: regla propia de fallos seguidos de éxito](casos/003-ssh-fallos-seguidos-de-exito.md).
 - [Ticket SOC-003](tickets/SOC-003.md) · [Regla XML](../rules/anthwatch_ssh_rules.xml) · [Muestras y controles](../tests/caso-003/README.md).
 
-Los documentos de instalación recogen el estado actual; los detalles aún no verificados están indicados como pendientes. Los tres informes, el procedimiento de análisis N1 y sus tickets simulados están disponibles. Los casos pendientes figuran en la [hoja de ruta](hoja-de-ruta.md).
+Los documentos de instalación recogen el estado actual; los detalles aún no verificados están indicados como pendientes. Están disponibles cinco informes de casos, los procedimientos de análisis N1 y los tickets simulados de los casos SSH. Los casos pendientes figuran en la [hoja de ruta](hoja-de-ruta.md).
 
 Mi [portfolio](https://anthlab.github.io/) presenta mis proyectos, incluido Anthwatch.
 

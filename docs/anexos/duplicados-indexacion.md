@@ -1,4 +1,4 @@
-# Duplicado documental · Análisis y cierre
+# Anexo técnico · Duplicados en el indexador
 
 **Revisión inicial cerrada el 25/10 y ampliada el 26/10/2026: 68 parejas de documentos confirmadas; causa histórica indeterminada.**
 
@@ -8,11 +8,11 @@ Comparé las 120 filas del CSV histórico: contienen 111 combinaciones distintas
 
 Con Threat Hunting revisaba las alertas, pero necesitaba ver los dos documentos que representaban una misma alerta, sus `_id` y el índice donde estaban guardados. Además, quería agrupar por `id` para buscar repeticiones en todos los índices consultados. Hice esas búsquedas en Dev Tools, usando la API del indexador, y conservé las consultas y sus respuestas para repetir el contraste.
 
-El detalle de una alerta también puede mostrar metadatos del índice; lo que necesitaba aquí era una comparación explícita de documentos y una agregación de todos los `id` repetidos. Wazuh documenta el acceso a la [API del indexador desde Dev Tools](https://documentation.wazuh.com/current/user-manual/indexer-api/getting-started.html#using-the-wazuh-indexer-api-via-the-wazuh-dashboard). El [diagrama y glosario del resumen](../001-ssh-y-sudo.md#por-dónde-pasan-los-datos) sitúan cada componente antes de entrar en los datos.
+El detalle de una alerta también puede mostrar metadatos del índice; lo que necesitaba aquí era una comparación explícita de documentos y una agregación de todos los `id` repetidos. Wazuh documenta el acceso a la [API del indexador desde Dev Tools](https://documentation.wazuh.com/current/user-manual/indexer-api/getting-started.html#using-the-wazuh-indexer-api-via-the-wazuh-dashboard). El [diagrama y glosario del resumen](../hunts/001-ssh-y-sudo.md#por-dónde-pasan-los-datos) sitúan cada componente antes de entrar en los datos.
 
 ## Comparación de documentos
 
-La [consulta conservada](../../evidencias/duplicados-001/consulta.http) devuelve exactamente dos documentos, sin timeout y con los tres shards consultados correctamente. La [respuesta JSON](../../evidencias/duplicados-001/respuesta.json) contiene:
+La [consulta conservada](../evidencias/duplicados-001/consulta.http) devuelve exactamente dos documentos, sin timeout y con los tres shards consultados correctamente. La [respuesta JSON](../evidencias/duplicados-001/respuesta.json) contiene:
 
 | Campo | Documento 1 | Documento 2 |
 | --- | --- | --- |
@@ -27,13 +27,13 @@ Los campos exportados de `_source` coinciden por completo, incluido `full_log`: 
 
 `_id` identifica cada documento del índice; `id` identifica la alerta del manager. Los dos documentos representan la misma alerta. Sus `_score` son distintos: son puntuaciones de búsqueda y no aportan una cronología de entrega.
 
-La [extracción original del manager](../../evidencias/ingesta-journald/alerta-original-1792621933-6071.txt) conserva una coincidencia para ese `id`, con el mismo mensaje, timestamp y regla. Con la evidencia disponible sitúo la duplicación en la entrega/indexación de la alerta, después de su emisión. La comparación descarta que esta pareja sea solo una repetición del CSV.
+La [extracción original del manager](../evidencias/ingesta-journald/alerta-original-1792621933-6071.txt) conserva una coincidencia para ese `id`, con el mismo mensaje, timestamp y regla. Con la evidencia disponible sitúo la duplicación en la entrega/indexación de la alerta, después de su emisión. La comparación descarta que esta pareja sea solo una repetición del CSV.
 
 ## Ampliación a todos los índices consultados · 26/10
 
-Consulté `wazuh-alerts-4.x-*` y agrupé por `id`, con dos documentos completos por grupo. La [respuesta original](../../evidencias/duplicados-001/duplicados-ampliados.console.txt) incluye **1.672 documentos**, 21 shards consultados correctamente y ningún timeout. La agregación devuelve **68 grupos de dos documentos**: **136 documentos**, con `_id` distintos y `_source` idéntico en las 68 parejas. `sum_other_doc_count` y el margen de error son cero; el listado cabe completo en el tamaño solicitado.
+Consulté `wazuh-alerts-4.x-*` y agrupé por `id`, con dos documentos completos por grupo. La [respuesta original](../evidencias/duplicados-001/duplicados-ampliados.console.txt) incluye **1.672 documentos**, 21 shards consultados correctamente y ningún timeout. La agregación devuelve **68 grupos de dos documentos**: **136 documentos**, con `_id` distintos y `_source` idéntico en las 68 parejas. `sum_other_doc_count` y el margen de error son cero; el listado cabe completo en el tamaño solicitado.
 
-La [comparación derivada](../../evidencias/duplicados-001/comparacion-ampliada.json) recoge los identificadores y comprobaciones. Contrasté las nueve parejas del CSV original: las nueve coinciden con grupos de esta respuesta en todos sus campos exportados.
+La [comparación derivada](../evidencias/duplicados-001/comparacion-ampliada.json) recoge los identificadores y comprobaciones. Contrasté las nueve parejas del CSV original: las nueve coinciden con grupos de esta respuesta en todos sus campos exportados.
 
 | Agente | Parejas |
 | --- | ---: |
@@ -56,11 +56,11 @@ La ampliación confirma que la repetición documental también afecta a cuatro a
 
 ## Revisión de Filebeat
 
-Consulté el journal y recogí los archivos rotados de `/var/log/filebeat`. La [recogida conservada](../../evidencias/duplicados-001/README.md) contiene ocho archivos; el registro más antiguo es del **22/10 a las 16:13:57.069+02:00**. La franja investigada era **00:27–01:15+02:00**, por lo que falta el detalle de entrega de esa madrugada. La consulta al journal mostró arranques del servicio, sin mensajes de publicación útiles para atribuir la causa.
+Consulté el journal y recogí los archivos rotados de `/var/log/filebeat`. La [recogida conservada](../evidencias/duplicados-001/README.md) contiene ocho archivos; el registro más antiguo es del **22/10 a las 16:13:57.069+02:00**. La franja investigada era **00:27–01:15+02:00**, por lo que falta el detalle de entrega de esa madrugada. La consulta al journal mostró arranques del servicio, sin mensajes de publicación útiles para atribuir la causa.
 
 Los archivos conservan errores `connection refused`, respuestas `503` y conexiones restablecidas en horas posteriores. Los trato como contexto operativo de esas horas, no como evidencia causal de este duplicado.
 
-El [log del manager](../../evidencias/ingesta-journald/manager-0020-0115.log) sí cubre la franja: registra arranque de módulos a las 00:27:39, errores `No available server` desde 00:28:07 e inicializaciones correctas desde 00:31:57. Esos mensajes pertenecen al conector de inventario/estados del manager, distinto de Filebeat.
+El [log del manager](../evidencias/ingesta-journald/manager-0020-0115.log) sí cubre la franja: registra arranque de módulos a las 00:27:39, errores `No available server` desde 00:28:07 e inicializaciones correctas desde 00:31:57. Esos mensajes pertenecen al conector de inventario/estados del manager, distinto de Filebeat.
 
 ## Valoración de la hipótesis
 
@@ -68,21 +68,21 @@ Los reintentos de entrega siguen siendo una explicación posible. Elastic docume
 
 ## Dos parejas junto a la parada de Filebeat
 
-Las alertas `5502` y `506` tienen marcas de las **20:38:47.533 y 20:38:47.642+02:00**. En [filebeat.3](../../evidencias/duplicados-001/filebeat/filebeat.3), Filebeat registra `Stopping filebeat` a las **20:38:49.807** y un error de publicación a las **20:38:49.871**: `failed to perform any bulk index operations`, petición a `https://127.0.0.1:9200/_bulk` terminada con `EOF`. Después aparecen mensajes del reintentador y la parada a las 20:38:49.921. El siguiente archivo, [filebeat.2](../../evidencias/duplicados-001/filebeat/filebeat.2), comienza a las **21:10:11.056**. Todas estas horas son de Madrid, el 22/10.
+Las alertas `5502` y `506` tienen marcas de las **20:38:47.533 y 20:38:47.642+02:00**. En [filebeat.3](../evidencias/duplicados-001/filebeat/filebeat.3), Filebeat registra `Stopping filebeat` a las **20:38:49.807** y un error de publicación a las **20:38:49.871**: `failed to perform any bulk index operations`, petición a `https://127.0.0.1:9200/_bulk` terminada con `EOF`. Después aparecen mensajes del reintentador y la parada a las 20:38:49.921. El siguiente archivo, [filebeat.2](../evidencias/duplicados-001/filebeat/filebeat.2), comienza a las **21:10:11.056**. Todas estas horas son de Madrid, el 22/10.
 
 **Inferencia:** un lote recibido por el indexador cuya confirmación se perdió al apagar podría reenviarse tras el arranque y producir las dos copias. Encaja con la entrega al menos una vez descrita por Elastic. El log no identifica las alertas del lote ni conserva una confirmación de su reenvío; por eso mantengo esta explicación como candidata para las dos parejas tardías.
 
 ## Pista temporal en la captura del caso 001
 
-Volví a revisar la [captura del dashboard](../../capturas/ssh-eventos-dashboard.png): muestra `Last 15 minutes`, un gráfico hasta aproximadamente las 00:33 y un total de **6**, repartido en **4 fallos y 2 éxitos**. La consulta ampliada actual contiene cuatro parejas `5760` y siete `5715` en la franja de madrugada.
+Volví a revisar la [captura del dashboard](../capturas/ssh-eventos-dashboard.png): muestra `Last 15 minutes`, un gráfico hasta aproximadamente las 00:33 y un total de **6**, repartido en **4 fallos y 2 éxitos**. La consulta ampliada actual contiene cuatro parejas `5760` y siete `5715` en la franja de madrugada.
 
 **Inferencia:** si el panel contaba documentos y las seis alertas ya tenían ambas copias dentro de la misma ventana y filtros, cabría esperar 12 resultados. Los seis visibles apuntan a que las copias llegaron después de la captura, mediante un reenvío posterior. La captura no conserva una exportación de sus seis `id` ni la consulta interna del panel; no fija el momento exacto de duplicación ni identifica el componente que reenvió.
 
-Añadí una nota a los [casos 001](../../casos/001-autenticacion-ssh.md) y [002](../../casos/002-usuario-inexistente-repetido.md): sus capturas conservan los recuentos de entonces y una consulta actual puede devolver más documentos. La ejecución original del 002, hacia las 01:02–01:03, coincide con las 15 parejas `5710` y la pareja `5712`. El caso 003 de las 14:13 queda fuera de la franja duplicada identificada.
+Añadí una nota a los [casos 001](../casos/001-autenticacion-ssh.md) y [002](../casos/002-usuario-inexistente-repetido.md): sus capturas conservan los recuentos de entonces y una consulta actual puede devolver más documentos. La ejecución original del 002, hacia las 01:02–01:03, coincide con las 15 parejas `5710` y la pareja `5712`. El caso 003 de las 14:13 queda fuera de la franja duplicada identificada.
 
 ## Contraste de emisión de los 68 identificadores · 26/10
 
-Recogí los archivos reales del manager: estaban **sin comprimir**, con extensión `.json`, en `/var/ossec/logs/alerts/2026/Oct/`. Conservé sus bytes en [manager/](../../evidencias/duplicados-001/manager/) y conté cada `id` exacto de las 68 parejas en ambos archivos combinados.
+Recogí los archivos reales del manager: estaban **sin comprimir**, con extensión `.json`, en `/var/ossec/logs/alerts/2026/Oct/`. Conservé sus bytes en [manager/](../evidencias/duplicados-001/manager) y conté cada `id` exacto de las 68 parejas en ambos archivos combinados.
 
 | Archivo | Registros JSON leídos | IDs objetivo con una aparición |
 | --- | ---: | ---: |
@@ -90,7 +90,7 @@ Recogí los archivos reales del manager: estaban **sin comprimir**, con extensi�
 | `ossec-alerts-22.json` | 423 | 2 |
 | Total | 533 | 68 |
 
-**Los 68 identificadores aparecen una sola vez en los archivos del manager y dos veces en el índice.** No falta ninguno y ninguno aparece varias veces en los dos originales combinados. Contrasté además todos los campos de cada registro del manager con ambas copias indexadas: coinciden. Las copias del índice añaden `input` y `@timestamp`; no los traté como campos emitidos por el manager. Conservé el [resultado por ID y línea](../../evidencias/duplicados-001/comparacion-manager.json) y el [script reproducible](../../evidencias/duplicados-001/contrastar-manager.py).
+**Los 68 identificadores aparecen una sola vez en los archivos del manager y dos veces en el índice.** No falta ninguno y ninguno aparece varias veces en los dos originales combinados. Contrasté además todos los campos de cada registro del manager con ambas copias indexadas: coinciden. Las copias del índice añaden `input` y `@timestamp`; no los traté como campos emitidos por el manager. Conservé el [resultado por ID y línea](../evidencias/duplicados-001/comparacion-manager.json) y el [script reproducible](../evidencias/duplicados-001/contrastar-manager.py).
 
 Encontré un prefijo de **978 bytes NUL** antes del registro de la línea 67 del archivo del 21 y otro de **2.928 bytes NUL** antes del de la línea 353 del archivo del 22. Retiré únicamente esos prefijos en memoria para leer los registros; los originales permanecen intactos. Todos los registros resultantes son JSON válido. Ninguno de los 68 registros objetivo lleva un prefijo NUL. El informe registra offsets, líneas y hashes. La causa de esos bloques y una posible pérdida previa de contenido quedan sin determinar; el recuento describe los archivos conservados, no garantiza la integridad de toda la emisión histórica.
 
@@ -100,7 +100,7 @@ Este contraste respalda que las 68 parejas se duplicaron después de la emisión
 
 La ampliación incluye cuatro parejas documentales `5760`, además de los éxitos y sesiones. Distingo el punto donde se duplica un dato: dos documentos con el mismo `id` de alerta y `_source` idéntico representan una alerta repetida en el índice; duplicar líneas antes del análisis puede generar una nueva correlación. Considero poco probable que la repetición documental posterior a la emisión infle por sí misma el contador de `100100`. El contraste de los dos archivos históricos respalda una única emisión conservada para cada una de las 68 alertas, incluidas las cuatro `5760`. Así sitúo estas copias después de la correlación en el alcance revisado; los prefijos NUL y la cobertura histórica quedan documentados aparte.
 
-La [prueba sintética de duplicados](../../validaciones/caso-003-auth-log/evidencias/duplicados-logtest/) evalúa otro punto: duplicar entradas antes de analizarlas. Con dos fallos repetidos dos veces y un éxito, logtest activa `100100`; sin repetición termina en `5715`. La mantengo como control de robustez de prioridad baja.
+La [prueba sintética de duplicados](../validaciones/caso-003-auth-log/evidencias/duplicados-logtest) evalúa otro punto: duplicar entradas antes de analizarlas. Con dos fallos repetidos dos veces y un éxito, logtest activa `100100`; sin repetición termina en `5715`. La mantengo como control de robustez de prioridad baja.
 
 ## Límites
 

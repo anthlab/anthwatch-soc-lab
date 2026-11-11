@@ -35,12 +35,12 @@ flowchart TD
 
 En los dos archivos históricos del manager encontré **una aparición de cada una de las 68 alertas**; en el índice había **dos documentos por alerta**. Eso sitúa la duplicación después de la emisión conservada del manager, en el tramo de entrega e indexación. El contraste no identifica qué componente o reintento produjo las copias. El panel consulta esos documentos, así que puede mostrar más resultados aunque el manager haya emitido una sola alerta.
 
-Con el panel revisaba las alertas; para comprobar la repetición necesitaba comparar los dos documentos y sus `_id`, y agrupar por `id` en todos los índices consultados. Por eso pasé a Dev Tools y consulté directamente el indexador. El [análisis completo](hunt-001/repeticiones-exportacion.md#por-qué-usé-dev-tools) explica las consultas y sus límites.
+Con el panel revisaba las alertas; para comprobar la repetición necesitaba comparar los dos documentos y sus `_id`, y agrupar por `id` en todos los índices consultados. Por eso pasé a Dev Tools y consulté directamente el indexador. El [análisis completo](../anexos/duplicados-indexacion.md#por-qué-usé-dev-tools) explica las consultas y sus límites.
 
 ## Informes y evidencias
 
 - [Informe, fuentes, cronología y límites](hunt-001/README.md).
-- [Repeticiones del CSV e hipótesis de entrega](hunt-001/repeticiones-exportacion.md).
+- [Repeticiones del CSV e hipótesis de entrega](../anexos/duplicados-indexacion.md).
 - [Inventario histórico de 26 alertas](hunt-001/revision-sudo.md) y [exportación corregida de 28 comandos](../evidencias/hunt-001/sudo-eventos.csv).
 - [Evidencias originales y verificación](../evidencias/hunt-001/README.md).
 - [Revalidación real con auth.log](../validaciones/caso-003-auth-log/README.md) y [controles completos del 24/10](../casos/003-revalidacion.md).

@@ -24,7 +24,11 @@ Las horas corresponden a la emisión de la alerta, en UTC.
 | 17:15:02.329 | `550`, 7 | Modificación del archivo, de 13 a 28 bytes, con cambio de hashes |
 | 17:15:20.251 | `553`, 7 | Borrado del archivo |
 
-Las tres alertas FIM indican `Mode: realtime`. Los registros de creación y borrado de usuarios tienen PID diferentes en las dos ejecuciones. Los interpreté como acciones repetidas. La [investigación histórica de duplicados](../hunts/hunt-001/repeticiones-exportacion.md) utiliza otro criterio, basado en comparar el contenido de las alertas y su emisión en el manager.
+Las tres alertas FIM indican `Mode: realtime`. Los registros de creación y borrado de usuarios tienen PID diferentes en las dos ejecuciones. Los interpreté como acciones repetidas. La [investigación histórica de duplicados](../anexos/duplicados-indexacion.md) utiliza otro criterio, basado en comparar el contenido de las alertas y su emisión en el manager.
+
+## MITRE ATT&CK
+
+La alerta `5404` incluye `T1548.003` (Sudo and Sudo Caching) en `rule.mitre.id`. En esta prueba registró tres contraseñas incorrectas al solicitar sudo para `/usr/bin/true`. La etiqueta describe la cobertura de la regla; la evidencia de este caso acredita una prueba controlada de autenticación fallida. [Referencia MITRE](https://attack.mitre.org/techniques/T1548/003/)
 
 ## Interpretación y continuidad
 
@@ -36,4 +40,4 @@ En el ejercicio también comprobé un mensaje de `logger` en journald. Su recepc
 
 ## Procedencia
 
-Las operaciones y la exportación se realizaron en Anthwatch durante un ejercicio de triaje de José Picón. Este informe recoge las pruebas ejecutadas en el servidor y su utilidad para la investigación del laboratorio.
+Las operaciones y la exportación se realizaron en Anthwatch durante un ejercicio de triaje de clase. Este informe recoge las pruebas ejecutadas en el servidor y su utilidad para la investigación del laboratorio.

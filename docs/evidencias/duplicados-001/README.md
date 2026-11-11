@@ -1,6 +1,6 @@
 # Evidencias · Revisión del duplicado y Filebeat
 
-[Análisis y cierre](../../hunts/hunt-001/repeticiones-exportacion.md)
+[Análisis y cierre](../../anexos/duplicados-indexacion.md)
 
 **Recogida inicial:** 25/10/2026, `anthwatch-wazuh`; **ampliación:** 26/10/2026. Conservé la consulta de Dev Tools y su respuesta JSON, además de los ocho logs de Filebeat. La respuesta está formateada como JSON para su lectura; el manifiesto fija los bytes de esta copia. El filtrado `_source` de la consulta delimita los campos comparados.
 

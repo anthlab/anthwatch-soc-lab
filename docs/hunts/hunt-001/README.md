@@ -20,7 +20,7 @@ La prueba controlada inicial verifica la visibilidad. La búsqueda retrospectiva
 
 Amplié el inventario a **28 comandos sudo: 26 `5402` y 2 `5403`**. La [exportación ampliada](../../evidencias/hunt-001/sudo-eventos.csv) conserva dos comandos que mi filtro inicial excluía: `systemctl status wazuh-agent --no-pager`, el 16/10 a las 11:24:12.086, e `/usr/bin/id`, el 22/10 a las 18:52:16.575. Ambos aparecen como `5403`; la diferencia del primer comando respondía al filtro. El rango observado de la ampliación es 16/10 11:24:12.086–22/10 20:20:12.490.
 
-Mantengo intactos el CSV inicial de 26 `5402` y el de 120 filas, con sus manifiestos y capturas. Los recuentos de la sección histórica siguiente describen esa recogida inicial, no el total corregido. Restauré también el extracto SSH/sudo y verifiqué su hash. El [diagnóstico de repeticiones](repeticiones-exportacion.md) conserva la comparación de documentos, la cobertura de Filebeat y el cierre del 25/10.
+Mantengo intactos el CSV inicial de 26 `5402` y el de 120 filas, con sus manifiestos y capturas. Los recuentos de la sección histórica siguiente describen esa recogida inicial, no el total corregido. Restauré también el extracto SSH/sudo y verifiqué su hash. El [diagnóstico de repeticiones](../../anexos/duplicados-indexacion.md) conserva la comparación de documentos, la cobertura de Filebeat y el cierre del 25/10.
 
 ## Alcance y fuentes
 
@@ -66,7 +66,7 @@ Para revisar el contexto de la prueba: `agent.name:"anthwatch-server"`, entre **
 
 Los comandos revisados son compatibles con las tareas realizadas: ajuste horario/NTP, instalación y configuración de rsyslog, copia y edición de ossec.conf, validación y reinicio de servicios, extracción de evidencias e id de la prueba. Reconozco todos los accesos como propios.
 
-Las nueve filas repetidas se conservan en el CSV original y se enumeran en [repeticiones-exportacion.md](repeticiones-exportacion.md). Todas las repeticiones son de journald y se concentran entre las 00:28 y las 01:01 del 22/10: 18 filas forman nueve parejas exactas. A las 01:07 hay otros tres registros sin repetir. La concentración motiva investigar la entrega y la indexación durante ese periodo. Conté esas parejas como repeticiones de filas.
+Las nueve filas repetidas se conservan en el CSV original y se enumeran en [repeticiones-exportacion.md](../../anexos/duplicados-indexacion.md). Todas las repeticiones son de journald y se concentran entre las 00:28 y las 01:01 del 22/10: 18 filas forman nueve parejas exactas. A las 01:07 hay otros tres registros sin repetir. La concentración motiva investigar la entrega y la indexación durante ese periodo. Conté esas parejas como repeticiones de filas.
 
 La exportación no incluye algunos accesos que se habían visto en el journal local, por ejemplo el del 22/10 a las 18:31:27. Dejé esa diferencia anotada para revisar la cobertura de la consulta.
 
@@ -105,7 +105,7 @@ Clasifiqué la actividad por los comandos, el contexto de las tareas y mi recono
 - Revisé las alertas y auth.log de un agente. El rango de la consulta es más amplio que la cobertura observada; quedan fuera los comandos sin registro en estas fuentes.
 - Comparé fuentes anteriores y posteriores al cambio de recogida, respetando sus formatos horarios.
 - El vínculo técnico SSH → sudo está respaldado para la prueba controlada. Las otras ejecuciones carecen de un identificador común de sesión SSH; la relación de la sesión 4 de logind con `pts/1` queda sin verificar. Las etiquetas MITRE describen reglas, no una clasificación de ataque.
-- Confirmé 68 parejas documentales en la ampliación del 26/10 y contrasté las nueve del CSV. La causa histórica queda indeterminada: falta Filebeat de madrugada. [Comparación y límites](repeticiones-exportacion.md).
+- Confirmé 68 parejas documentales en la ampliación del 26/10 y contrasté las nueve del CSV. La causa histórica queda indeterminada: falta Filebeat de madrugada. [Comparación y límites](../../anexos/duplicados-indexacion.md).
 - Conservé la prueba sintética de fallos duplicados como control de robustez de prioridad baja. Confirma sensibilidad cuando duplico entradas antes del análisis; no reproduce una duplicación posterior en el índice. Considero poco probable que esta última afecte a la correlación: si la copia se genera tras la alerta, no vuelve a alimentar el contador. La ampliación sí confirma cuatro parejas documentales `5760`; su duplicación antes del análisis y un falso positivo histórico siguen sin demostrarse.
 - Quedan pendientes telemetría de procesos y auditoría completa de ejecución.
 - Se completó la [revalidación de 100100 con auth.log](../../validaciones/caso-003-auth-log/README.md), incluidos controles negativos y una prueba real después de corregir la agrupación de rsyslog.

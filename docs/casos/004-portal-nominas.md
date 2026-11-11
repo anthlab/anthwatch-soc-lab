@@ -2,7 +2,7 @@
 
 [Volver al README](../../README.md)
 
-Probé cómo incorporar a Anthwatch una fuente de aplicación que Wazuh no decodificaba. Usé Wazuh 4.14.9, instalado directamente en `anthwatch-wazuh`, y el agente `001` de `anthwatch-server`. Adapté el escenario docente de José Picón al laboratorio. El decodificador inicial y los registros sintéticos proceden de ese ejercicio. Completé las reglas y comprobé su comportamiento con el agente de Anthwatch. La [salida completa de logtest](../evidencias/caso-004/salida-todo.txt) conserva los 32 eventos de SSH y del portal.
+Probé cómo incorporar a Anthwatch una fuente de aplicación que Wazuh no decodificaba. Usé Wazuh 4.14.9, instalado directamente en `anthwatch-wazuh`, y el agente `001` de `anthwatch-server`. Adapté el escenario de clase al laboratorio. El decodificador inicial y los registros sintéticos proceden de ese ejercicio. Completé las reglas y comprobé su comportamiento con el agente de Anthwatch. La [salida completa de logtest](../evidencias/caso-004/salida-todo.txt) conserva los 32 eventos de SSH y del portal.
 
 ## Decodificación y detección
 
@@ -44,3 +44,9 @@ El 9 de noviembre de 2026 generé nueve mensajes de prueba con `logger` en `anth
 [Alertas JSONL del manager](../evidencias/caso-004/vivo.jsonl) · [Manifiesto SHA-256](../evidencias/caso-004/SHA256SUMS)
 
 ![Detalle en el Dashboard de la alerta 100111, nivel 12, para anthwatch-server](../capturas/004-alerta-100111-dashboard.png)
+
+## Mantenimiento y mejora propuesta
+
+El XML del repositorio utiliza `same_srcip`, el nombre actual de la etiqueta de comparación de IP. Las evidencias de noviembre corresponden al alias `same_source_ip` utilizado durante la prueba. La documentación de Wazuh confirma su equivalencia. La revisión del XML requiere validación en el manager antes de desplegarla. [Sintaxis de Wazuh](https://documentation.wazuh.com/current/user-manual/ruleset/ruleset-xml-syntax/rules.html#same-srcip)
+
+Para adaptar `100112` a un entorno operativo, la red interna se definiría según ese entorno y se mantendría una lista CDB de orígenes autorizados. La excepción del director también debe comprobar la cuenta y las condiciones de autorización. El caso actual conserva la detección de cualquier exportación externa y su clasificación posterior durante el triaje. La lista CDB es una mejora propuesta pendiente de implementar y probar. [Listas CDB de Wazuh](https://documentation.wazuh.com/current/user-manual/ruleset/cdb-list.html)
