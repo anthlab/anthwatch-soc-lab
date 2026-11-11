@@ -2,13 +2,14 @@
 
 [Volver al README](../README.md)
 
-**Actualización:** 26/10/2026. Documenté los casos 001–003 y el primer hunt; conservé los originales de la prueba SSH/sudo, los CSV históricos, las capturas y la revalidación real con auth.log.
+**Actualización:** 11/11/2026. Documenté los casos 001–003 y el primer hunt; conservé los originales de la prueba SSH/sudo, los CSV históricos, las capturas y la revalidación real con auth.log.
 
 ## Completado
 
 - [Caso 001](casos/001-autenticacion-ssh.md): eventos SSH y revisión manual.
 - [Caso 002](casos/002-usuario-inexistente-repetido.md): correlación y control contrastado con journal.
 - [Caso 003](casos/003-ssh-fallos-seguidos-de-exito.md): regla propia y prueba real original.
+- [Caso 004](casos/004-portal-nominas.md): decodificación de un registro de aplicación, correlación por IP y prueba en vivo.
 - [Revalidación real con auth.log](validaciones/caso-003-auth-log/README.md): corrección de rsyslog y tres fallos seguidos de éxito, con extractos y capturas.
 - [Controles del 24/10](casos/003-revalidacion.md): XML equivalente; positivo, identidad y expiración. Distingo 130,003 s declarados por el generador de 132,122 s entre las marcas externas.
 - [Hunt 001](hunts/hunt-001/README.md): secuencia controlada, 120 filas de accesos/sesiones e inventario ampliado a 28 comandos sudo, incluidos los dos `5403` que mi filtro inicial excluía.
@@ -16,6 +17,8 @@
 - [Revisión de duplicados](hunts/hunt-001/repeticiones-exportacion.md), ampliada el 26/10: 68 parejas con `_source` idéntico, incluidas las nueve del CSV y cuatro parejas `5760`. Conservé consultas, respuestas, comparación y ocho logs. Verifiqué `keepfiles: 7`; la causa histórica de madrugada queda indeterminada.
 
 - [Contraste de emisión de los 68 IDs](hunts/hunt-001/repeticiones-exportacion.md): completado con los dos JSON del manager, recuentos por archivo y línea, comparación de campos y originales con hashes. Los dos prefijos NUL quedan documentados; su causa no se ha determinado.
+
+- [Caso 005](casos/005-fim-usuarios-sudo.md). FIM en tiempo real y ciclo de usuarios contrastados con 32 alertas de Anthwatch.
 
 ## Siguiente prioridad
 
@@ -28,6 +31,6 @@ Conservé la prueba sintética de fallos duplicados. Distingo esa prueba de la d
 
 ## Ampliaciones posteriores
 
-Practicaré FIM e inventario de paquetes con evidencias de cambios concretos, usuarios y nuevas hipótesis. Usaré Python para tareas repetidas que aparezcan durante la investigación.
+La creación, modificación y eliminación de archivos y el ciclo de cuentas están documentados en el caso 005. Queda ampliar la validación del inventario de paquetes y la atribución de cambios a procesos. Usaré Python para tareas repetidas que aparezcan durante la investigación.
 
 Windows permanece aplazado por los 16 GB de RAM del portátil. Mantengo las tres máquinas Ubuntu. [Estado y arquitectura](estado-del-laboratorio.md).

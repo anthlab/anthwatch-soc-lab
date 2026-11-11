@@ -126,6 +126,14 @@ El [caso 001](casos/001-autenticacion-ssh.md) aplica esta estructura: objetivo, 
 
 El [caso 003](casos/003-ssh-fallos-seguidos-de-exito.md) valida `100100`, nivel 10: tres fallos y un éxito desde `.101` hacia `.102`, misma cuenta `anthlab`, en 23 segundos. Se probaron registros de muestra con `wazuh-logtest` antes de reiniciar el manager y se conservaron controles de umbral, identidad y tiempo. El informe, XML, muestras, capturas y ticket están versionados.
 
+## Cuarto caso · Portal de nóminas
+
+El [caso 004](casos/004-portal-nominas.md) amplía la cobertura a un portal de nóminas simulado. El agente de `anthwatch-server` recogió los mensajes de `/var/log/syslog` y el manager generó las tres alertas previstas.
+
+## Integridad de archivos y cuentas
+
+El [caso 005](casos/005-fim-usuarios-sudo.md) incorpora las alertas de FIM en tiempo real, creación y borrado de una cuenta y errores de sudo observados el 29 de octubre. El [procedimiento de triaje](playbooks/triaje-multifuente.md) relaciona esa evidencia con los casos SSH y del portal.
+
 ## Hunt y revalidación
 
 El [Hunt 001](hunts/001-ssh-y-sudo.md) documenta SSH seguido de sudo y corrige el inventario a 28 comandos: 26 `5402` y 2 `5403`. La exportación conserva el cambio de journald a `/var/log/auth.log`; no debe aplicarse al nuevo formato ISO la corrección horaria histórica de journald.
@@ -140,7 +148,7 @@ La hora de las tres VMs se ajustó antes del caso 003; las salidas de `timedatec
 
 El primer hunt está documentado y la [revisión histórica del duplicado](hunts/hunt-001/repeticiones-exportacion.md) se amplió el 26/10: 68 parejas documentales confirmadas y causa histórica indeterminada por falta de logs de Filebeat de madrugada. Mi siguiente prioridad es ampliar la cobertura de procesos. Windows queda aplazado por los 16 GB de RAM del portátil. El alcance y la cobertura que falta verificar se recogen en la [hoja de ruta](hoja-de-ruta.md).
 
-Las ampliaciones de integridad de archivos, usuarios y procesos servirán para enriquecer las investigaciones posteriores; la primera revisión de actividad con `sudo` ya está documentada.
+La integridad de archivos y el ciclo de usuarios cuentan con evidencia en el caso 005. La atribución de acciones a procesos sigue siendo una prioridad.
 
 ## Documentación
 

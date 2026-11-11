@@ -1,0 +1,780 @@
+Starting wazuh-logtest v4.14.9
+Type one log per line
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 07:30:12 srv-web01 sshd[2201]: Accepted publickey for tecnico from 10.20.0.5 port 50112 ssh2: ED25519 SHA256:Q2xhc2VEZUVqZW1wbG9JQ0NoZXN0ZTIwMjY'
+	timestamp: 'Nov  9 07:30:12'
+	hostname: 'srv-web01'
+	program_name: 'sshd'
+
+**Phase 2: Completed decoding.
+	name: 'sshd'
+	parent: 'sshd'
+	dstuser: 'tecnico'
+	srcip: '10.20.0.5'
+	srcport: '50112'
+
+**Phase 3: Completed filtering (rules).
+	id: '5715'
+	level: '3'
+	description: 'sshd: authentication success.'
+	groups: '['syslog', 'sshd', 'authentication_success']'
+	firedtimes: '1'
+	gdpr: '['IV_32.2']'
+	gpg13: '['7.1', '7.2']'
+	hipaa: '['164.312.b']'
+	mail: 'False'
+	mitre.id: '['T1078', 'T1021']'
+	mitre.tactic: '['Defense Evasion', 'Persistence', 'Privilege Escalation', 'Initial Access', 'Lateral Movement']'
+	mitre.technique: '['Valid Accounts', 'Remote Services']'
+	nist_800_53: '['AU.14', 'AC.7']'
+	pci_dss: '['10.2.5']'
+	tsc: '['CC6.8', 'CC7.2', 'CC7.3']'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 07:52:10 srv-web01 portal-nominas[1187]: login_ok user=director src=198.51.100.23'
+	timestamp: 'Nov  9 07:52:10'
+	hostname: 'srv-web01'
+	program_name: 'portal-nominas'
+
+**Phase 2: Completed decoding.
+	name: 'portal-nominas'
+	accion: 'login_ok'
+	dstuser: 'director'
+	srcip: '198.51.100.23'
+
+**Phase 3: Completed filtering (rules).
+	id: '100102'
+	level: '3'
+	description: 'Portal de nóminas: acceso correcto de director desde 198.51.100.23.'
+	groups: '['local', 'portal_nominas', 'authentication_success']'
+	firedtimes: '1'
+	mail: 'False'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 07:53:02 srv-web01 portal-nominas[1187]: export user=director src=198.51.100.23 registros=3'
+	timestamp: 'Nov  9 07:53:02'
+	hostname: 'srv-web01'
+	program_name: 'portal-nominas'
+
+**Phase 2: Completed decoding.
+	name: 'portal-nominas'
+	accion: 'export'
+	dstuser: 'director'
+	registros: '3'
+	srcip: '198.51.100.23'
+
+**Phase 3: Completed filtering (rules).
+	id: '100112'
+	level: '10'
+	description: 'Portal de nóminas: director exportó 3 registros desde la IP externa 198.51.100.23.'
+	groups: '['local', 'portal_nominas']'
+	firedtimes: '1'
+	mail: 'False'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 08:01:44 srv-web01 portal-nominas[1187]: login_ok user=lucia src=10.20.0.31'
+	timestamp: 'Nov  9 08:01:44'
+	hostname: 'srv-web01'
+	program_name: 'portal-nominas'
+
+**Phase 2: Completed decoding.
+	name: 'portal-nominas'
+	accion: 'login_ok'
+	dstuser: 'lucia'
+	srcip: '10.20.0.31'
+
+**Phase 3: Completed filtering (rules).
+	id: '100102'
+	level: '3'
+	description: 'Portal de nóminas: acceso correcto de lucia desde 10.20.0.31.'
+	groups: '['local', 'portal_nominas', 'authentication_success']'
+	firedtimes: '2'
+	mail: 'False'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 08:03:15 srv-web01 portal-nominas[1187]: login_fail user=marcos src=10.20.0.44'
+	timestamp: 'Nov  9 08:03:15'
+	hostname: 'srv-web01'
+	program_name: 'portal-nominas'
+
+**Phase 2: Completed decoding.
+	name: 'portal-nominas'
+	accion: 'login_fail'
+	dstuser: 'marcos'
+	srcip: '10.20.0.44'
+
+**Phase 3: Completed filtering (rules).
+	id: '100101'
+	level: '5'
+	description: 'Portal de nóminas: acceso fallido de marcos desde 10.20.0.44.'
+	groups: '['local', 'portal_nominas', 'authentication_failed']'
+	firedtimes: '1'
+	mail: 'False'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 08:03:41 srv-web01 portal-nominas[1187]: login_ok user=marcos src=10.20.0.44'
+	timestamp: 'Nov  9 08:03:41'
+	hostname: 'srv-web01'
+	program_name: 'portal-nominas'
+
+**Phase 2: Completed decoding.
+	name: 'portal-nominas'
+	accion: 'login_ok'
+	dstuser: 'marcos'
+	srcip: '10.20.0.44'
+
+**Phase 3: Completed filtering (rules).
+	id: '100102'
+	level: '3'
+	description: 'Portal de nóminas: acceso correcto de marcos desde 10.20.0.44.'
+	groups: '['local', 'portal_nominas', 'authentication_success']'
+	firedtimes: '3'
+	mail: 'False'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 08:10:05 srv-web01 portal-nominas[1187]: export user=lucia src=10.20.0.31 registros=12'
+	timestamp: 'Nov  9 08:10:05'
+	hostname: 'srv-web01'
+	program_name: 'portal-nominas'
+
+**Phase 2: Completed decoding.
+	name: 'portal-nominas'
+	accion: 'export'
+	dstuser: 'lucia'
+	registros: '12'
+	srcip: '10.20.0.31'
+
+**Phase 3: Completed filtering (rules).
+	id: '100103'
+	level: '3'
+	description: 'Portal de nóminas: lucia exportó 12 registros desde 10.20.0.31.'
+	groups: '['local', 'portal_nominas']'
+	firedtimes: '1'
+	mail: 'False'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 08:32:50 srv-web01 portal-nominas[1187]: login_ok user=rrhh src=10.20.0.12'
+	timestamp: 'Nov  9 08:32:50'
+	hostname: 'srv-web01'
+	program_name: 'portal-nominas'
+
+**Phase 2: Completed decoding.
+	name: 'portal-nominas'
+	accion: 'login_ok'
+	dstuser: 'rrhh'
+	srcip: '10.20.0.12'
+
+**Phase 3: Completed filtering (rules).
+	id: '100102'
+	level: '3'
+	description: 'Portal de nóminas: acceso correcto de rrhh desde 10.20.0.12.'
+	groups: '['local', 'portal_nominas', 'authentication_success']'
+	firedtimes: '4'
+	mail: 'False'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 08:40:12 srv-web01 portal-nominas[1187]: export user=rrhh src=10.20.0.12 registros=156'
+	timestamp: 'Nov  9 08:40:12'
+	hostname: 'srv-web01'
+	program_name: 'portal-nominas'
+
+**Phase 2: Completed decoding.
+	name: 'portal-nominas'
+	accion: 'export'
+	dstuser: 'rrhh'
+	registros: '156'
+	srcip: '10.20.0.12'
+
+**Phase 3: Completed filtering (rules).
+	id: '100103'
+	level: '3'
+	description: 'Portal de nóminas: rrhh exportó 156 registros desde 10.20.0.12.'
+	groups: '['local', 'portal_nominas']'
+	firedtimes: '2'
+	mail: 'False'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 09:05:31 srv-web01 portal-nominas[1187]: login_fail user=marcos src=10.20.0.44'
+	timestamp: 'Nov  9 09:05:31'
+	hostname: 'srv-web01'
+	program_name: 'portal-nominas'
+
+**Phase 2: Completed decoding.
+	name: 'portal-nominas'
+	accion: 'login_fail'
+	dstuser: 'marcos'
+	srcip: '10.20.0.44'
+
+**Phase 3: Completed filtering (rules).
+	id: '100101'
+	level: '5'
+	description: 'Portal de nóminas: acceso fallido de marcos desde 10.20.0.44.'
+	groups: '['local', 'portal_nominas', 'authentication_failed']'
+	firedtimes: '2'
+	mail: 'False'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 09:05:52 srv-web01 portal-nominas[1187]: login_fail user=marcos src=10.20.0.44'
+	timestamp: 'Nov  9 09:05:52'
+	hostname: 'srv-web01'
+	program_name: 'portal-nominas'
+
+**Phase 2: Completed decoding.
+	name: 'portal-nominas'
+	accion: 'login_fail'
+	dstuser: 'marcos'
+	srcip: '10.20.0.44'
+
+**Phase 3: Completed filtering (rules).
+	id: '100101'
+	level: '5'
+	description: 'Portal de nóminas: acceso fallido de marcos desde 10.20.0.44.'
+	groups: '['local', 'portal_nominas', 'authentication_failed']'
+	firedtimes: '3'
+	mail: 'False'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 09:06:20 srv-web01 portal-nominas[1187]: login_ok user=marcos src=10.20.0.44'
+	timestamp: 'Nov  9 09:06:20'
+	hostname: 'srv-web01'
+	program_name: 'portal-nominas'
+
+**Phase 2: Completed decoding.
+	name: 'portal-nominas'
+	accion: 'login_ok'
+	dstuser: 'marcos'
+	srcip: '10.20.0.44'
+
+**Phase 3: Completed filtering (rules).
+	id: '100102'
+	level: '3'
+	description: 'Portal de nóminas: acceso correcto de marcos desde 10.20.0.44.'
+	groups: '['local', 'portal_nominas', 'authentication_success']'
+	firedtimes: '5'
+	mail: 'False'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 09:08:01 srv-web01 sshd[3310]: Invalid user admin from 203.0.113.77 port 40122'
+	timestamp: 'Nov  9 09:08:01'
+	hostname: 'srv-web01'
+	program_name: 'sshd'
+
+**Phase 2: Completed decoding.
+	name: 'sshd'
+	parent: 'sshd'
+	srcip: '203.0.113.77'
+	srcport: '40122'
+	srcuser: 'admin'
+
+**Phase 3: Completed filtering (rules).
+	id: '5710'
+	level: '5'
+	description: 'sshd: Attempt to login using a non-existent user'
+	groups: '['syslog', 'sshd', 'authentication_failed', 'invalid_login']'
+	firedtimes: '1'
+	gdpr: '['IV_35.7.d', 'IV_32.2']'
+	gpg13: '['7.1']'
+	hipaa: '['164.312.b']'
+	mail: 'False'
+	mitre.id: '['T1110.001', 'T1021.004']'
+	mitre.tactic: '['Credential Access', 'Lateral Movement']'
+	mitre.technique: '['Password Guessing', 'SSH']'
+	nist_800_53: '['AU.14', 'AC.7', 'AU.6']'
+	pci_dss: '['10.2.4', '10.2.5', '10.6.1']'
+	tsc: '['CC6.1', 'CC6.8', 'CC7.2', 'CC7.3']'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 09:08:03 srv-web01 sshd[3310]: Failed password for invalid user admin from 203.0.113.77 port 40122 ssh2'
+	timestamp: 'Nov  9 09:08:03'
+	hostname: 'srv-web01'
+	program_name: 'sshd'
+
+**Phase 2: Completed decoding.
+	name: 'sshd'
+	parent: 'sshd'
+	srcip: '203.0.113.77'
+	srcuser: 'admin'
+
+**Phase 3: Completed filtering (rules).
+	id: '5710'
+	level: '5'
+	description: 'sshd: Attempt to login using a non-existent user'
+	groups: '['syslog', 'sshd', 'authentication_failed', 'invalid_login']'
+	firedtimes: '2'
+	gdpr: '['IV_35.7.d', 'IV_32.2']'
+	gpg13: '['7.1']'
+	hipaa: '['164.312.b']'
+	mail: 'False'
+	mitre.id: '['T1110.001', 'T1021.004']'
+	mitre.tactic: '['Credential Access', 'Lateral Movement']'
+	mitre.technique: '['Password Guessing', 'SSH']'
+	nist_800_53: '['AU.14', 'AC.7', 'AU.6']'
+	pci_dss: '['10.2.4', '10.2.5', '10.6.1']'
+	tsc: '['CC6.1', 'CC6.8', 'CC7.2', 'CC7.3']'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 09:08:11 srv-web01 sshd[3312]: Failed password for invalid user admin from 203.0.113.77 port 40126 ssh2'
+	timestamp: 'Nov  9 09:08:11'
+	hostname: 'srv-web01'
+	program_name: 'sshd'
+
+**Phase 2: Completed decoding.
+	name: 'sshd'
+	parent: 'sshd'
+	srcip: '203.0.113.77'
+	srcuser: 'admin'
+
+**Phase 3: Completed filtering (rules).
+	id: '5710'
+	level: '5'
+	description: 'sshd: Attempt to login using a non-existent user'
+	groups: '['syslog', 'sshd', 'authentication_failed', 'invalid_login']'
+	firedtimes: '3'
+	gdpr: '['IV_35.7.d', 'IV_32.2']'
+	gpg13: '['7.1']'
+	hipaa: '['164.312.b']'
+	mail: 'False'
+	mitre.id: '['T1110.001', 'T1021.004']'
+	mitre.tactic: '['Credential Access', 'Lateral Movement']'
+	mitre.technique: '['Password Guessing', 'SSH']'
+	nist_800_53: '['AU.14', 'AC.7', 'AU.6']'
+	pci_dss: '['10.2.4', '10.2.5', '10.6.1']'
+	tsc: '['CC6.1', 'CC6.8', 'CC7.2', 'CC7.3']'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 09:08:19 srv-web01 sshd[3315]: Failed password for root from 203.0.113.77 port 40130 ssh2'
+	timestamp: 'Nov  9 09:08:19'
+	hostname: 'srv-web01'
+	program_name: 'sshd'
+
+**Phase 2: Completed decoding.
+	name: 'sshd'
+	parent: 'sshd'
+	dstuser: 'root'
+	srcip: '203.0.113.77'
+	srcport: '40130'
+
+**Phase 3: Completed filtering (rules).
+	id: '5760'
+	level: '5'
+	description: 'sshd: authentication failed.'
+	groups: '['syslog', 'sshd', 'authentication_failed']'
+	firedtimes: '1'
+	gdpr: '['IV_35.7.d', 'IV_32.2']'
+	gpg13: '['7.1']'
+	hipaa: '['164.312.b']'
+	mail: 'False'
+	mitre.id: '['T1110.001', 'T1021.004']'
+	mitre.tactic: '['Credential Access', 'Lateral Movement']'
+	mitre.technique: '['Password Guessing', 'SSH']'
+	nist_800_53: '['AU.14', 'AC.7']'
+	pci_dss: '['10.2.4', '10.2.5']'
+	tsc: '['CC6.1', 'CC6.8', 'CC7.2', 'CC7.3']'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 09:09:30 srv-web01 sshd[3318]: Connection closed by authenticating user root 203.0.113.77 port 40134 [preauth]'
+	timestamp: 'Nov  9 09:09:30'
+	hostname: 'srv-web01'
+	program_name: 'sshd'
+
+**Phase 2: Completed decoding.
+	name: 'sshd'
+
+**Phase 3: Completed filtering (rules).
+	id: '5722'
+	level: '0'
+	description: 'sshd: ssh connection closed.'
+	groups: '['syslog', 'sshd']'
+	firedtimes: '1'
+	gdpr: '['IV_32.2']'
+	hipaa: '['164.312.b']'
+	mail: 'False'
+	nist_800_53: '['AU.14', 'AC.7']'
+	pci_dss: '['10.2.5']'
+	tsc: '['CC6.8', 'CC7.2', 'CC7.3']'
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 09:12:02 srv-web01 portal-nominas[1187]: login_fail user=admin src=203.0.113.77'
+	timestamp: 'Nov  9 09:12:02'
+	hostname: 'srv-web01'
+	program_name: 'portal-nominas'
+
+**Phase 2: Completed decoding.
+	name: 'portal-nominas'
+	accion: 'login_fail'
+	dstuser: 'admin'
+	srcip: '203.0.113.77'
+
+**Phase 3: Completed filtering (rules).
+	id: '100101'
+	level: '5'
+	description: 'Portal de nóminas: acceso fallido de admin desde 203.0.113.77.'
+	groups: '['local', 'portal_nominas', 'authentication_failed']'
+	firedtimes: '4'
+	mail: 'False'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 09:12:09 srv-web01 portal-nominas[1187]: login_fail user=admin src=203.0.113.77'
+	timestamp: 'Nov  9 09:12:09'
+	hostname: 'srv-web01'
+	program_name: 'portal-nominas'
+
+**Phase 2: Completed decoding.
+	name: 'portal-nominas'
+	accion: 'login_fail'
+	dstuser: 'admin'
+	srcip: '203.0.113.77'
+
+**Phase 3: Completed filtering (rules).
+	id: '100101'
+	level: '5'
+	description: 'Portal de nóminas: acceso fallido de admin desde 203.0.113.77.'
+	groups: '['local', 'portal_nominas', 'authentication_failed']'
+	firedtimes: '5'
+	mail: 'False'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 09:12:15 srv-web01 portal-nominas[1187]: login_fail user=admin src=203.0.113.77'
+	timestamp: 'Nov  9 09:12:15'
+	hostname: 'srv-web01'
+	program_name: 'portal-nominas'
+
+**Phase 2: Completed decoding.
+	name: 'portal-nominas'
+	accion: 'login_fail'
+	dstuser: 'admin'
+	srcip: '203.0.113.77'
+
+**Phase 3: Completed filtering (rules).
+	id: '100101'
+	level: '5'
+	description: 'Portal de nóminas: acceso fallido de admin desde 203.0.113.77.'
+	groups: '['local', 'portal_nominas', 'authentication_failed']'
+	firedtimes: '6'
+	mail: 'False'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 09:12:22 srv-web01 portal-nominas[1187]: login_fail user=admin src=203.0.113.77'
+	timestamp: 'Nov  9 09:12:22'
+	hostname: 'srv-web01'
+	program_name: 'portal-nominas'
+
+**Phase 2: Completed decoding.
+	name: 'portal-nominas'
+	accion: 'login_fail'
+	dstuser: 'admin'
+	srcip: '203.0.113.77'
+
+**Phase 3: Completed filtering (rules).
+	id: '100101'
+	level: '5'
+	description: 'Portal de nóminas: acceso fallido de admin desde 203.0.113.77.'
+	groups: '['local', 'portal_nominas', 'authentication_failed']'
+	firedtimes: '7'
+	mail: 'False'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 09:12:28 srv-web01 portal-nominas[1187]: login_fail user=admin src=203.0.113.77'
+	timestamp: 'Nov  9 09:12:28'
+	hostname: 'srv-web01'
+	program_name: 'portal-nominas'
+
+**Phase 2: Completed decoding.
+	name: 'portal-nominas'
+	accion: 'login_fail'
+	dstuser: 'admin'
+	srcip: '203.0.113.77'
+
+**Phase 3: Completed filtering (rules).
+	id: '100110'
+	level: '10'
+	description: 'Portal de nóminas: cinco accesos fallidos desde 203.0.113.77 en dos minutos.'
+	groups: '['local', 'portal_nominas']'
+	firedtimes: '1'
+	frequency: '5'
+	mail: 'False'
+	mitre.id: '['T1110']'
+	mitre.tactic: '['Credential Access']'
+	mitre.technique: '['Brute Force']'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 09:12:35 srv-web01 portal-nominas[1187]: login_fail user=admin src=203.0.113.77'
+	timestamp: 'Nov  9 09:12:35'
+	hostname: 'srv-web01'
+	program_name: 'portal-nominas'
+
+**Phase 2: Completed decoding.
+	name: 'portal-nominas'
+	accion: 'login_fail'
+	dstuser: 'admin'
+	srcip: '203.0.113.77'
+
+**Phase 3: Completed filtering (rules).
+	id: '100101'
+	level: '5'
+	description: 'Portal de nóminas: acceso fallido de admin desde 203.0.113.77.'
+	groups: '['local', 'portal_nominas', 'authentication_failed']'
+	firedtimes: '8'
+	mail: 'False'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 09:13:40 srv-web01 portal-nominas[1187]: login_fail user=administrador src=203.0.113.77'
+	timestamp: 'Nov  9 09:13:40'
+	hostname: 'srv-web01'
+	program_name: 'portal-nominas'
+
+**Phase 2: Completed decoding.
+	name: 'portal-nominas'
+	accion: 'login_fail'
+	dstuser: 'administrador'
+	srcip: '203.0.113.77'
+
+**Phase 3: Completed filtering (rules).
+	id: '100101'
+	level: '5'
+	description: 'Portal de nóminas: acceso fallido de administrador desde 203.0.113.77.'
+	groups: '['local', 'portal_nominas', 'authentication_failed']'
+	firedtimes: '9'
+	mail: 'False'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 09:13:47 srv-web01 portal-nominas[1187]: login_fail user=administrador src=203.0.113.77'
+	timestamp: 'Nov  9 09:13:47'
+	hostname: 'srv-web01'
+	program_name: 'portal-nominas'
+
+**Phase 2: Completed decoding.
+	name: 'portal-nominas'
+	accion: 'login_fail'
+	dstuser: 'administrador'
+	srcip: '203.0.113.77'
+
+**Phase 3: Completed filtering (rules).
+	id: '100101'
+	level: '5'
+	description: 'Portal de nóminas: acceso fallido de administrador desde 203.0.113.77.'
+	groups: '['local', 'portal_nominas', 'authentication_failed']'
+	firedtimes: '10'
+	mail: 'False'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 09:14:55 srv-web01 portal-nominas[1187]: login_fail user=lucia src=203.0.113.77'
+	timestamp: 'Nov  9 09:14:55'
+	hostname: 'srv-web01'
+	program_name: 'portal-nominas'
+
+**Phase 2: Completed decoding.
+	name: 'portal-nominas'
+	accion: 'login_fail'
+	dstuser: 'lucia'
+	srcip: '203.0.113.77'
+
+**Phase 3: Completed filtering (rules).
+	id: '100101'
+	level: '5'
+	description: 'Portal de nóminas: acceso fallido de lucia desde 203.0.113.77.'
+	groups: '['local', 'portal_nominas', 'authentication_failed']'
+	firedtimes: '11'
+	mail: 'False'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 09:15:20 srv-web01 portal-nominas[1187]: login_fail user=lucia src=203.0.113.77'
+	timestamp: 'Nov  9 09:15:20'
+	hostname: 'srv-web01'
+	program_name: 'portal-nominas'
+
+**Phase 2: Completed decoding.
+	name: 'portal-nominas'
+	accion: 'login_fail'
+	dstuser: 'lucia'
+	srcip: '203.0.113.77'
+
+**Phase 3: Completed filtering (rules).
+	id: '100110'
+	level: '10'
+	description: 'Portal de nóminas: cinco accesos fallidos desde 203.0.113.77 en dos minutos.'
+	groups: '['local', 'portal_nominas']'
+	firedtimes: '2'
+	frequency: '5'
+	mail: 'False'
+	mitre.id: '['T1110']'
+	mitre.tactic: '['Credential Access']'
+	mitre.technique: '['Brute Force']'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 09:16:05 srv-web01 portal-nominas[1187]: login_ok user=lucia src=203.0.113.77'
+	timestamp: 'Nov  9 09:16:05'
+	hostname: 'srv-web01'
+	program_name: 'portal-nominas'
+
+**Phase 2: Completed decoding.
+	name: 'portal-nominas'
+	accion: 'login_ok'
+	dstuser: 'lucia'
+	srcip: '203.0.113.77'
+
+**Phase 3: Completed filtering (rules).
+	id: '100111'
+	level: '12'
+	description: 'Portal de nóminas: acceso correcto de lucia desde 203.0.113.77 tras una ráfaga de fallos.'
+	groups: '['local', 'portal_nominas']'
+	firedtimes: '1'
+	frequency: '2'
+	mail: 'True'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 09:17:12 srv-web01 portal-nominas[1187]: export user=lucia src=203.0.113.77 registros=4812'
+	timestamp: 'Nov  9 09:17:12'
+	hostname: 'srv-web01'
+	program_name: 'portal-nominas'
+
+**Phase 2: Completed decoding.
+	name: 'portal-nominas'
+	accion: 'export'
+	dstuser: 'lucia'
+	registros: '4812'
+	srcip: '203.0.113.77'
+
+**Phase 3: Completed filtering (rules).
+	id: '100112'
+	level: '10'
+	description: 'Portal de nóminas: lucia exportó 4812 registros desde la IP externa 203.0.113.77.'
+	groups: '['local', 'portal_nominas']'
+	firedtimes: '2'
+	mail: 'False'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 09:21:30 srv-web01 portal-nominas[1187]: login_ok user=lucia src=10.20.0.31'
+	timestamp: 'Nov  9 09:21:30'
+	hostname: 'srv-web01'
+	program_name: 'portal-nominas'
+
+**Phase 2: Completed decoding.
+	name: 'portal-nominas'
+	accion: 'login_ok'
+	dstuser: 'lucia'
+	srcip: '10.20.0.31'
+
+**Phase 3: Completed filtering (rules).
+	id: '100102'
+	level: '3'
+	description: 'Portal de nóminas: acceso correcto de lucia desde 10.20.0.31.'
+	groups: '['local', 'portal_nominas', 'authentication_success']'
+	firedtimes: '6'
+	mail: 'False'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 10:02:18 srv-web01 portal-nominas[1187]: export user=lucia src=10.20.0.31 registros=9'
+	timestamp: 'Nov  9 10:02:18'
+	hostname: 'srv-web01'
+	program_name: 'portal-nominas'
+
+**Phase 2: Completed decoding.
+	name: 'portal-nominas'
+	accion: 'export'
+	dstuser: 'lucia'
+	registros: '9'
+	srcip: '10.20.0.31'
+
+**Phase 3: Completed filtering (rules).
+	id: '100103'
+	level: '3'
+	description: 'Portal de nóminas: lucia exportó 9 registros desde 10.20.0.31.'
+	groups: '['local', 'portal_nominas']'
+	firedtimes: '3'
+	mail: 'False'
+**Alert to be generated.
+
+
+**Phase 1: Completed pre-decoding.
+	full event: 'Nov  9 11:45:02 srv-web01 sshd[4120]: Accepted publickey for tecnico from 10.20.0.5 port 50388 ssh2: ED25519 SHA256:Q2xhc2VEZUVqZW1wbG9JQ0NoZXN0ZTIwMjY'
+	timestamp: 'Nov  9 11:45:02'
+	hostname: 'srv-web01'
+	program_name: 'sshd'
+
+**Phase 2: Completed decoding.
+	name: 'sshd'
+	parent: 'sshd'
+	dstuser: 'tecnico'
+	srcip: '10.20.0.5'
+	srcport: '50388'
+
+**Phase 3: Completed filtering (rules).
+	id: '5715'
+	level: '3'
+	description: 'sshd: authentication success.'
+	groups: '['syslog', 'sshd', 'authentication_success']'
+	firedtimes: '2'
+	gdpr: '['IV_32.2']'
+	gpg13: '['7.1', '7.2']'
+	hipaa: '['164.312.b']'
+	mail: 'False'
+	mitre.id: '['T1078', 'T1021']'
+	mitre.tactic: '['Defense Evasion', 'Persistence', 'Privilege Escalation', 'Initial Access', 'Lateral Movement']'
+	mitre.technique: '['Valid Accounts', 'Remote Services']'
+	nist_800_53: '['AU.14', 'AC.7']'
+	pci_dss: '['10.2.5']'
+	tsc: '['CC6.8', 'CC7.2', 'CC7.3']'
+**Alert to be generated.
+
